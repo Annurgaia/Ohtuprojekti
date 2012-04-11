@@ -92,7 +92,58 @@ public class ViitetyyppienKenttainformaatio {
 
     private void alustaTyyppienVapaaehtoisetKentat() {
         tyyppienVapaaehtoisetKentat = new ArrayList<ArrayList<String>>();
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "number", "pages", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "series", "address", "edition", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "howpublished", "address", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "series", "address", "edition", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "organization", "address", "edition", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "title", "howpublished", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "publisher", "organization", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("type", "number", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("month", "year", "key"));        
     }
     
+    private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2,
+            String kentta3) {
+        ArrayList<String> vapaaehtoisetKentat = new ArrayList<String>();
+        vapaaehtoisetKentat.add(kentta1);
+        vapaaehtoisetKentat.add(kentta2);
+        vapaaehtoisetKentat.add(kentta3);
+        return vapaaehtoisetKentat;
+    }
+    
+    private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2,
+            String kentta3, String kentta4) {
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3);
+        vapaaehtoisetKentat.add(kentta4);
+        return vapaaehtoisetKentat;
+    }
+    
+    private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2,
+            String kentta3, String kentta4, String kentta5, String kentta6) {
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3, kentta4);
+        vapaaehtoisetKentat.add(kentta5);
+        vapaaehtoisetKentat.add(kentta6);
+        return vapaaehtoisetKentat;
+    }
+    
+    private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2, String kentta3,
+            String kentta4, String kentta5, String kentta6, String kentta7) {
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3, kentta4, kentta5, kentta6);
+        vapaaehtoisetKentat.add(kentta7);
+        return vapaaehtoisetKentat;
+    }
+    
+    private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2, String kentta3,
+            String kentta4, String kentta5, String kentta6, String kentta7, String kentta8) {
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3, kentta4, kentta5, kentta6, kentta7);
+        vapaaehtoisetKentat.add(kentta8);
+        return vapaaehtoisetKentat;
+    }
     
 }
