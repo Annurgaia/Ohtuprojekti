@@ -23,7 +23,7 @@ public class ViitetyyppienKenttainformaatio {
     
     public ArrayList<String> getTyypinPakollisetKentat(String tyyppi) {
         for (int i = 0; i < tyypit.size(); i++) {
-            if (tyyppi.toLowerCase().equals(tyypit.get(i)) && tyyppienPakollisetKentat.size() > i)  // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
+            if (tyyppi.toLowerCase().equals(tyypit.get(i)))  // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
                 return tyyppienPakollisetKentat.get(i);
         }
         return null;
@@ -31,7 +31,7 @@ public class ViitetyyppienKenttainformaatio {
 
     public ArrayList<String> getTyypinVapaaehtoisetKentat(String tyyppi) {
         for (int i = 0; i < tyypit.size(); i++) {
-            if (tyyppi.toLowerCase().equals(tyypit.get(i))&& tyyppienPakollisetKentat.size() > i) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
+            if (tyyppi.toLowerCase().equals(tyypit.get(i))) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
                 return tyyppienVapaaehtoisetKentat.get(i);
         }
         return null;

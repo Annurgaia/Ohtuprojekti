@@ -88,6 +88,8 @@ public class ViitetyyppienKenttainformaatioTest {
         assertTrue(toimiiko);
     }
     
+    
+    
     @Test
     public void testGetTyypinVapaaehtoisetKentat2() {
         String tyyppi = "";
@@ -96,5 +98,25 @@ public class ViitetyyppienKenttainformaatioTest {
         ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
         ArrayList expresult = null;
         assertEquals(expresult, result);
+    }
+    
+        @Test
+    public void testGetTyypinVapaaehtoisetKentat3() {
+        String tyyppi = "ARTICLE";
+        ArrayList<String> resultList = new ArrayList<String>();
+        resultList.add("volume");
+        resultList.add("number");
+        resultList.add("pages");
+        resultList.add("month");
+        resultList.add("note");
+        resultList.add("key");
+        boolean toimiiko = true;
+        ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
+        ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
+        for (int i = 0; i < resultList.size(); i++) {
+            if (!result.get(i).equals(resultList.get(i)))
+                toimiiko = false;
+        }
+        assertTrue(toimiiko);
     }
 }
