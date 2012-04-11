@@ -92,19 +92,30 @@ public class ViitetyyppienKenttainformaatio {
 
     private void alustaTyyppienVapaaehtoisetKentat() {
         tyyppienVapaaehtoisetKentat = new ArrayList<ArrayList<String>>();
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "number", "pages", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "series", "address", "edition", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "howpublished", "address", "month", "year", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume", "series", "address", "edition", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "pages", "organization", "publisher", "address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "organization", "address", "edition", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume",
+                "number", "pages", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume",
+                "series", "address", "edition", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author",
+                "howpublished", "address", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor",
+                "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("volume",
+                "series", "address", "edition", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor",
+                "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor",
+                "pages", "organization", "publisher", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author",
+                "organization", "address", "edition", "month", "year", "note", "key"));
         tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author", "title", "howpublished", "month", "year", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("author",
+                "title", "howpublished", "month", "year", "note", "key"));
         tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor", "publisher", "organization", "address", "month", "note", "key"));
-        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("type", "number", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("editor",
+                "publisher", "organization", "address", "month", "note", "key"));
+        tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("type",
+                "number", "address", "month", "note", "key"));
         tyyppienVapaaehtoisetKentat.add(alustaVapaaehtoisetKentat("month", "year", "key"));        
     }
     
