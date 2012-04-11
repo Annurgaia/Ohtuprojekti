@@ -20,6 +20,20 @@ public class ViitetyyppienKenttainformaatio {
         tyyppienPakollisetKentat = KenttatiedonAlustaja.alustaTyyppienPakollisetKentat();
         tyyppienVapaaehtoisetKentat = KenttatiedonAlustaja.alustaVapaaehtoisetKentat();
     }
+    
+    public ArrayList<String> getTyypinPakollisetKentat(String tyyppi) {
+        for (int i = 0; i < tyypit.size(); i++) {
+            if (tyyppi.toLowerCase().equals(tyypit.get(i)))
+                return tyyppienPakollisetKentat.get(i);
+        }
+        return null;
+    }
 
-
+    public ArrayList<String> getTyypinVapaaehtoisetKentat(String tyyppi) {
+        for (int i = 0; i < tyypit.size(); i++) {
+            if (tyyppi.toLowerCase().equals(tyypit.get(i)))
+                return tyyppienVapaaehtoisetKentat.get(i);
+        }
+        return null;
+    }
 }
