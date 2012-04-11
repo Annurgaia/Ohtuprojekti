@@ -53,6 +53,17 @@ public class ViitetyyppienKenttainformaatioTest {
         }
         assertTrue(toimiiko);
     }
+    
+    @Test
+    public void testGetTyypinPakollisetKentat2() {
+        String tyyppi = "articla";
+        ArrayList<String> resultList = new ArrayList<String>();
+        ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
+        ArrayList result = instance.getTyypinPakollisetKentat(tyyppi);
+        ArrayList expresult = null;
+        assertEquals(expresult, result);
+    }
+
 
     /**
      * Test of getTyypinVapaaehtoisetKentat method, of class ViitetyyppienKenttainformaatio.
@@ -75,5 +86,15 @@ public class ViitetyyppienKenttainformaatioTest {
                 toimiiko = false;
         }
         assertTrue(toimiiko);
+    }
+    
+    @Test
+    public void testGetTyypinVapaaehtoisetKentat2() {
+        String tyyppi = "";
+        ArrayList<String> resultList = new ArrayList<String>();
+        ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
+        ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
+        ArrayList expresult = null;
+        assertEquals(expresult, result);
     }
 }
