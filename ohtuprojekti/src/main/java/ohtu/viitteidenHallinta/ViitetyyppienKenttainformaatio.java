@@ -145,14 +145,16 @@ public class ViitetyyppienKenttainformaatio {
     
     private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2, String kentta3,
             String kentta4, String kentta5, String kentta6, String kentta7) {
-        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3, kentta4, kentta5, kentta6);
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2,
+                kentta3, kentta4, kentta5, kentta6);
         vapaaehtoisetKentat.add(kentta7);
         return vapaaehtoisetKentat;
     }
     
     private ArrayList<String> alustaVapaaehtoisetKentat(String kentta1, String kentta2, String kentta3,
             String kentta4, String kentta5, String kentta6, String kentta7, String kentta8) {
-        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2, kentta3, kentta4, kentta5, kentta6, kentta7);
+        ArrayList<String> vapaaehtoisetKentat = alustaVapaaehtoisetKentat(kentta1, kentta2,
+                kentta3, kentta4, kentta5, kentta6, kentta7);
         vapaaehtoisetKentat.add(kentta8);
         return vapaaehtoisetKentat;
     }
