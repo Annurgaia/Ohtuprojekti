@@ -13,15 +13,15 @@ import java.util.ArrayList;
 public class Viite {
     private String type;
     private String id;
-    private ArrayList<String> pakolliset_kentat;
-    private ArrayList<String> vapaaehtoiset_kentat;
+    private ArrayList<String> pakollisetKentat;
+    private ArrayList<String> vapaaehtoisetKentat;
     
-    public Viite(String type, String id, ArrayList<String> pakolliset_kentat,
-            ArrayList<String> vapaaehtoiset_kentat) {
+    public Viite(String type, String id, ArrayList<String> pakollisetKentat,
+            ArrayList<String> vapaaehtoisetKentat) {
         this.type = type;
         this.id = id;
-        this.pakolliset_kentat = pakolliset_kentat;
-        this.vapaaehtoiset_kentat = vapaaehtoiset_kentat;
+        this.pakollisetKentat = pakollisetKentat;
+        this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
    
     // getterit
@@ -30,26 +30,26 @@ public class Viite {
         return id;
     }
 
-    public ArrayList<String> getPakolliset_kentat() {
-        return pakolliset_kentat;
+    public ArrayList<String> getPakollisetKentat() {
+        return pakollisetKentat;
     }
 
     public String getType() {
         return type;
     }
 
-    public ArrayList<String> getVapaaehtoiset_kentat() {
-        return vapaaehtoiset_kentat;
+    public ArrayList<String> getVapaaehtoisetKentat() {
+        return vapaaehtoisetKentat;
     }
     
     // setterit
 
-    public void setPakolliset_kentat(ArrayList<String> pakolliset_kentat) {
-        this.pakolliset_kentat = pakolliset_kentat;
+    public void setPakollisetKentat(ArrayList<String> pakollisetKentat) {
+        this.pakollisetKentat = pakollisetKentat;
     }
 
-    public void setVapaaehtoiset_kentat(ArrayList<String> vapaaehtoiset_kentat) {
-        this.vapaaehtoiset_kentat = vapaaehtoiset_kentat;
+    public void setVapaaehtoisetKentat(ArrayList<String> vapaaehtoisetKentat) {
+        this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
     
 
