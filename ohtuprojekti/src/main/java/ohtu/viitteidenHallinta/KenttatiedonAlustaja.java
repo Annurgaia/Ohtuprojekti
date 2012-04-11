@@ -10,12 +10,9 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
-public class KenttatiedonAlustaja implements AlustajaInterface {
+public class KenttatiedonAlustaja {
 
-    public KenttatiedonAlustaja() {    
-    }
-    
-   public ArrayList<String> alustaTyypit() {
+   public static ArrayList<String> alustaTyypit() {
         ArrayList<String> tyypit = new ArrayList<String>();
         tyypit.add("article");
         tyypit.add("book");
@@ -25,7 +22,7 @@ public class KenttatiedonAlustaja implements AlustajaInterface {
         tyypit.add("incollection");
         tyypit.add("inproceedings");
         tyypit.add("manual");
-        tyypit.add("masterthesis");
+        tyypit.add("mastersthesis");
         tyypit.add("misc");
         tyypit.add("phdthesis");
         tyypit.add("proceedings");
@@ -34,7 +31,7 @@ public class KenttatiedonAlustaja implements AlustajaInterface {
         return tyypit;
     }
     
-    public ArrayList<ArrayList<String>> alustaPakollisetKentat() {
+    public static ArrayList<ArrayList<String>> alustaPakollisetKentat() {
         ArrayList<ArrayList<String>> tyyppienPakollisetKentat = new ArrayList<ArrayList<String>>();
         tyyppienPakollisetKentat.add(alustaKentat("author", "title", "journal", "year"));
         tyyppienPakollisetKentat.add(alustaKentat("author", "title", "publisher", "year"));
@@ -53,7 +50,7 @@ public class KenttatiedonAlustaja implements AlustajaInterface {
         return tyyppienPakollisetKentat;
     }
     
-    public ArrayList<ArrayList<String>> alustaVapaaehtoisetKentat() {
+    public static ArrayList<ArrayList<String>> alustaVapaaehtoisetKentat() {
         ArrayList<ArrayList<String>> tyyppienVapaaehtoisetKentat = new ArrayList<ArrayList<String>>();
         tyyppienVapaaehtoisetKentat.add(alustaKentat("volume",
                 "number", "pages", "month", "note", "key"));
