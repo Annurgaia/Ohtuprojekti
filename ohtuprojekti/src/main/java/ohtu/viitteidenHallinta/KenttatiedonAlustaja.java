@@ -10,9 +10,12 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
-public class KenttatiedonAlustaja {
+public class KenttatiedonAlustaja implements AlustajaInterface {
+
+    public KenttatiedonAlustaja() {    
+    }
     
-   public static ArrayList<String> alustaTyypit() {
+   public ArrayList<String> alustaTyypit() {
         ArrayList<String> tyypit = new ArrayList<String>();
         tyypit.add("article");
         tyypit.add("book");
@@ -31,7 +34,7 @@ public class KenttatiedonAlustaja {
         return tyypit;
     }
     
-    public static ArrayList<ArrayList<String>> alustaTyyppienPakollisetKentat() {
+    public ArrayList<ArrayList<String>> alustaPakollisetKentat() {
         ArrayList<ArrayList<String>> tyyppienPakollisetKentat = new ArrayList<ArrayList<String>>();
         tyyppienPakollisetKentat.add(alustaKentat("author", "title", "journal", "year"));
         tyyppienPakollisetKentat.add(alustaKentat("author", "title", "publisher", "year"));
@@ -50,7 +53,7 @@ public class KenttatiedonAlustaja {
         return tyyppienPakollisetKentat;
     }
     
-    public static ArrayList<ArrayList<String>> alustaVapaaehtoisetKentat() {
+    public ArrayList<ArrayList<String>> alustaVapaaehtoisetKentat() {
         ArrayList<ArrayList<String>> tyyppienVapaaehtoisetKentat = new ArrayList<ArrayList<String>>();
         tyyppienVapaaehtoisetKentat.add(alustaKentat("volume",
                 "number", "pages", "month", "note", "key"));

@@ -15,10 +15,10 @@ public class ViitetyyppienKenttainformaatio {
     private ArrayList<ArrayList<String>> tyyppienPakollisetKentat;
     private ArrayList<ArrayList<String>> tyyppienVapaaehtoisetKentat;
     
-    public ViitetyyppienKenttainformaatio() {
-        tyypit = KenttatiedonAlustaja.alustaTyypit();
-        tyyppienPakollisetKentat = KenttatiedonAlustaja.alustaTyyppienPakollisetKentat();
-        tyyppienVapaaehtoisetKentat = KenttatiedonAlustaja.alustaVapaaehtoisetKentat();
+    public ViitetyyppienKenttainformaatio(AlustajaInterface alustaja) {
+        tyypit = alustaja.alustaTyypit();
+        tyyppienPakollisetKentat = alustaja.alustaPakollisetKentat();
+        tyyppienVapaaehtoisetKentat = alustaja.alustaVapaaehtoisetKentat();
     }
     
     public ArrayList<String> getTyypinPakollisetKentat(String tyyppi) {
