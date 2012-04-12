@@ -38,7 +38,8 @@ public class ViiteTest {
      */
     @Test
     public void testGetId() {
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<String>(), new ArrayList<String>());
         String expResult = "W06";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -51,18 +52,40 @@ public class ViiteTest {
     public void testGetPakollisetKentat() {
         ArrayList<String> pakollisetKentat = new ArrayList<String>();
         pakollisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>(),
+                new ArrayList<String>(), new ArrayList<String>());
         String expResult = "nimi";
         String result = instance.getPakollisetKentat().get(0);
         assertEquals(expResult, result);
     }
-
+    
+        @Test
+    public void testGetPakollistenKenttienNimet() {
+        ArrayList<String> pakollistenKenttienNimet = new ArrayList<String>();
+        pakollistenKenttienNimet.add("nimi");
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
+                pakollistenKenttienNimet, new ArrayList<String>());
+        String expResult = "nimi";
+        String result = instance.getPakollistenKenttienNimet().get(0);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetVapaaehtoistenKenttienNimet() {
+        ArrayList<String> vapaaehtoistenKenttienNimet = new ArrayList<String>();
+        vapaaehtoistenKenttienNimet.add("nimi");
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<String>(), vapaaehtoistenKenttienNimet);
+        String expResult = "nimi";
+        String result = instance.getVapaaehtoistenKenttienNimet().get(0);
+        assertEquals(expResult, result);
+    }
     /**
      * Test of getType method, of class Viite.
      */
     @Test
     public void testGetType() {
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<String>(), new ArrayList<String>());
         String expResult = "article";
         String result = instance.getType();
         assertEquals(expResult, result);
@@ -75,7 +98,8 @@ public class ViiteTest {
     public void testGetVapaaehtoisetKentat() {
         ArrayList<String> vapaaehtoisetKentat = new ArrayList<String>();
         vapaaehtoisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat);
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat,
+                new ArrayList<String>(), new ArrayList<String>());
         String expResult = "nimi";
         String result = instance.getVapaaehtoisetKentat().get(0);
         assertEquals(expResult, result);
@@ -88,7 +112,8 @@ public class ViiteTest {
     public void testSetPakollisetKentat() {
         ArrayList<String> pakollisetKentat = new ArrayList<String>();
         pakollisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>(),
+                new ArrayList<String>(), new ArrayList<String>());
         ArrayList<String> uusi = new ArrayList<String>();
         uusi.add("nimuh");
         instance.setPakollisetKentat(uusi);
@@ -104,7 +129,8 @@ public class ViiteTest {
     public void testSetVapaaehtoisetKentat() {
         ArrayList<String> vapaaehtoisetKentat = new ArrayList<String>();
         vapaaehtoisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat);
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat,
+                new ArrayList<String>(), new ArrayList<String>());
         ArrayList<String> uusi = new ArrayList<String>();
         uusi.add("nimuh");
         instance.setVapaaehtoisetKentat(uusi);

@@ -15,13 +15,17 @@ public class Viite implements ViiteInterface{
     private String id;
     private ArrayList<String> pakollisetKentat;
     private ArrayList<String> vapaaehtoisetKentat;
+    private ArrayList<String> pakollistenKenttienNimet;
+    private ArrayList<String> vapaaehtoistenKenttienNimet;    
     
-    public Viite(String type, String id, ArrayList<String> pakollisetKentat,
-            ArrayList<String> vapaaehtoisetKentat) {
+    public Viite(String type, String id, ArrayList<String> pakollisetKentat, ArrayList<String> vapaaehtoisetKentat,
+            ArrayList<String> pakollistenKenttienNimet, ArrayList<String> vapaaehtoistenKenttienNimet) {
         this.type = type;
         this.id = id;
         this.pakollisetKentat = pakollisetKentat;
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
+        this.pakollistenKenttienNimet = pakollistenKenttienNimet;
+        this.vapaaehtoistenKenttienNimet = vapaaehtoistenKenttienNimet;
     }
    
     // getterit
@@ -40,6 +44,14 @@ public class Viite implements ViiteInterface{
 
     public ArrayList<String> getVapaaehtoisetKentat() {
         return vapaaehtoisetKentat;
+    }
+
+    public ArrayList<String> getPakollistenKenttienNimet() {
+        return pakollistenKenttienNimet;
+    }
+
+    public ArrayList<String> getVapaaehtoistenKenttienNimet() {
+        return vapaaehtoistenKenttienNimet;
     }
     
     // setterit
