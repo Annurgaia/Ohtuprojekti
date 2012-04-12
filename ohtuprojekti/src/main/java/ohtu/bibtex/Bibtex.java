@@ -1,90 +1,50 @@
 package ohtu.bibtex;
-
+import ohtu.viitteidenHallinta.ViiteInterface;
 
 public class Bibtex{
-    private String type;
-    private String author;
-    //id koostuu nimikirjaimista ja vuosiluvusta, esim. Beck, Kent and Andres, Cynthia, 2004 id olisi BA04
-    private String id;
-    private String title;
-    private String year;
-    private String booktitle;
-    private String publisher;
-    
-    public Bibtex(String type, String author, String title, String year, String publisher, String id){
-        this.type = type;
-        this.author = author;
-        this.title = title;
-        this.year = year;
-        this.publisher = publisher;
-        this.id = id;
-    }
 
-    public String getAuthor() {
-        return author;
-    }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getBooktitle() {
-        return booktitle;
-    }
-
-    public void setBooktitle(String booktitle) {
-        this.booktitle = booktitle;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
+    ViiteInterface viite;
+        
+    public Bibtex(ViiteInterface viite){
+        this.viite = viite;
     }
     
     public void printAsBibtex(){
-        System.out.print("@"+type+"{"+id+",\n");
-        System.out.print("author = {"+author+"},\n");
-        System.out.print("title = {"+title+"},\n");
-        System.out.print("year = {"+year+"},\n");
-        System.out.print("publisher = {"+publisher+"},\n");
-        System.out.print("booktitle = {"+booktitle+"},\n");
+        System.out.print("@"+viite.getType()+"{"+viite.getId()+",\n");
+        for (int i = 0; i < viite.getPakollisetKentat().size(); i++) {
+            System.out.print("\t"+viite.getPakollistenKenttienNimet().get(i) +" = "
+                    +"\""+skanditBibtexiin(viite.getPakollisetKentat().get(i))+"\",\n");
+            
+        }
+        for (int i = 0; i < viite.getVapaaehtoisetKentat().size(); i++) {
+            System.out.print("\t"+viite.getVapaaehtoistenKenttienNimet().get(i) +" = "
+                    +"\""+skanditBibtexiin(viite.getVapaaehtoisetKentat().get(i))+"\",\n");
+        }
         System.out.print("}");
     }
     
+    private String skanditBibtexiin(String str){
+        String korjattu;
+        korjattu = str.replaceAll("ä", "\\\\\"{a}");
+        korjattu = korjattu.replaceAll("ö", "\\\\\"{o}");
+        korjattu = korjattu.replaceAll("å", "\\\\aa");
+        return korjattu;
+    }
+    
     public String getAsBibtex(){
-        return "@"+type+"{"+id+",\n"
-                + "author = {"+author+"},\n"
-                + "title = {"+title+"},\n"
-                + "year = {"+year+"},\n"
-                + "publisher = {"+publisher+"},\n"
-                + "booktitle = {"+booktitle+"},\n"
-                + "}";
+        String bibtex;
+        bibtex = "@"+viite.getType()+"{"+viite.getId()+",\n";
+        for (int i = 0; i < viite.getPakollisetKentat().size(); i++) {
+            bibtex += "\t"+viite.getPakollistenKenttienNimet().get(i) +" = "
+                    +"\""+skanditBibtexiin(viite.getPakollisetKentat().get(i))+"\",\n";
+            
+        }
+        for (int i = 0; i < viite.getVapaaehtoisetKentat().size(); i++) {
+            bibtex += "\t"+viite.getVapaaehtoistenKenttienNimet().get(i) +" = "
+                    +"\""+skanditBibtexiin(viite.getVapaaehtoisetKentat().get(i))+"\",\n";
+        }
+        bibtex += "}";
+        return bibtex;
     }
 }
