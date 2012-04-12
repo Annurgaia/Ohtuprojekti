@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
-public class Viite {
+public class Viite implements ViiteInterface {
     private String type;
     private String id;
     private ArrayList<String> pakollisetKentat;
