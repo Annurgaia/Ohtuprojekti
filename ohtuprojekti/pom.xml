@@ -23,35 +23,6 @@
   </dependencies>
   
   <build>
-        <plugins>
-            <plugin>
-                <groupId>org.easyb</groupId>
-                <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <storyType>html</storyType>
-                    <storyReport>${basedir}/target/easyb/easyb-report.html
-                    </storyReport>
-                </configuration>
-            </plugin>
-            <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-
-      </plugin>
-        </plugins>
-    </build>
+  </build>
     <groupId>ohtu</groupId>
 </project>
