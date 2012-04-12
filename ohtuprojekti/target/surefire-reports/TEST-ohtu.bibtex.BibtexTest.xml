@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.234" errors="0" skipped="0" tests="14" name="ohtu.bibtex.BibtexTest">
+<testsuite failures="0" time="0.138" errors="1" skipped="0" tests="1" name="ohtu.bibtex.BibtexTest">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk/jre/lib/i386"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-6-openjdk/jre/lib/endorsed"/>
     <property name="os.arch" value="i386"/>
-    <property name="surefire.real.class.path" value="/tmp/surefirebooter941509098788062555.jar"/>
+    <property name="surefire.real.class.path" value="/tmp/surefirebooter1486915253195998706.jar"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
@@ -57,18 +57,29 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.076" classname="ohtu.bibtex.BibtexTest" name="konstruktoi"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="getAuthorTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setAuthorTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="getBookTitleTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="setBookTitleTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="getPublisherTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setPublisherTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="getTitleTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="setTitleTesti"/>
-  <testcase time="0.002" classname="ohtu.bibtex.BibtexTest" name="getTypeTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setTypeTest"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="getYearTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setYearTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="printAsBibtex"/>
+  <testcase time="0.025" classname="ohtu.bibtex.BibtexTest" name="initializationError">
+    <error message="No runnable methods" type="java.lang.Exception">java.lang.Exception: No runnable methods
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:166)
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:102)
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:344)
+	at org.junit.runners.ParentRunner.&lt;init&gt;(ParentRunner.java:74)
+	at org.junit.runners.BlockJUnit4ClassRunner.&lt;init&gt;(BlockJUnit4ClassRunner.java:55)
+	at org.junit.internal.builders.JUnit4Builder.runnerForClass(JUnit4Builder.java:13)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:29)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:24)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.&lt;init&gt;(JUnit4TestSet.java:45)
+	at org.apache.maven.surefire.junit4.JUnit4DirectoryTestSuite.createTestSet(JUnit4DirectoryTestSuite.java:56)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.locateTestSets(AbstractDirectoryTestSuite.java:96)
+	at org.apache.maven.surefire.Surefire.createSuiteFromDefinition(Surefire.java:209)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:156)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345)
+	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009)
+</error>
+  </testcase>
 </testsuite>

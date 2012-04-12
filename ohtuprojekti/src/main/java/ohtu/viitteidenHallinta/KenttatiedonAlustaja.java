@@ -35,32 +35,32 @@ public class KenttatiedonAlustaja {
     public static ArrayList<ArrayList<String>> alustaPakollisetKentat() {
         ArrayList<ArrayList<String>> tyyppienPakollisetKentat = new ArrayList<ArrayList<String>>();
         String [] temp = {"author", "title", "journal", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "publisher", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"title"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "booktitle", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "pages", "publisher", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "booktitle", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "booktitle", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"title"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "school", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         tyyppienPakollisetKentat.add(new ArrayList<String>());
         temp = new String [] {"author", "title", "school", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"title", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "institution", "year"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author", "title", "note"};
-        tyyppienPakollisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienPakollisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         return tyyppienPakollisetKentat;
     }
     
@@ -68,43 +68,43 @@ public class KenttatiedonAlustaja {
         ArrayList<ArrayList<String>> tyyppienVapaaehtoisetKentat = new ArrayList<ArrayList<String>>();
         String [] temp = {"volume",
                 "number", "pages", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"volume",
                 "series", "address", "edition", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author",
                 "howpublished", "address", "month", "year", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"editor",
                 "pages", "organization", "publisher", "address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"volume",
                 "series", "address", "edition", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"editor",
                 "pages", "organization", "publisher", "address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"editor",
                 "pages", "organization", "publisher", "address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author",
                 "organization", "address", "edition", "month", "year", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"author",
                 "title", "howpublished", "month", "year", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"editor",
                 "publisher", "organization", "address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"type",
                 "number", "address", "month", "note", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         temp = new String [] {"month", "year", "key"};
-        tyyppienVapaaehtoisetKentat.add((ArrayList<String>)Arrays.asList(temp));
+        tyyppienVapaaehtoisetKentat.add(new ArrayList<String>(Arrays.asList(temp)));
         return tyyppienVapaaehtoisetKentat;
     }
 }
