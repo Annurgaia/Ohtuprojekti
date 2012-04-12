@@ -11,10 +11,10 @@ import java.util.ArrayList;
  * @author iimakis
  */
 public class ViiteSailo {
-    private ArrayList<Viite> viitteet;
+    private ArrayList<ViiteInterface> viitteet;
     
     public ViiteSailo() {
-        this.viitteet = new ArrayList<Viite>();
+        this.viitteet = new ArrayList<ViiteInterface>();
     }
     
     public void addViite() {
@@ -25,7 +25,7 @@ public class ViiteSailo {
         
     }
     
-    public ArrayList<Viite> getViitteet() {
+    public ArrayList<ViiteInterface> getViitteet() {
         return viitteet;
     }
     
