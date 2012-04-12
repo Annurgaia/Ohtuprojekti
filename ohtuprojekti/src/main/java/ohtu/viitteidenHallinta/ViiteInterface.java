@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
-interface ViiteInterface {
+public interface ViiteInterface {
     String getId();
     String getType();
     ArrayList<String> getPakollisetKentat();
