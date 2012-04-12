@@ -38,7 +38,6 @@ public class KenttatiedonAlustajaTest {
      */
     @Test
     public void testAlustaTyypit() {
-        System.out.println("alustaTyypit");
         boolean onkoOikein = true;
         ArrayList result = KenttatiedonAlustaja.alustaTyypit();
         ArrayList<String> testi = new ArrayList<String>();
@@ -61,6 +60,28 @@ public class KenttatiedonAlustajaTest {
                 onkoOikein = false;
         }
         assertTrue(onkoOikein);
+    }
+    
+    @Test
+    public void testAlustaTyypitKoko() {
+        boolean onkoOikein = true;
+        ArrayList result = KenttatiedonAlustaja.alustaTyypit();
+        int haluttuKoko = 14;
+        assertEquals(haluttuKoko, result.size());
+    }
+    
+    @Test
+    public void testAlustaPakollisetKentatKoko() {
+        ArrayList result = KenttatiedonAlustaja.alustaPakollisetKentat();
+        int haluttuKoko = 14;
+        assertEquals(haluttuKoko, result.size());
+    }
+    
+    @Test
+    public void testAlustaVapaaehtoisetKentatKoko() {
+        ArrayList result = KenttatiedonAlustaja.alustaVapaaehtoisetKentat();
+        int haluttuKoko = 14;
+        assertEquals(haluttuKoko, result.size());
     }
     
     

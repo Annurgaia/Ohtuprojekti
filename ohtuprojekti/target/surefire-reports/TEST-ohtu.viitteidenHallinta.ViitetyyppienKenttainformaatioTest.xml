@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.175" errors="0" skipped="0" tests="14" name="ohtu.bibtex.BibtexTest">
+<testsuite failures="0" time="0.051" errors="0" skipped="0" tests="5" name="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk/jre/lib/i386"/>
@@ -57,18 +57,9 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.052" classname="ohtu.bibtex.BibtexTest" name="konstruktoi"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="getAuthorTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setAuthorTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="getBookTitleTesti"/>
-  <testcase time="0" classname="ohtu.bibtex.BibtexTest" name="setBookTitleTesti"/>
-  <testcase time="0.002" classname="ohtu.bibtex.BibtexTest" name="getPublisherTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setPublisherTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="getTitleTesti"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setTitleTesti"/>
-  <testcase time="0.002" classname="ohtu.bibtex.BibtexTest" name="getTypeTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setTypeTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="getYearTest"/>
-  <testcase time="0.001" classname="ohtu.bibtex.BibtexTest" name="setYearTest"/>
-  <testcase time="0.002" classname="ohtu.bibtex.BibtexTest" name="printAsBibtex"/>
+  <testcase time="0.012" classname="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest" name="testGetTyypinPakollisetKentat"/>
+  <testcase time="0.008" classname="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest" name="testGetTyypinPakollisetKentat2"/>
+  <testcase time="0.006" classname="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest" name="testGetTyypinVapaaehtoisetKentat"/>
+  <testcase time="0.002" classname="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest" name="testGetTyypinVapaaehtoisetKentat2"/>
+  <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatioTest" name="testGetTyypinVapaaehtoisetKentat3"/>
 </testsuite>
