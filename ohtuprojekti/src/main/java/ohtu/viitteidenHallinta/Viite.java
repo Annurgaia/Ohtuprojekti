@@ -10,6 +10,7 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
+
 public class Viite implements ViiteInterface {
     private String type;
     private String id;

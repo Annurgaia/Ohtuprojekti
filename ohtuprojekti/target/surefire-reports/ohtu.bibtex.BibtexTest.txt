@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: ohtu.bibtex.BibtexTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.175 sec <<< FAILURE!
 initializationError(ohtu.bibtex.BibtexTest)  Time elapsed: 0.035 sec  <<< ERROR!
 java.lang.Exception: No runnable methods
@@ -26,3 +27,6 @@ java.lang.Exception: No runnable methods
 	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345)
 	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009)
 
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.286 sec
+>>>>>>> 815462b013a90d05bf3d3f3a8c3b732335851e66

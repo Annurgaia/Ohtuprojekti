@@ -1,7 +1,9 @@
 package ohtu.bibtex;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import ohtu.viitteidenHallinta.Viite;
+import ohtu.viitteidenHallinta.ViiteInterface;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,90 +14,45 @@ public class BibtexTest{
     
     @Before
     public void setUp(){
-        bt = new Bibtex("book", "testi", "testiTitle", "1985", "Addison-Wesley", "T85");
+        ArrayList pakollisetKentat = new ArrayList<String>();
+        ArrayList pakollistenKenttienNimet = new ArrayList<String>();
+        ArrayList vapaaehtoisetKentat = new ArrayList<String>();
+        ArrayList vapaaehtoistenKenttienNimet = new ArrayList<String>();
+        pakollisetKentat.add("nimiö");
+        pakollisetKentat.add("TestiTitleå");
+        pakollisetKentat.add("TestJournalä");
+        pakollisetKentat.add("1994");
+        pakollistenKenttienNimet.add("author");
+        pakollistenKenttienNimet.add("title");
+        pakollistenKenttienNimet.add("journal");
+        pakollistenKenttienNimet.add("year");
+        vapaaehtoisetKentat.add("5");
+        vapaaehtoisetKentat.add("18");
+        vapaaehtoistenKenttienNimet.add("number");
+        vapaaehtoistenKenttienNimet.add("pages");
+        
+        Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat,
+                pakollistenKenttienNimet, vapaaehtoistenKenttienNimet);
+        bt = new Bibtex(viites);
         System.setOut(new PrintStream(outContent));
     }
-    @Test
-    public void konstruktoi(){
-        assertEquals(bt.getAsBibtex(), "@book{T85,\n"
-                + "author = {testi},\n"
-                + "title = {testiTitle},\n"
-                + "year = {1985},\n"
-                + "publisher = {Addison-Wesley},\n"
-                + "booktitle = {null},\n"
-                + "}");
-    }
     
     @Test
-    public void getAuthorTesti(){
-        assertEquals(bt.getAuthor(), "testi");
-    }
-    
-    @Test
-    public void setAuthorTesti(){
-        bt.setAuthor("testikaks");
-        assertEquals(bt.getAuthor(), "testikaks");
-    }
-    
-    @Test
-    public void getBookTitleTesti(){
-        assertEquals(bt.getBooktitle(), null);
-    }
-    
-    @Test
-    public void setBookTitleTesti(){
-        bt.setBooktitle("testi");
-        assertEquals(bt.getBooktitle(), "testi");
-    }
-    
-    @Test
-    public void getPublisherTesti(){
-        assertEquals(bt.getPublisher(), "Addison-Wesley");
-    }
-    
-    @Test
-    public void setPublisherTesti(){
-        bt.setPublisher("O'Reilly");
-        assertEquals(bt.getPublisher(), "O'Reilly");
-    }
-    
-    @Test
-    public void getTitleTesti(){
-        assertEquals(bt.getTitle(), "testiTitle");
-    }
-    
-    @Test
-    public void setTitleTesti(){
-        bt.setTitle("testikkkk");
-        assertEquals(bt.getTitle(), "testikkkk");
-    }
-    
-    @Test
-    public void getTypeTest(){
-        assertEquals(bt.getType(), "book");
-    }
-    
-    @Test
-    public void setTypeTest(){
-        bt.setType("inproceedings");
-        assertEquals(bt.getType(), "inproceedings");
-    }
-    
-    @Test
-    public void getYearTest(){
-        assertEquals(bt.getYear(), "1985");
-    }
-    
-    @Test
-    public void setYearTest(){
-        bt.setYear("1834");
-        assertEquals(bt.getYear(), "1834");
-    }
-    
-    @Test
-    public void printAsBibtex(){
+    public void testPrintAsBibtex(){
         bt.printAsBibtex();
         assertEquals(bt.getAsBibtex(), outContent.toString());
     }
     
+    @Test
+    public void testGetAsBibtex(){
+        String exp = "@article{W06,\n"
+                + "\tauthor = \"nimi\\\"{o}\",\n"
+                + "\ttitle = \"TestiTitle\\aa\",\n"
+                + "\tjournal = \"TestJournal\\\"{a}\",\n"
+                + "\tyear = \"1994\",\n"
+                + "\tnumber = \"5\",\n"
+                + "\tpages = \"18\",\n"
+                + "}";
+        assertEquals(bt.getAsBibtex(), exp);
+    }    ViiteInterface viite;
 }
