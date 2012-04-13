@@ -57,7 +57,7 @@ public class ViiteHallinta {
                     }
                     continue;
                 case 3:
-                    sailo.listaaViitteet();
+                    System.out.println(sailo.listaaViitteet());
                     continue;
                 case 4:
                     break;
