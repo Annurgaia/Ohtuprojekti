@@ -54,11 +54,11 @@ public class ViiteSailo {
             viitelista += "Tyyppi: " + kasiteltava.getType() + "\n";
             viitelista += "Id: " + kasiteltava.getId() + "\n";
             for (int j = 0; j< kasiteltava.getPakollisetKentat().size(); j++) {
-                viitelista += kasiteltava.getPakollistenKenttienNimet().get(i) +
+                viitelista += kasiteltava.getPakollistenKenttienNimet().get(j) +
                         ": " + kasiteltava.getPakollisetKentat().get(j) + "\n";
             }
             for (int j = 0; j< kasiteltava.getVapaaehtoisetKentat().size(); j++) {
-                viitelista += kasiteltava.getVapaaehtoistenKenttienNimet().get(i) +
+                viitelista += kasiteltava.getVapaaehtoistenKenttienNimet().get(j) +
                         ": " + kasiteltava.getVapaaehtoisetKentat().get(j) + "\n";
             }
             viitelista += "\n";
