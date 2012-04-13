@@ -48,7 +48,20 @@ public class ViiteSailo {
     }
     
     public String listaaViitteet() {
-        
+        String viitelista = "";
+        for (int i = 0; i< viitteet.size(); i++) {
+            ViiteInterface kasiteltava = viitteet.get(i);
+            viitelista += "Tyyppi: " + kasiteltava.getType() + "\n";
+            viitelista += "Id: " + kasiteltava.getId() + "\n";
+            for (int j = 0; j< kasiteltava.getPakollisetKentat().size(); j++) {
+                viitelista += kasiteltava.getPakollistenKenttienNimet().get(i) +
+                        ": " + kasiteltava.getPakollisetKentat().get(j) + "\n";
+            }
+            for (int j = 0; j< kasiteltava.getVapaaehtoisetKentat().size(); j++) {
+                viitelista += kasiteltava.getVapaaehtoistenKenttienNimet().get(i) +
+                        ": " + kasiteltava.getVapaaehtoisetKentat().get(j) + "\n";
+            }
+        }
         return "";
     }
 }
