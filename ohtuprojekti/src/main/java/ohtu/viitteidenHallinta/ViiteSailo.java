@@ -35,11 +35,21 @@ public class ViiteSailo {
         return -1;
     }
     
+    public ViiteInterface haeViite(String id) {
+        for (int i = 0; i < viitteet.size(); i++) {
+            if (viitteet.get(i).getId().equals(id))
+                return viitteet.get(i);
+        }
+        return null;
+    }
+    
     public ArrayList<ViiteInterface> getViitteet() {
         return viitteet;
     }
     
     public String listaaViitteet() {
+        
         return "";
     }
 }
+ 
