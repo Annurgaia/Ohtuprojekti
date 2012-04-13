@@ -6,10 +6,6 @@ package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author iimakis
- */
 public class ViiteSailo {
     private ArrayList<ViiteInterface> viitteet;
     
@@ -21,8 +17,14 @@ public class ViiteSailo {
         viitteet.add(viite);
     }
     
-    public boolean muokkaaViitetta() {
-        return false;
+    public boolean muokkaaViitetta(String id, ArrayList<String> pakollisetKentat,
+            ArrayList<String> vapaaehtoisetKentat) {
+        int indeksi = etsiViite(id);
+        if (indeksi == -1)
+            return false;
+        viitteet.get(indeksi).setPakollisetKentat(pakollisetKentat);
+        viitteet.get(indeksi).setVapaaehtoisetKentat(vapaaehtoisetKentat);
+        return true;
     }
     
     public int etsiViite(String id) {
