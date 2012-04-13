@@ -61,8 +61,9 @@ public class ViiteSailo {
                 viitelista += kasiteltava.getVapaaehtoistenKenttienNimet().get(i) +
                         ": " + kasiteltava.getVapaaehtoisetKentat().get(j) + "\n";
             }
+            viitelista += "\n";
         }
-        return "";
+        return viitelista;
     }
 }
  
