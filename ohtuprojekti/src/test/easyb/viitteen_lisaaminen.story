@@ -5,28 +5,16 @@ description 'Käyttäjä voi lisätä viitteen järjestelmään'
 
 scenario "käyttäjän voi onnistuneesti lisätä viiteen järjestlmään", {
     given 'valitaan viitteen lisääminen', {
-       userDao = new InMemoryUserDao()
-       auth = new AuthenticationService(userDao)
-       io = new StubIO("login", "pekka", "akkep") 
-       app = new App(io, auth)
+       ViiteSailo sailo = new ViiteSailo();
+       Viite viite = new Viite("tyyppi", "id", new ArrayList<String>, new ArrayList<String>);
     }
 
     when 'Oikeat tiedot syötetään järjestelmään', {
-       app.run()
+       sailo.add(viite);
     }
 
     then 'viite on lisätty järjestelmään', {
-       io.getPrints().shouldHave("logged in")
-    }
-
-scenario "", {
-    given 'valitaan viitteen lisääminen', {
-    }
-
-    when 'Oikeat tiedot syötetään järjestelmään', {
-    }
-
-    then 'viite on lisätty järjestelmään', {
+       sailo.getViitteet().get(0).getType().ShouldBe "tyyppi"
     }
 }
 
