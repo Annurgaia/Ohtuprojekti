@@ -41,6 +41,10 @@ public class TestiSyote {
             return -1;
         }
     }
+    public String kysyId() {
+        System.out.println("Anna ID:");
+        return lukija.nextLine();
+    }
     public ArrayList<String> kysyPakollisetKentat(ArrayList<String> nimet) {
         System.out.println("Syötä pakolliset kentät:");
         ArrayList<String> palautus = new ArrayList<String>();

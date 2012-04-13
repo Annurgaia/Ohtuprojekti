@@ -11,28 +11,61 @@ import java.util.ArrayList;
  * @author Wampie
  */
 public class ViiteHallinta {
+
     private static TestiSyote test = new TestiSyote();
     private static ViitetyyppienKenttainformaatio info = new ViitetyyppienKenttainformaatio();
-    public static void main(String [] args) {
+    private static ViiteTarkistin tarkkailija = new ViiteTarkistin();
+    private static ViiteSailo sailo = new ViiteSailo();
+    private static String id = "1";
+
+    public static void main(String[] args) {
         while (true) {
             switch (test.alkumenu()) {
                 case 1:
                     int temp;
-                    while ((temp = test.kysyViitetyyppi(info.getViiteTyypit())) == -1) {
-                        continue;
+                    while (true) {
+                        while ((temp = test.kysyViitetyyppi(info.getViiteTyypit())) == -1) {
+                            continue;
+                        }
+                        String nimi = info.getViiteTyypit().get(temp - 1);
+                        ArrayList<String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
+                        ArrayList<String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
+                        if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
+                            continue;
+                        }
+                        Viite viite = new Viite(nimi, id, pakolliset, vapaaehtoiset, info.getTyypinPakollisetKentat(nimi), info.getTyypinVapaaehtoisetKentat(nimi));
+                        sailo.addViite(viite);
+                        id = "" + Integer.parseInt(id) + 1;
+                        break;
                     }
-                    ArrayList<String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(info.getViiteTyypit().get(temp-1)));
-                    ArrayList<String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(info.getViiteTyypit().get(temp-1)));
-                    break;
+                    continue;
                 case 2:
+                    while (true) {
+                        String id = test.kysyId();
+                        ViiteInterface viite;
+                        if ((viite = sailo.haeViite(id)) == null) {
+                            System.out.println("Viitettä ei löydy");
+                            continue;
+                        }
+                        ArrayList<String> pakolliset = test.kysyPakollisetKentat(viite.getPakollistenKenttienNimet());
+                        ArrayList<String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoistenKenttienNimet());
+                        if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
+                            continue;
+                        }
+                        sailo.muokkaaViitetta(id, pakolliset, vapaaehtoiset);
+                        break;
+                    }
+                    continue;
                 case 3:
+                    sailo.listaaViitteet();
+                    continue;
                 case 4:
                     break;
-                default: continue;
+                default:
+                    continue;
             }
             break;
-            
+
         }
     }
-    
 }
