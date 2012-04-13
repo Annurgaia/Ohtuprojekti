@@ -17,12 +17,20 @@ public class ViiteSailo {
         this.viitteet = new ArrayList<ViiteInterface>();
     }
     
-    public void addViite() {
+    public void addViite(ViiteInterface viite) {
+        viitteet.add(viite);
+    }
+    
+    public boolean muokkaaViitetta() {
         
     }
     
-    public void muokkaaViitetta() {
-        
+    public int etsiViite(String id) {
+        for (int i = 0; i < viitteet.size(); i++) {
+            if (viitteet.get(i).getId().equals(id))
+                return i;
+        }
+        return -1;
     }
     
     public ArrayList<ViiteInterface> getViitteet() {
