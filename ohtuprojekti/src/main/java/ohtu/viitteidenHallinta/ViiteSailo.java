@@ -22,7 +22,7 @@ public class ViiteSailo {
     }
     
     public boolean muokkaaViitetta() {
-        
+        return false;
     }
     
     public int etsiViite(String id) {
