@@ -27,7 +27,7 @@ public class ViiteSailo {
         return true;
     }
     
-    public int etsiViite(String id) {
+    private int etsiViite(String id) {
         for (int i = 0; i < viitteet.size(); i++) {
             if (viitteet.get(i).getId().equals(id))
                 return i;
