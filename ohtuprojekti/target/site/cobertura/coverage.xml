@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.9267015706806283" branch-rate="0.4166666666666667" lines-covered="177" lines-valid="191" branches-covered="10" branches-valid="24" complexity="1.3703703703703705" version="1.9.4.1" timestamp="1334570235441">
+	<sources>
+		<source>--source</source>
+		<source>/home/anis/lohtu/ohtuprojekti/src/main/java</source>
+	</sources>
+	<packages>
+		<package name="ohtu.bibtex" line-rate="0.75" branch-rate="0.0" complexity="2.0">
+			<classes>
+				<class name="ohtu.bibtex.Bibtex" filename="ohtu/bibtex/Bibtex.java" line-rate="0.75" branch-rate="0.0" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="17" hits="157" branch="false"/>
+								<line number="18" hits="157" branch="false"/>
+								<line number="19" hits="157" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Lohtu/viitteidenHallinta/ViiteInterface;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="0" branch="false"/>
+								<line number="10" hits="0" branch="false"/>
+								<line number="11" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAsBibtex" signature="()Ljava/lang/String;" line-rate="0.5555555555555556" branch-rate="0.0">
+							<lines>
+								<line number="37" hits="11" branch="false"/>
+								<line number="38" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="39" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="11" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="22" branch="false"/>
+								<line number="82" hits="20" branch="false"/>
+								<line number="86" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAuthor" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getBooktitle" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getPublisher" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTitle" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="56" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="getYear" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="64" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="printAsBibtex" signature="()V" line-rate="0.8235294117647058" branch-rate="0.0">
+							<lines>
+								<line number="14" hits="157" branch="false"/>
+								<line number="15" hits="157" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="16" hits="157" branch="false"/>
+								<line number="20" hits="157" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="21" hits="157" branch="false"/>
+								<line number="24" hits="24" branch="false"/>
+								<line number="25" hits="0" branch="false"/>
+								<line number="72" hits="10" branch="false"/>
+								<line number="73" hits="10" branch="false"/>
+								<line number="74" hits="10" branch="false"/>
+								<line number="75" hits="10" branch="false"/>
+								<line number="76" hits="10" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="77" hits="10" branch="false"/>
+								<line number="78" hits="10" branch="false"/>
+								<line number="79" hits="10" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="80" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAuthor" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="12" branch="false"/>
+							</lines>
+						</method>
+						<method name="setBooktitle" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPublisher" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="45" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="setTitle" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="52" hits="11" branch="false"/>
+								<line number="53" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="setType" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="11" branch="false"/>
+								<line number="61" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="setYear" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="68" hits="11" branch="false"/>
+								<line number="69" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="skanditBibtexiin" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.5" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="12" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="32" hits="22" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="0" branch="false"/>
+						<line number="10" hits="0" branch="false"/>
+						<line number="11" hits="0" branch="false"/>
+						<line number="14" hits="157" branch="false"/>
+						<line number="15" hits="157" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="16" hits="157" branch="false"/>
+						<line number="17" hits="157" branch="false"/>
+						<line number="18" hits="157" branch="false"/>
+						<line number="19" hits="157" branch="false"/>
+						<line number="20" hits="157" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="21" hits="157" branch="false"/>
+						<line number="24" hits="24" branch="false"/>
+						<line number="25" hits="0" branch="false"/>
+						<line number="28" hits="12" branch="false"/>
+						<line number="29" hits="12" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="32" hits="22" branch="false"/>
+						<line number="36" hits="11" branch="false"/>
+						<line number="37" hits="11" branch="false"/>
+						<line number="38" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="39" hits="0" branch="false"/>
+						<line number="40" hits="22" branch="false"/>
+						<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="11" branch="false"/>
+						<line number="45" hits="11" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="22" branch="false"/>
+						<line number="52" hits="11" branch="false"/>
+						<line number="53" hits="11" branch="false"/>
+						<line number="56" hits="22" branch="false"/>
+						<line number="60" hits="11" branch="false"/>
+						<line number="61" hits="11" branch="false"/>
+						<line number="64" hits="22" branch="false"/>
+						<line number="68" hits="11" branch="false"/>
+						<line number="69" hits="11" branch="false"/>
+						<line number="72" hits="10" branch="false"/>
+						<line number="73" hits="10" branch="false"/>
+						<line number="74" hits="10" branch="false"/>
+						<line number="75" hits="10" branch="false"/>
+						<line number="76" hits="10" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="77" hits="10" branch="false"/>
+						<line number="78" hits="10" branch="false"/>
+						<line number="79" hits="10" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="80" hits="0" branch="false"/>
+						<line number="82" hits="20" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="86" hits="3" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="ohtu.viitteidenHallinta" line-rate="0.986013986013986" branch-rate="0.8333333333333334" complexity="1.2608695652173914">
+			<classes>
+				<class name="ohtu.viitteidenHallinta.KenttatiedonAlustaja" filename="ohtu/viitteidenHallinta/KenttatiedonAlustaja.java" line-rate="0.979381443298969" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="13" hits="0" branch="false"/>
+								<line number="14" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="85" hits="1053" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="91" hits="975" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="104" hits="858" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="111" hits="468" branch="false"/>
+								<line number="112" hits="468" branch="false"/>
+								<line number="113" hits="468" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="118" hits="429" branch="false"/>
+								<line number="119" hits="429" branch="false"/>
+								<line number="120" hits="429" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="125" hits="351" branch="false"/>
+								<line number="126" hits="351" branch="false"/>
+								<line number="127" hits="351" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaKentat" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="132" hits="156" branch="false"/>
+								<line number="134" hits="156" branch="false"/>
+								<line number="135" hits="156" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaPakollisetKentat" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="35" hits="39" branch="false"/>
+								<line number="36" hits="63" branch="false"/>
+								<line number="37" hits="63" branch="false"/>
+								<line number="38" hits="63" branch="false"/>
+								<line number="39" hits="63" branch="false"/>
+								<line number="40" hits="63" branch="false"/>
+								<line number="41" hits="63" branch="false"/>
+								<line number="42" hits="63" branch="false"/>
+								<line number="43" hits="63" branch="false"/>
+								<line number="44" hits="63" branch="false"/>
+								<line number="45" hits="63" branch="false"/>
+								<line number="46" hits="63" branch="false"/>
+								<line number="47" hits="63" branch="false"/>
+								<line number="48" hits="63" branch="false"/>
+								<line number="49" hits="63" branch="false"/>
+								<line number="50" hits="63" branch="false"/>
+								<line number="51" hits="24" branch="false"/>
+								<line number="52" hits="24" branch="false"/>
+								<line number="53" hits="24" branch="false"/>
+								<line number="54" hits="63" branch="false"/>
+								<line number="55" hits="63" branch="false"/>
+								<line number="56" hits="24" branch="false"/>
+								<line number="57" hits="63" branch="false"/>
+								<line number="58" hits="24" branch="false"/>
+								<line number="59" hits="63" branch="false"/>
+								<line number="60" hits="24" branch="false"/>
+								<line number="61" hits="63" branch="false"/>
+								<line number="62" hits="24" branch="false"/>
+								<line number="63" hits="63" branch="false"/>
+								<line number="64" hits="24" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaTyypit" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="16" hits="48" branch="false"/>
+								<line number="17" hits="76" branch="false"/>
+								<line number="18" hits="76" branch="false"/>
+								<line number="19" hits="76" branch="false"/>
+								<line number="20" hits="76" branch="false"/>
+								<line number="21" hits="76" branch="false"/>
+								<line number="22" hits="76" branch="false"/>
+								<line number="23" hits="76" branch="false"/>
+								<line number="24" hits="76" branch="false"/>
+								<line number="25" hits="76" branch="false"/>
+								<line number="26" hits="76" branch="false"/>
+								<line number="27" hits="76" branch="false"/>
+								<line number="28" hits="76" branch="false"/>
+								<line number="29" hits="76" branch="false"/>
+								<line number="30" hits="76" branch="false"/>
+								<line number="31" hits="76" branch="false"/>
+								<line number="32" hits="28" branch="false"/>
+							</lines>
+						</method>
+						<method name="alustaVapaaehtoisetKentat" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="65" hits="39" branch="false"/>
+								<line number="67" hits="39" branch="false"/>
+								<line number="68" hits="24" branch="false"/>
+								<line number="69" hits="63" branch="false"/>
+								<line number="71" hits="63" branch="false"/>
+								<line number="72" hits="63" branch="false"/>
+								<line number="74" hits="63" branch="false"/>
+								<line number="75" hits="63" branch="false"/>
+								<line number="77" hits="63" branch="false"/>
+								<line number="78" hits="24" branch="false"/>
+								<line number="79" hits="39" branch="false"/>
+								<line number="80" hits="63" branch="false"/>
+								<line number="81" hits="24" branch="false"/>
+								<line number="83" hits="24" branch="false"/>
+								<line number="84" hits="24" branch="false"/>
+								<line number="86" hits="1077" branch="false"/>
+								<line number="87" hits="1077" branch="false"/>
+								<line number="89" hits="24" branch="false"/>
+								<line number="90" hits="24" branch="false"/>
+								<line number="92" hits="999" branch="false"/>
+								<line number="93" hits="999" branch="false"/>
+								<line number="94" hits="24" branch="false"/>
+								<line number="95" hits="24" branch="false"/>
+								<line number="97" hits="960" branch="false"/>
+								<line number="98" hits="960" branch="false"/>
+								<line number="99" hits="960" branch="false"/>
+								<line number="100" hits="24" branch="false"/>
+								<line number="102" hits="24" branch="false"/>
+								<line number="103" hits="24" branch="false"/>
+								<line number="105" hits="882" branch="false"/>
+								<line number="106" hits="882" branch="false"/>
+								<line number="107" hits="24" branch="false"/>
+								<line number="108" hits="24" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="0" branch="false"/>
+						<line number="14" hits="0" branch="false"/>
+						<line number="16" hits="48" branch="false"/>
+						<line number="17" hits="76" branch="false"/>
+						<line number="18" hits="76" branch="false"/>
+						<line number="19" hits="76" branch="false"/>
+						<line number="20" hits="76" branch="false"/>
+						<line number="21" hits="76" branch="false"/>
+						<line number="22" hits="76" branch="false"/>
+						<line number="23" hits="76" branch="false"/>
+						<line number="24" hits="76" branch="false"/>
+						<line number="25" hits="76" branch="false"/>
+						<line number="26" hits="76" branch="false"/>
+						<line number="27" hits="76" branch="false"/>
+						<line number="28" hits="76" branch="false"/>
+						<line number="29" hits="76" branch="false"/>
+						<line number="30" hits="76" branch="false"/>
+						<line number="31" hits="76" branch="false"/>
+						<line number="32" hits="28" branch="false"/>
+						<line number="35" hits="39" branch="false"/>
+						<line number="36" hits="63" branch="false"/>
+						<line number="37" hits="63" branch="false"/>
+						<line number="38" hits="63" branch="false"/>
+						<line number="39" hits="63" branch="false"/>
+						<line number="40" hits="63" branch="false"/>
+						<line number="41" hits="63" branch="false"/>
+						<line number="42" hits="63" branch="false"/>
+						<line number="43" hits="63" branch="false"/>
+						<line number="44" hits="63" branch="false"/>
+						<line number="45" hits="63" branch="false"/>
+						<line number="46" hits="63" branch="false"/>
+						<line number="47" hits="63" branch="false"/>
+						<line number="48" hits="63" branch="false"/>
+						<line number="49" hits="63" branch="false"/>
+						<line number="50" hits="63" branch="false"/>
+						<line number="51" hits="24" branch="false"/>
+						<line number="52" hits="24" branch="false"/>
+						<line number="53" hits="24" branch="false"/>
+						<line number="54" hits="63" branch="false"/>
+						<line number="55" hits="63" branch="false"/>
+						<line number="56" hits="24" branch="false"/>
+						<line number="57" hits="63" branch="false"/>
+						<line number="58" hits="24" branch="false"/>
+						<line number="59" hits="63" branch="false"/>
+						<line number="60" hits="24" branch="false"/>
+						<line number="61" hits="63" branch="false"/>
+						<line number="62" hits="24" branch="false"/>
+						<line number="63" hits="63" branch="false"/>
+						<line number="64" hits="24" branch="false"/>
+						<line number="65" hits="39" branch="false"/>
+						<line number="67" hits="39" branch="false"/>
+						<line number="68" hits="24" branch="false"/>
+						<line number="69" hits="63" branch="false"/>
+						<line number="71" hits="63" branch="false"/>
+						<line number="72" hits="63" branch="false"/>
+						<line number="74" hits="63" branch="false"/>
+						<line number="75" hits="63" branch="false"/>
+						<line number="77" hits="63" branch="false"/>
+						<line number="78" hits="24" branch="false"/>
+						<line number="79" hits="39" branch="false"/>
+						<line number="80" hits="63" branch="false"/>
+						<line number="81" hits="24" branch="false"/>
+						<line number="83" hits="24" branch="false"/>
+						<line number="84" hits="24" branch="false"/>
+						<line number="85" hits="1053" branch="false"/>
+						<line number="86" hits="1077" branch="false"/>
+						<line number="87" hits="1077" branch="false"/>
+						<line number="89" hits="24" branch="false"/>
+						<line number="90" hits="24" branch="false"/>
+						<line number="91" hits="975" branch="false"/>
+						<line number="92" hits="999" branch="false"/>
+						<line number="93" hits="999" branch="false"/>
+						<line number="94" hits="24" branch="false"/>
+						<line number="95" hits="24" branch="false"/>
+						<line number="97" hits="960" branch="false"/>
+						<line number="98" hits="960" branch="false"/>
+						<line number="99" hits="960" branch="false"/>
+						<line number="100" hits="24" branch="false"/>
+						<line number="102" hits="24" branch="false"/>
+						<line number="103" hits="24" branch="false"/>
+						<line number="104" hits="858" branch="false"/>
+						<line number="105" hits="882" branch="false"/>
+						<line number="106" hits="882" branch="false"/>
+						<line number="107" hits="24" branch="false"/>
+						<line number="108" hits="24" branch="false"/>
+						<line number="111" hits="468" branch="false"/>
+						<line number="112" hits="468" branch="false"/>
+						<line number="113" hits="468" branch="false"/>
+						<line number="118" hits="429" branch="false"/>
+						<line number="119" hits="429" branch="false"/>
+						<line number="120" hits="429" branch="false"/>
+						<line number="125" hits="351" branch="false"/>
+						<line number="126" hits="351" branch="false"/>
+						<line number="127" hits="351" branch="false"/>
+						<line number="132" hits="156" branch="false"/>
+						<line number="134" hits="156" branch="false"/>
+						<line number="135" hits="156" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.viitteidenHallinta.Viite" filename="ohtu/viitteidenHallinta/Viite.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="20" hits="30" branch="false"/>
+								<line number="21" hits="30" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="78" branch="false"/>
+								<line number="23" hits="86" branch="false"/>
+								<line number="24" hits="86" branch="false"/>
+								<line number="25" hits="86" branch="false"/>
+								<line number="26" hits="56" branch="false"/>
+								<line number="27" hits="56" branch="false"/>
+								<line number="28" hits="56" branch="false"/>
+								<line number="29" hits="56" branch="false"/>
+								<line number="30" hits="13" branch="false"/>
+							</lines>
+						</method>
+						<method name="getId" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="34" hits="16" branch="false"/>
+								<line number="35" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPakollisetKentat" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="38" hits="17" branch="false"/>
+								<line number="39" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPakollistenKenttienNimet" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="50" hits="6" branch="false"/>
+								<line number="51" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="16" branch="false"/>
+								<line number="43" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVapaaehtoisetKentat" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="46" hits="12" branch="false"/>
+								<line number="47" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVapaaehtoistenKenttienNimet" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="6" branch="false"/>
+								<line number="55" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPakollisetKentat" signature="(Ljava/util/ArrayList;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="48" hits="5" branch="false"/>
+								<line number="49" hits="5" branch="false"/>
+								<line number="60" hits="6" branch="false"/>
+								<line number="61" hits="7" branch="false"/>
+								<line number="62" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVapaaehtoisetKentat" signature="(Ljava/util/ArrayList;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="52" hits="5" branch="false"/>
+								<line number="53" hits="5" branch="false"/>
+								<line number="64" hits="6" branch="false"/>
+								<line number="65" hits="7" branch="false"/>
+								<line number="66" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="20" hits="30" branch="false"/>
+						<line number="21" hits="30" branch="false"/>
+						<line number="22" hits="78" branch="false"/>
+						<line number="23" hits="86" branch="false"/>
+						<line number="24" hits="86" branch="false"/>
+						<line number="25" hits="86" branch="false"/>
+						<line number="26" hits="56" branch="false"/>
+						<line number="27" hits="56" branch="false"/>
+						<line number="28" hits="56" branch="false"/>
+						<line number="29" hits="56" branch="false"/>
+						<line number="30" hits="13" branch="false"/>
+						<line number="34" hits="16" branch="false"/>
+						<line number="35" hits="1" branch="false"/>
+						<line number="38" hits="17" branch="false"/>
+						<line number="39" hits="2" branch="false"/>
+						<line number="42" hits="16" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="46" hits="12" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="5" branch="false"/>
+						<line number="49" hits="5" branch="false"/>
+						<line number="50" hits="6" branch="false"/>
+						<line number="51" hits="1" branch="false"/>
+						<line number="52" hits="5" branch="false"/>
+						<line number="53" hits="5" branch="false"/>
+						<line number="54" hits="6" branch="false"/>
+						<line number="55" hits="1" branch="false"/>
+						<line number="60" hits="6" branch="false"/>
+						<line number="61" hits="7" branch="false"/>
+						<line number="62" hits="1" branch="false"/>
+						<line number="64" hits="6" branch="false"/>
+						<line number="65" hits="7" branch="false"/>
+						<line number="66" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.viitteidenHallinta.ViiteInterface" filename="ohtu/viitteidenHallinta/ViiteInterface.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="ohtu.viitteidenHallinta.ViitetyyppienKenttainformaatio" filename="ohtu/viitteidenHallinta/ViitetyyppienKenttainformaatio.java" line-rate="1.0" branch-rate="0.8333333333333334" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="50" branch="false"/>
+								<line number="19" hits="50" branch="false"/>
+								<line number="20" hits="50" branch="false"/>
+								<line number="21" hits="50" branch="false"/>
+								<line number="22" hits="50" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTyypinPakollisetKentat" signature="(Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="0.8333333333333334">
+							<lines>
+								<line number="25" hits="161" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="26" hits="151" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="27" hits="11" branch="false"/>
+								<line number="29" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTyypinVapaaehtoisetKentat" signature="(Ljava/lang/String;)Ljava/util/ArrayList;" line-rate="1.0" branch-rate="0.8333333333333334">
+							<lines>
+								<line number="33" hits="169" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="34" hits="159" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="35" hits="19" branch="false"/>
+								<line number="37" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="18" hits="50" branch="false"/>
+						<line number="19" hits="50" branch="false"/>
+						<line number="20" hits="50" branch="false"/>
+						<line number="21" hits="50" branch="false"/>
+						<line number="22" hits="50" branch="false"/>
+						<line number="25" hits="161" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="26" hits="151" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="27" hits="11" branch="false"/>
+						<line number="29" hits="10" branch="false"/>
+						<line number="33" hits="169" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="34" hits="159" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="35" hits="19" branch="false"/>
+						<line number="37" hits="10" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
