@@ -1,22 +1,21 @@
-import tarvittavat paketit
+import ohtu.*
+import ohtu.viitteidenHallinta.*
+import java.util.*
 
 description 'Käyttäjä voi lisätä viitteen järjestelmään'
 
 
-scenario "user can login with correct password", {
-    given 'command login selected', {
-       userDao = new InMemoryUserDao()
-       auth = new AuthenticationService(userDao)
-       io = new StubIO("login", "pekka", "akkep") 
-       app = new App(io, auth)
+scenario "käyttäjän voi onnistuneesti lisätä viiteen järjestlmään", {
+    given 'valitaan viitteen lisääminen', {
+       sailo = new ViiteSailo()
+       viite = new Viite("tyyppi", "id", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>())
+    }
+    when 'Oikeat tiedot syötetään järjestelmään', {
+       sailo.addViite(viite)
     }
 
-    when 'a valid username and password are entered', {
-       app.run()
-    }
-
-    then 'user will be logged in to system', {
-       io.getPrints().shouldHave("logged in")
+    then 'viite on lisätty järjestelmään', {
+       sailo.getViitteet().get(0).getType().shouldBe "tyyppi"
     }
 }
 

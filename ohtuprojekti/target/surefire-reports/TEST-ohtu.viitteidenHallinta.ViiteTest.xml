@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.073" errors="0" skipped="0" tests="8" name="ohtu.viitteidenHallinta.ViiteTest">
+<testsuite failures="0" time="0.022" errors="0" skipped="0" tests="8" name="ohtu.viitteidenHallinta.ViiteTest">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk/jre/lib/i386"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-6-openjdk/jre/lib/endorsed"/>
     <property name="os.arch" value="i386"/>
-    <property name="surefire.real.class.path" value="/tmp/surefirebooter5139050427497672015.jar"/>
+    <property name="surefire.real.class.path" value="/tmp/surefirebooter3205454964055164883.jar"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
@@ -27,7 +27,7 @@
     <property name="os.name" value="Linux"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/lib/jvm/java-6-openjdk/jre/lib/i386/client:/usr/lib/jvm/java-6-openjdk/jre/lib/i386:/usr/lib/jvm/java-6-openjdk/jre/../lib/i386:/usr/java/packages/lib/i386:/usr/lib/jni:/lib:/usr/lib"/>
-    <property name="surefire.test.class.path" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/test-classes:/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/generated-classes/cobertura:/home/iimakis/.m2/repository/junit/junit/4.10/junit-4.10.jar:/home/iimakis/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/home/iimakis/.m2/repository/net/sourceforge/cobertura/cobertura/1.9.4.1/cobertura-1.9.4.1.jar:/home/iimakis/.m2/repository/org/apache/ant/ant/1.7.0/ant-1.7.0.jar:/home/iimakis/.m2/repository/org/apache/ant/ant-launcher/1.7.0/ant-launcher-1.7.0.jar:"/>
+    <property name="surefire.test.class.path" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/test-classes:/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/classes:/home/iimakis/.m2/repository/junit/junit/4.10/junit-4.10.jar:/home/iimakis/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/home/iimakis/.m2/repository/org/easyb/easyb-core/1.5/easyb-core-1.5.jar:/home/iimakis/.m2/repository/org/codehaus/groovy/groovy-all/1.7.10/groovy-all-1.7.10.jar:/home/iimakis/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/home/iimakis/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar:/home/iimakis/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="50.0"/>
     <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
@@ -38,7 +38,7 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="1.6"/>
     <property name="user.name" value="iimakis"/>
-    <property name="java.class.path" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/test-classes:/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/generated-classes/cobertura:/home/iimakis/.m2/repository/junit/junit/4.10/junit-4.10.jar:/home/iimakis/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/home/iimakis/.m2/repository/net/sourceforge/cobertura/cobertura/1.9.4.1/cobertura-1.9.4.1.jar:/home/iimakis/.m2/repository/org/apache/ant/ant/1.7.0/ant-1.7.0.jar:/home/iimakis/.m2/repository/org/apache/ant/ant-launcher/1.7.0/ant-launcher-1.7.0.jar:"/>
+    <property name="java.class.path" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/test-classes:/home/iimakis/koulu/ohtu/miniprojekti/sprintti1/sprintti1/ohtuprojekti/target/classes:/home/iimakis/.m2/repository/junit/junit/4.10/junit-4.10.jar:/home/iimakis/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/home/iimakis/.m2/repository/org/easyb/easyb-core/1.5/easyb-core-1.5.jar:/home/iimakis/.m2/repository/org/codehaus/groovy/groovy-all/1.7.10/groovy-all-1.7.10.jar:/home/iimakis/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/home/iimakis/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar:/home/iimakis/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:"/>
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="32"/>
     <property name="java.home" value="/usr/lib/jvm/java-6-openjdk/jre"/>
@@ -57,12 +57,12 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.036" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetId"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetPakollisetKentat"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetId"/>
+  <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetPakollisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetPakollistenKenttienNimet"/>
-  <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetVapaaehtoistenKenttienNimet"/>
-  <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetType"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetVapaaehtoistenKenttienNimet"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetType"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetVapaaehtoisetKentat"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testSetPakollisetKentat"/>
+  <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViiteTest" name="testSetPakollisetKentat"/>
   <testcase time="0.001" classname="ohtu.viitteidenHallinta.ViiteTest" name="testSetVapaaehtoisetKentat"/>
 </testsuite>

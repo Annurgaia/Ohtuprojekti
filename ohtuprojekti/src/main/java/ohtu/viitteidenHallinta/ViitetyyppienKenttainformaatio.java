@@ -21,6 +21,10 @@ public class ViitetyyppienKenttainformaatio {
         tyyppienVapaaehtoisetKentat = KenttatiedonAlustaja.alustaVapaaehtoisetKentat();
     }
     
+    public ArrayList<String> getViiteTyypit() {
+        return tyypit;
+    }
+    
     public ArrayList<String> getTyypinPakollisetKentat(String tyyppi) {
         for (int i = 0; i < tyypit.size(); i++) {
             if (tyyppi.toLowerCase().equals(tyypit.get(i)))  // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!

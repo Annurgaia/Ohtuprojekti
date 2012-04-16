@@ -1,21 +1,25 @@
-import tarvittavat paketit
+import ohtu.*
+import ohtu.viitteidenHallinta.*
+import java.util.*
 
 description 'Käyttäjä saa halutessaan listauksen järjestelmään lisätyistä viitteistä'
 
-scenario "user can login with correct password", {
-    given 'command login selected', {
-       userDao = new InMemoryUserDao()
-       auth = new AuthenticationService(userDao)
-       io = new StubIO("login", "pekka", "akkep") 
-       app = new App(io, auth)
+scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
+    given 'valitessa viitteiden listaus', {
+       sailo = new ViiteSailo()
+       list1 = new ArrayList<String>()
+       list1.add("koira")
+       list2 = new ArrayList<String>()
+       list2.add("kissa")
+       viite = new Viite("tyyppi", "id", new ArrayList<String>() , new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>())
     }
 
-    when 'a valid username and password are entered', {
-       app.run()
+    when 'pyydetään listausta viitteistä', {
+        sailo.addViite(viite)
     }
 
-    then 'user will be logged in to system', {
-       io.getPrints().shouldHave("logged in")
+    then 'saadaan listamuotoinen selkeä esitys viitteistä', {
+        sailo.listaaViitteet().shouldBe "Tyyppi: tyyppi\nId: id\n\n"
     }
 }
 
