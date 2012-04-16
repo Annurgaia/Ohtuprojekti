@@ -10,11 +10,7 @@ import java.util.ArrayList;
  *
  * @author iimakis
  */
-<<<<<<< HEAD
 public class Viite implements ViiteInterface {
-=======
-public class Viite implements ViiteInterface{
->>>>>>> feature-bibtex
     private String type;
     private String id;
     private ArrayList<String> pakollisetKentat;
