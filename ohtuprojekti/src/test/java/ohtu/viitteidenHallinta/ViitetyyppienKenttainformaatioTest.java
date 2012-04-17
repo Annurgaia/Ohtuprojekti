@@ -6,8 +6,9 @@ package ohtu.viitteidenHallinta;
 
 import java.util.HashMap;
 import java.util.Map;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.*;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -49,7 +50,8 @@ public class ViitetyyppienKenttainformaatioTest {
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
         HashMap<String, String> result = instance.getTyypinPakollisetKentat(tyyppi);
         for(Map.Entry<String, String> entry : result.entrySet()){
-            toimiiko = resultList.containsKey(entry.getKey());
+            if(!resultList.containsKey(entry.getKey()))
+                toimiiko = false;
         }
         assertTrue(toimiiko);
     }
