@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -38,8 +39,7 @@ public class ViiteTest {
      */
     @Test
     public void testGetId() {
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
-                new ArrayList<String>(), new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", new HashMap<String, String>(), new HashMap<String, String>());
         String expResult = "W06";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -50,42 +50,20 @@ public class ViiteTest {
      */
     @Test
     public void testGetPakollisetKentat() {
-        ArrayList<String> pakollisetKentat = new ArrayList<String>();
-        pakollisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>(),
-                new ArrayList<String>(), new ArrayList<String>());
+        HashMap<String, String> pakollisetKentat = new HashMap<String, String>();
+        pakollisetKentat.put("nimi", null);
+        Viite instance = new Viite("article", "W06", pakollisetKentat, new HashMap<String, String>());
         String expResult = "nimi";
-        String result = instance.getPakollisetKentat().get(0);
-        assertEquals(expResult, result);
+        Boolean result = instance.getPakollisetKentat().containsKey(expResult);
+        assertEquals(true, result);
     }
     
-        @Test
-    public void testGetPakollistenKenttienNimet() {
-        ArrayList<String> pakollistenKenttienNimet = new ArrayList<String>();
-        pakollistenKenttienNimet.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
-                pakollistenKenttienNimet, new ArrayList<String>());
-        String expResult = "nimi";
-        String result = instance.getPakollistenKenttienNimet().get(0);
-        assertEquals(expResult, result);
-    }
-    @Test
-    public void testGetVapaaehtoistenKenttienNimet() {
-        ArrayList<String> vapaaehtoistenKenttienNimet = new ArrayList<String>();
-        vapaaehtoistenKenttienNimet.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
-                new ArrayList<String>(), vapaaehtoistenKenttienNimet);
-        String expResult = "nimi";
-        String result = instance.getVapaaehtoistenKenttienNimet().get(0);
-        assertEquals(expResult, result);
-    }
     /**
      * Test of getType method, of class Viite.
      */
     @Test
     public void testGetType() {
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new ArrayList<String>(),
-                new ArrayList<String>(), new ArrayList<String>());
+        Viite instance = new Viite("article", "W06", new HashMap<String, String>(), new HashMap<String, String>());
         String expResult = "article";
         String result = instance.getType();
         assertEquals(expResult, result);
@@ -96,13 +74,12 @@ public class ViiteTest {
      */
     @Test
     public void testGetVapaaehtoisetKentat() {
-        ArrayList<String> vapaaehtoisetKentat = new ArrayList<String>();
-        vapaaehtoisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat,
-                new ArrayList<String>(), new ArrayList<String>());
+        HashMap<String, String> vapaaehtoisetKentat = new HashMap<String, String>();
+        vapaaehtoisetKentat.put("nimi", null);
+        Viite instance = new Viite("article", "W06", new HashMap<String, String>(), vapaaehtoisetKentat);
         String expResult = "nimi";
-        String result = instance.getVapaaehtoisetKentat().get(0);
-        assertEquals(expResult, result);
+        Boolean result = instance.getVapaaehtoisetKentat().containsKey(expResult);
+        assertEquals(true, result);
     }
 
     /**
@@ -110,16 +87,15 @@ public class ViiteTest {
      */
     @Test
     public void testSetPakollisetKentat() {
-        ArrayList<String> pakollisetKentat = new ArrayList<String>();
-        pakollisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new ArrayList<String>(),
-                new ArrayList<String>(), new ArrayList<String>());
-        ArrayList<String> uusi = new ArrayList<String>();
-        uusi.add("nimuh");
+        HashMap<String, String> pakollisetKentat = new HashMap<String, String>();
+        pakollisetKentat.put("nimi", null);
+        Viite instance = new Viite("article", "W06", pakollisetKentat, new HashMap<String, String>());
+        HashMap<String, String> uusi = new HashMap<String, String>();
+        uusi.put("nimuh", null);
         instance.setPakollisetKentat(uusi);
         String expResult = "nimuh";
-        String result = instance.getPakollisetKentat().get(0);
-        assertEquals(expResult, result);
+        Boolean result = instance.getPakollisetKentat().containsKey(expResult);
+        assertEquals(true, result);
     }
 
     /**
@@ -127,15 +103,14 @@ public class ViiteTest {
      */
     @Test
     public void testSetVapaaehtoisetKentat() {
-        ArrayList<String> vapaaehtoisetKentat = new ArrayList<String>();
-        vapaaehtoisetKentat.add("nimi");
-        Viite instance = new Viite("article", "W06", new ArrayList<String>(), vapaaehtoisetKentat,
-                new ArrayList<String>(), new ArrayList<String>());
-        ArrayList<String> uusi = new ArrayList<String>();
-        uusi.add("nimuh");
+        HashMap<String, String> vapaaehtoisetKentat = new HashMap<String, String>();
+        vapaaehtoisetKentat.put("nimi", null);
+        Viite instance = new Viite("article", "W06", new HashMap<String, String>(), vapaaehtoisetKentat);
+        HashMap<String, String> uusi = new HashMap<String, String>();
+        uusi.put("nimuh", null);
         instance.setVapaaehtoisetKentat(uusi);
         String expResult = "nimuh";
-        String result = instance.getVapaaehtoisetKentat().get(0);
-        assertEquals(expResult, result);
+        Boolean result = instance.getVapaaehtoisetKentat().containsKey(expResult);
+        assertEquals(true, result);
     }
 }

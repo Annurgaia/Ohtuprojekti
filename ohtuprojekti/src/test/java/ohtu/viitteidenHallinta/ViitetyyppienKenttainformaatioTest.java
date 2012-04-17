@@ -4,7 +4,8 @@
  */
 package ohtu.viitteidenHallinta;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -39,17 +40,16 @@ public class ViitetyyppienKenttainformaatioTest {
     @Test
     public void testGetTyypinPakollisetKentat() {
         String tyyppi = "article";
-        ArrayList<String> resultList = new ArrayList<String>();
-        resultList.add("author");
-        resultList.add("title");
-        resultList.add("journal");
-        resultList.add("year");
+        HashMap<String, String> resultList = new HashMap<String, String>();
+        resultList.put("author", null);
+        resultList.put("title", null);
+        resultList.put("journal", null);
+        resultList.put("year", null);
         boolean toimiiko = true;
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
-        ArrayList result = instance.getTyypinPakollisetKentat(tyyppi);
-        for (int i = 0; i < resultList.size(); i++) {
-            if (!result.get(i).equals(resultList.get(i)))
-                toimiiko = false;
+        HashMap<String, String> result = instance.getTyypinPakollisetKentat(tyyppi);
+        for(Map.Entry<String, String> entry : result.entrySet()){
+            toimiiko = resultList.containsKey(entry.getKey());
         }
         assertTrue(toimiiko);
     }
@@ -57,10 +57,10 @@ public class ViitetyyppienKenttainformaatioTest {
     @Test
     public void testGetTyypinPakollisetKentat2() {
         String tyyppi = "articla";
-        ArrayList<String> resultList = new ArrayList<String>();
+        HashMap<String, String> resultList = new HashMap<String, String>();
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
-        ArrayList result = instance.getTyypinPakollisetKentat(tyyppi);
-        ArrayList expresult = null;
+        HashMap<String, String> result = instance.getTyypinPakollisetKentat(tyyppi);
+        HashMap expresult = null;
         assertEquals(expresult, result);
     }
 
@@ -71,19 +71,18 @@ public class ViitetyyppienKenttainformaatioTest {
     @Test
     public void testGetTyypinVapaaehtoisetKentat() {
         String tyyppi = "article";
-        ArrayList<String> resultList = new ArrayList<String>();
-        resultList.add("volume");
-        resultList.add("number");
-        resultList.add("pages");
-        resultList.add("month");
-        resultList.add("note");
-        resultList.add("key");
+        HashMap<String, String> resultList = new HashMap<String, String>();
+        resultList.put("volume", null);
+        resultList.put("number", null);
+        resultList.put("pages", null);
+        resultList.put("month", null);
+        resultList.put("note", null);
+        resultList.put("key", null);
         boolean toimiiko = true;
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
-        ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
-        for (int i = 0; i < resultList.size(); i++) {
-            if (!result.get(i).equals(resultList.get(i)))
-                toimiiko = false;
+        HashMap<String, String> result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
+        for(Map.Entry<String, String> entry : result.entrySet()){
+            toimiiko = resultList.containsKey(entry.getKey());
         }
         assertTrue(toimiiko);
     }
@@ -93,29 +92,29 @@ public class ViitetyyppienKenttainformaatioTest {
     @Test
     public void testGetTyypinVapaaehtoisetKentat2() {
         String tyyppi = "";
-        ArrayList<String> resultList = new ArrayList<String>();
+        HashMap<String, String> resultList = new HashMap<String, String>();
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
-        ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
-        ArrayList expresult = null;
+        HashMap<String, String> result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
+        HashMap expresult = null;
         assertEquals(expresult, result);
     }
     
         @Test
     public void testGetTyypinVapaaehtoisetKentat3() {
         String tyyppi = "ARTICLE";
-        ArrayList<String> resultList = new ArrayList<String>();
-        resultList.add("volume");
-        resultList.add("number");
-        resultList.add("pages");
-        resultList.add("month");
-        resultList.add("note");
-        resultList.add("key");
+        HashMap<String, String> resultList = new HashMap<String, String>();
+        resultList.put("volume", null);
+        resultList.put("number", null);
+        resultList.put("pages", null);
+        resultList.put("month", null);
+        resultList.put("note", null);
+        resultList.put("key", null);
         boolean toimiiko = true;
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
-        ArrayList result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
-        for (int i = 0; i < resultList.size(); i++) {
-            if (!result.get(i).equals(resultList.get(i)))
-                toimiiko = false;
+        HashMap<String, String> result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
+
+        for(Map.Entry<String, String> entry : result.entrySet()){
+            toimiiko = resultList.containsKey(entry.getKey());
         }
         assertTrue(toimiiko);
     }

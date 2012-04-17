@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,19 +41,19 @@ public class ViiteTarkistinTest {
 
     @Test
     public void testTarkistaPakollisetToimii() {
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("asd");
-        list.add("asd");
-        list.add("asd");
+        HashMap<String, String> list = new HashMap<String, String>();
+        list.put("asd", "asd");
+        list.put("123", "123");
+        list.put("tttt", "asdsdd");
         assertEquals(true, tark.tarkistaPakolliset(list));
     }
     
     @Test
     public void testTarkistaPakollisetEIToimi() {
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("asd");
-        list.add("asd");
-        list.add("");
+        HashMap<String, String> list = new HashMap<String, String>();
+        list.put("asd", "asdsad");
+        list.put("asd", "adälg");
+        list.put("", "");
         assertEquals(false, tark.tarkistaPakolliset(list));
     }
 }

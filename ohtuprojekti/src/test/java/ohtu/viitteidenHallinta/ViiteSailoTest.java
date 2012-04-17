@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,18 +35,13 @@ public class ViiteSailoTest {
     public void setUp() {
         String nimi = "testiviite";
         String id = "1";
-        ArrayList<String> pn = new ArrayList<String>();
-        pn.add("Nimi");
-        pn.add("Titteli");
-        ArrayList<String> p = new ArrayList<String>();
-        p.add("Pekka");
-        p.add("Tutkimus olusenjuonnista");
-        ArrayList<String> v = new ArrayList<String>();
-        v.add("Vuosi");
-        ArrayList<String> vn = new ArrayList<String>();
-        vn.add("1245");
+        HashMap<String, String> pn = new HashMap<String, String>();
+        pn.put("Nimi", "Pekka");
+        pn.put("Titteli", "Tutkimus olusenjuonnista");
+        HashMap<String, String> v = new HashMap<String, String>();
+        v.put("Vuosi", "1245");
         
-        viite = new Viite(nimi, id, p, v, pn, vn);
+        viite = new Viite(nimi, id, pn, v);
         sailo = new ViiteSailo();
         
     }
@@ -77,13 +73,15 @@ public class ViiteSailoTest {
     @Test
     public void testMuokkaaMuokkaa() {
         sailo.addViite(viite);
-        ArrayList<String> p = new ArrayList<String>();
-        p.add("Mikko");
-        p.add("Tutkimus olusenjuonnista");
-        ArrayList<String> v = new ArrayList<String>();
-        v.add("Vuosi");
+        HashMap<String, String> p = new HashMap<String, String>();
+        p.put("Nimi", "Mikko");
+        p.put("Titteli", "Tutkimus olusenjuonnista");
+        HashMap<String, String> v = new HashMap<String, String>();
+        v.put("Vuosi", "");
         sailo.muokkaaViitetta("1", p, v);
-        assertEquals("Mikko", sailo.haeViite("1").getPakollisetKentat().get(0));
+        HashMap<String, String> viite = sailo.haeViite("1").getPakollisetKentat();
+        assertEquals(true, viite.containsValue("Mikko")
+                && viite.containsValue("Tutkimus olusenjuonnista"));
     }
     @Test
     public void testHaePalauttaNullJosVääräID() {
