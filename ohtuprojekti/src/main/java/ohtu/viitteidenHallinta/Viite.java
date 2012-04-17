@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -14,19 +15,19 @@ import java.util.ArrayList;
 public class Viite implements ViiteInterface {
     private String type;
     private String id;
-    private ArrayList<String> pakollisetKentat;
-    private ArrayList<String> vapaaehtoisetKentat;
-    private ArrayList<String> pakollistenKenttienNimet;
-    private ArrayList<String> vapaaehtoistenKenttienNimet;    
+    private HashMap<String, String> pakollisetKentat;
+    private HashMap<String, String> vapaaehtoisetKentat;
     
-    public Viite(String type, String id, ArrayList<String> pakollisetKentat, ArrayList<String> vapaaehtoisetKentat,
-            ArrayList<String> pakollistenKenttienNimet, ArrayList<String> vapaaehtoistenKenttienNimet) {
+//    private ArrayList<String> pakollisetKentat;
+//    private ArrayList<String> vapaaehtoisetKentat;
+//    private ArrayList<String> pakollistenKenttienNimet;
+//    private ArrayList<String> vapaaehtoistenKenttienNimet;    
+    
+    public Viite(String type, String id, HashMap <String, String> pakollisetKentat, HashMap<String, String> vapaaehtoisetKentat) {
         this.type = type;
         this.id = id;
         this.pakollisetKentat = pakollisetKentat;
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
-        this.pakollistenKenttienNimet = pakollistenKenttienNimet;
-        this.vapaaehtoistenKenttienNimet = vapaaehtoistenKenttienNimet;
     }
    
     // getterit
@@ -35,7 +36,7 @@ public class Viite implements ViiteInterface {
         return id;
     }
 
-    public ArrayList<String> getPakollisetKentat() {
+    public HashMap <String, String> getPakollisetKentat() {
         return pakollisetKentat;
     }
 
@@ -43,25 +44,17 @@ public class Viite implements ViiteInterface {
         return type;
     }
 
-    public ArrayList<String> getVapaaehtoisetKentat() {
+    public HashMap <String, String> getVapaaehtoisetKentat() {
         return vapaaehtoisetKentat;
     }
-
-    public ArrayList<String> getPakollistenKenttienNimet() {
-        return pakollistenKenttienNimet;
-    }
-
-    public ArrayList<String> getVapaaehtoistenKenttienNimet() {
-        return vapaaehtoistenKenttienNimet;
-    }
-    
+  
     // setterit
 
-    public void setPakollisetKentat(ArrayList<String> pakollisetKentat) {
+    public void setPakollisetKentat(HashMap <String, String> pakollisetKentat) {
         this.pakollisetKentat = pakollisetKentat;
     }
 
-    public void setVapaaehtoisetKentat(ArrayList<String> vapaaehtoisetKentat) {
+    public void setVapaaehtoisetKentat(HashMap <String, String> vapaaehtoisetKentat) {
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
     

@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -28,12 +29,12 @@ public class ViiteHallinta {
                             continue;
                         }
                         String nimi = info.getViiteTyypit().get(temp - 1);
-                        ArrayList<String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
-                        ArrayList<String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
+                        HashMap <String, String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
+                        HashMap <String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
                         if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
                             continue;
                         }
-                        Viite viite = new Viite(nimi, id, pakolliset, vapaaehtoiset, info.getTyypinPakollisetKentat(nimi), info.getTyypinVapaaehtoisetKentat(nimi));
+                        Viite viite = new Viite(nimi, id, pakolliset, vapaaehtoiset);
                         sailo.addViite(viite);
                         id = "" + Integer.parseInt(id) + 1;
                         break;
@@ -47,8 +48,8 @@ public class ViiteHallinta {
                             System.out.println("Viitettä ei löydy");
                             continue;
                         }
-                        ArrayList<String> pakolliset = test.kysyPakollisetKentat(viite.getPakollistenKenttienNimet());
-                        ArrayList<String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoistenKenttienNimet());
+                        HashMap <String, String> pakolliset = test.kysyPakollisetKentat(viite.getPakollisetKentat());
+                        HashMap <String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoisetKentat());
                         if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
                             continue;
                         }
