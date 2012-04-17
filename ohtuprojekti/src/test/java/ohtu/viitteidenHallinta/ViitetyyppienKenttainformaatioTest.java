@@ -82,7 +82,8 @@ public class ViitetyyppienKenttainformaatioTest {
         ViitetyyppienKenttainformaatio instance = new ViitetyyppienKenttainformaatio();
         HashMap<String, String> result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
         for(Map.Entry<String, String> entry : result.entrySet()){
-            toimiiko = resultList.containsKey(entry.getKey());
+            if(!resultList.containsKey(entry.getKey()))
+                toimiiko = false;
         }
         assertTrue(toimiiko);
     }
@@ -114,7 +115,8 @@ public class ViitetyyppienKenttainformaatioTest {
         HashMap<String, String> result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
 
         for(Map.Entry<String, String> entry : result.entrySet()){
-            toimiiko = resultList.containsKey(entry.getKey());
+            if(!resultList.containsKey(entry.getKey()))
+                toimiiko = false;
         }
         assertTrue(toimiiko);
     }
