@@ -1,25 +1,30 @@
 package ohtu.bibtex;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import ohtu.viitteidenHallinta.ViiteInterface;
+import ohtu.viitteidenHallinta.ViiteSailo;
 
 public class Bibtex{
 
 
-    ViiteInterface viite;
-        
-    public Bibtex(ViiteInterface viite){
-        this.viite = viite;
-    }
+    private ViiteSailo viitteet;
     
-    public void printAsBibtex(){
+    public void printAsBibtex(ViiteInterface viite){
+        Set<Entry<String, String>> pakolliset = viite.getPakollisetKentat().entrySet();
+        Set<Entry<String, String>> vapaaehtoiset = viite.getVapaaehtoisetKentat().entrySet();
         System.out.print("@"+viite.getType()+"{"+viite.getId()+",\n");
-        for (int i = 0; i < viite.getPakollisetKentat().size(); i++) {
-            System.out.print("\t"+viite.getPakollistenKenttienNimet().get(i) +" = "
-                    +"\""+skanditBibtexiin(viite.getPakollisetKentat().get(i))+"\",\n");
-            
+        for(Map.Entry<String, String> entry : pakolliset){
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.print("\t"+key+" = "+"\""+skanditBibtexiin(value)+
+                    "\",\n");
         }
-        for (int i = 0; i < viite.getVapaaehtoisetKentat().size(); i++) {
-            System.out.print("\t"+viite.getVapaaehtoistenKenttienNimet().get(i) +" = "
-                    +"\""+skanditBibtexiin(viite.getVapaaehtoisetKentat().get(i))+"\",\n");
+        for(Map.Entry<String, String> entry : vapaaehtoiset){
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.print("\t"+key+" = "+"\""+skanditBibtexiin(value)+
+                    "\",\n");
         }
         System.out.print("}");
     }
@@ -32,19 +37,28 @@ public class Bibtex{
         return korjattu;
     }
     
-    public String getAsBibtex(){
+    public String getAsBibtex(ViiteInterface viite){
+        Set<Entry<String, String>> pakolliset = viite.getPakollisetKentat().entrySet();
+        Set<Entry<String, String>> vapaaehtoiset = viite.getVapaaehtoisetKentat().entrySet();
         String bibtex;
         bibtex = "@"+viite.getType()+"{"+viite.getId()+",\n";
-        for (int i = 0; i < viite.getPakollisetKentat().size(); i++) {
-            bibtex += "\t"+viite.getPakollistenKenttienNimet().get(i) +" = "
-                    +"\""+skanditBibtexiin(viite.getPakollisetKentat().get(i))+"\",\n";
-            
+        
+        for(Map.Entry<String, String> entry : pakolliset){
+            String key = entry.getKey();
+            String value = entry.getValue();
+            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\n";
         }
-        for (int i = 0; i < viite.getVapaaehtoisetKentat().size(); i++) {
-            bibtex += "\t"+viite.getVapaaehtoistenKenttienNimet().get(i) +" = "
-                    +"\""+skanditBibtexiin(viite.getVapaaehtoisetKentat().get(i))+"\",\n";
+        
+        for(Map.Entry<String, String> entry : vapaaehtoiset){
+            String key = entry.getKey();
+            String value = entry.getValue();
+            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\n";
         }
         bibtex += "}";
         return bibtex;
+    }
+    
+    public void tallennaTiedostoon(String tiedosto){
+        
     }
 }

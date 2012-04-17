@@ -1,9 +1,8 @@
 package ohtu.bibtex;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
+import java.util.HashMap;
 import ohtu.viitteidenHallinta.Viite;
-import ohtu.viitteidenHallinta.ViiteInterface;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,48 +10,75 @@ import org.junit.Test;
 public class BibtexTest{
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     Bibtex bt;
+    Viite viites;
     
     @Before
     public void setUp(){
-        ArrayList pakollisetKentat = new ArrayList<String>();
-        ArrayList pakollistenKenttienNimet = new ArrayList<String>();
-        ArrayList vapaaehtoisetKentat = new ArrayList<String>();
-        ArrayList vapaaehtoistenKenttienNimet = new ArrayList<String>();
-        pakollisetKentat.add("nimiö");
-        pakollisetKentat.add("TestiTitleå");
-        pakollisetKentat.add("TestJournalä");
-        pakollisetKentat.add("1994");
-        pakollistenKenttienNimet.add("author");
-        pakollistenKenttienNimet.add("title");
-        pakollistenKenttienNimet.add("journal");
-        pakollistenKenttienNimet.add("year");
-        vapaaehtoisetKentat.add("5");
-        vapaaehtoisetKentat.add("18");
-        vapaaehtoistenKenttienNimet.add("number");
-        vapaaehtoistenKenttienNimet.add("pages");
-        
-        Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat,
-                pakollistenKenttienNimet, vapaaehtoistenKenttienNimet);
-        bt = new Bibtex(viites);
+        HashMap pakollisetKentat = new HashMap<String, String>();
+        HashMap vapaaehtoisetKentat = new HashMap<String, String>();
+
+        pakollisetKentat.put("author", "nimiö");
+        pakollisetKentat.put("title", "TestiTitleå");
+        pakollisetKentat.put("journal", "TestJournalä");
+        pakollisetKentat.put("year", "1994");
+        vapaaehtoisetKentat.put("number", "5");
+        vapaaehtoisetKentat.put("pages", "18");
+                
+        viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        bt = new Bibtex();
         System.setOut(new PrintStream(outContent));
     }
     
     @Test
     public void testPrintAsBibtex(){
-        bt.printAsBibtex();
-        assertEquals(bt.getAsBibtex(), outContent.toString());
+        bt.printAsBibtex(viites);
+        assertEquals(bt.getAsBibtex(viites), outContent.toString());
     }
     
     @Test
-    public void testGetAsBibtex(){
-        String exp = "@article{W06,\n"
-                + "\tauthor = \"nimi\\\"{o}\",\n"
-                + "\ttitle = \"TestiTitle\\aa\",\n"
-                + "\tjournal = \"TestJournal\\\"{a}\",\n"
-                + "\tyear = \"1994\",\n"
-                + "\tnumber = \"5\",\n"
-                + "\tpages = \"18\",\n"
-                + "}";
-        assertEquals(bt.getAsBibtex(), exp);
-    }    ViiteInterface viite;
+    public void testGetAsBibtexId(){
+        String id = "@article{W06,\n";
+        assertEquals(bt.getAsBibtex(viites).contains(id), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexAuthor(){
+        String author = "\tauthor = \"nimi\\\"{o}\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(author), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexTitle(){
+        String title = "\ttitle = \"TestiTitle\\aa\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(title), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexJournal(){
+        String journal = "\tjournal = \"TestJournal\\\"{a}\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(journal), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexYear(){
+        String year = "\tyear = \"1994\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(year), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexNumber(){
+        String number = "\tnumber = \"5\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(number), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexPages(){
+        String pages = "\tpages = \"18\",\n";
+        assertEquals(bt.getAsBibtex(viites).contains(pages), true);
+    }
+    
+    @Test
+    public void testGetAsBibtexClosingBracket(){
+        assertEquals(bt.getAsBibtex(viites).contains("}"), true);
+    }
 }
