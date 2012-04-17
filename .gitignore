@@ -1,2 +1,7 @@
 ohtuprojekti/target/classes/*.class
 ohtuprojekti/target/test-classes/*.class
+ohtuprojekti/target/classes/.netbeans_automatic_build
+ohtuprojekti/target/classes/.netbeans_update_resources
+ohtuprojekti/target/cobertura/
+ohtuprojekti/target/generated-classes/
+ohtuprojekti/target/maven-archiver/
