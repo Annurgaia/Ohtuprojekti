@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -15,9 +16,9 @@ public class ViiteTarkistin {
     public ViiteTarkistin() {
     }
 
-    public boolean tarkistaPakolliset(ArrayList<String> list) {
-        for (String s : list) {
-            if (s.equals("")) {
+    public boolean tarkistaPakolliset(HashMap <String, String> list) {
+        for (String s : list.keySet()) {
+            if (list.get(s).equals("")) {
                 return false;
             }
         }

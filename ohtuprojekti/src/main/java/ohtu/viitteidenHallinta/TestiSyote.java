@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -45,21 +46,21 @@ public class TestiSyote {
         System.out.println("Anna ID:");
         return lukija.nextLine();
     }
-    public ArrayList<String> kysyPakollisetKentat(ArrayList<String> nimet) {
+    public HashMap <String, String> kysyPakollisetKentat(HashMap <String, String> nimet) {
         System.out.println("Syötä pakolliset kentät:");
-        ArrayList<String> palautus = new ArrayList<String>();
-        for (String s : nimet) {
+        HashMap <String, String> palautus = new HashMap <String, String>();
+        for (String s : nimet.keySet()) {
             System.out.print(s + ": ");
-            palautus.add(lukija.nextLine());
+            palautus.put(s, lukija.nextLine());
         }
         return palautus;
     }
-    public ArrayList<String> kysyVapaaehtoisetKentat(ArrayList<String> nimet) {
+    public HashMap <String, String> kysyVapaaehtoisetKentat(HashMap <String, String> nimet) {
         System.out.println("Syötä vapaaehtoiset kentät:");
-        ArrayList<String> palautus = new ArrayList<String>();
-        for (String s : nimet) {
+        HashMap <String, String> palautus = new HashMap <String, String>();
+        for (String s : nimet.keySet()) {
             System.out.print(s + ": ");
-            palautus.add(lukija.nextLine());
+            palautus.put(s, lukija.nextLine());
         }
         return palautus;
     }

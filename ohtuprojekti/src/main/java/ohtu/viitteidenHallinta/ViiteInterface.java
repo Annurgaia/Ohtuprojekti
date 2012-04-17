@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -13,10 +14,8 @@ import java.util.ArrayList;
 public interface ViiteInterface {
     String getId();
     String getType();
-    ArrayList<String> getPakollisetKentat();
-    ArrayList<String> getVapaaehtoisetKentat();
-    ArrayList<String> getPakollistenKenttienNimet();
-    ArrayList<String> getVapaaehtoistenKenttienNimet();
-    void setPakollisetKentat(ArrayList<String> pakollisetKentat);
-    void setVapaaehtoisetKentat(ArrayList<String> vapaaehtoisetKentat);
+    HashMap <String, String> getPakollisetKentat();
+    HashMap <String, String> getVapaaehtoisetKentat();;
+    void setPakollisetKentat(HashMap <String, String> pakollisetKentat);
+    void setVapaaehtoisetKentat(HashMap <String, String> vapaaehtoisetKentat);
 }

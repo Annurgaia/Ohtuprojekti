@@ -5,38 +5,52 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author iimakis
  */
 public class ViitetyyppienKenttainformaatio {
+
     private ArrayList<String> tyypit;
     private ArrayList<ArrayList<String>> tyyppienPakollisetKentat;
     private ArrayList<ArrayList<String>> tyyppienVapaaehtoisetKentat;
-    
+
     public ViitetyyppienKenttainformaatio() {
         tyypit = KenttatiedonAlustaja.alustaTyypit();
         tyyppienPakollisetKentat = KenttatiedonAlustaja.alustaPakollisetKentat();
         tyyppienVapaaehtoisetKentat = KenttatiedonAlustaja.alustaVapaaehtoisetKentat();
     }
-    
+
     public ArrayList<String> getViiteTyypit() {
         return tyypit;
     }
-    
-    public ArrayList<String> getTyypinPakollisetKentat(String tyyppi) {
+
+    public HashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {
+        HashMap<String, String> palautus = new HashMap<String, String>();
         for (int i = 0; i < tyypit.size(); i++) {
-            if (tyyppi.toLowerCase().equals(tyypit.get(i)))  // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
-                return tyyppienPakollisetKentat.get(i);
+            if (tyyppi.toLowerCase().equals(tyypit.get(i))) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
+            {
+                for (String string : tyyppienPakollisetKentat.get(i)) {
+                    palautus.put(string, "");
+                }
+                return palautus;
+            }
         }
         return null;
     }
 
-    public ArrayList<String> getTyypinVapaaehtoisetKentat(String tyyppi) {
+    public HashMap<String, String> getTyypinVapaaehtoisetKentat(String tyyppi) {
+        HashMap<String, String> palautus = new HashMap<String, String>();
         for (int i = 0; i < tyypit.size(); i++) {
             if (tyyppi.toLowerCase().equals(tyypit.get(i))) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
-                return tyyppienVapaaehtoisetKentat.get(i);
+            {
+                for (String string : tyyppienVapaaehtoisetKentat.get(i)) {
+                    palautus.put(string, "");
+                }
+                return palautus;
+            }
         }
         return null;
     }

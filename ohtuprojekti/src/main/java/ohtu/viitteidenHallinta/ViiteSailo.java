@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ViiteSailo {
     private ArrayList<ViiteInterface> viitteet;
@@ -17,8 +18,8 @@ public class ViiteSailo {
         viitteet.add(viite);
     }
     
-    public boolean muokkaaViitetta(String id, ArrayList<String> pakollisetKentat,
-            ArrayList<String> vapaaehtoisetKentat) {
+    public boolean muokkaaViitetta(String id, HashMap <String, String> pakollisetKentat,
+            HashMap <String, String> vapaaehtoisetKentat) {
         int indeksi = etsiViite(id);
         if (indeksi == -1)
             return false;
@@ -53,13 +54,11 @@ public class ViiteSailo {
             ViiteInterface kasiteltava = viitteet.get(i);
             viitelista += "Tyyppi: " + kasiteltava.getType() + "\n";
             viitelista += "Id: " + kasiteltava.getId() + "\n";
-            for (int j = 0; j< kasiteltava.getPakollisetKentat().size(); j++) {
-                viitelista += kasiteltava.getPakollistenKenttienNimet().get(j) +
-                        ": " + kasiteltava.getPakollisetKentat().get(j) + "\n";
+            for (String s : kasiteltava.getPakollisetKentat().keySet()) {
+                viitelista += s + ": " + kasiteltava.getPakollisetKentat().get(s) + "\n";
             }
-            for (int j = 0; j< kasiteltava.getVapaaehtoisetKentat().size(); j++) {
-                viitelista += kasiteltava.getVapaaehtoistenKenttienNimet().get(j) +
-                        ": " + kasiteltava.getVapaaehtoisetKentat().get(j) + "\n";
+            for (String s : kasiteltava.getVapaaehtoisetKentat().keySet()) {
+                viitelista += s + ": " + kasiteltava.getVapaaehtoisetKentat().get(s) + "\n";
             }
             viitelista += "\n";
         }
