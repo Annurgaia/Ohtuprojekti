@@ -8,7 +8,7 @@ import ohtu.viitteidenHallinta.ViiteSailo;
 public class Bibtex{
 
 
-    private ViiteSailo viitteet;
+    //private ViiteSailo viitteet;
     
     public void printAsBibtex(ViiteInterface viite){
         Set<Entry<String, String>> pakolliset = viite.getPakollisetKentat().entrySet();

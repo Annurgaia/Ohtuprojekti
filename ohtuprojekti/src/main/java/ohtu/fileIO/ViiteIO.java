@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.HashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
+import ohtu.viitteidenHallinta.ViiteSailo;
+import ohtu.viitteidenHallinta.ViiteSailoInterface;
 
 
 public class ViiteIO{
@@ -11,10 +13,12 @@ public class ViiteIO{
     private BufferedWriter out;
     private BufferedReader in;
     private Gson gson = new Gson();
+    private ViiteSailoInterface sailo;
     
-    public ViiteIO(String str) throws IOException{
+    public ViiteIO(String str, ViiteSailoInterface sailo) throws IOException{
         out = new BufferedWriter(new FileWriter(str, true));
         in = new BufferedReader(new FileReader(str));
+        this.sailo = sailo;
     }
     
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
@@ -25,15 +29,18 @@ public class ViiteIO{
     
     public void lueViiteTiedostosta() throws IOException{
         String rivi;
+        Viite viite;
         while((rivi = in.readLine()) != null){
-            Viite viite = gson.fromJson(rivi, Viite.class);
-            System.out.println(viite.getId());
+            viite = gson.fromJson(rivi, Viite.class);
+            sailo.addViite(viite);
+            //System.out.println(viite.getId());
         }
     }
     
     //Testausta
     public static void main(String[] args) throws IOException {
-        ViiteIO vio = new ViiteIO("testi.json");
+        ViiteSailo vs = new ViiteSailo();
+        ViiteIO vio = new ViiteIO("testi.json", vs);
         HashMap pakollisetKentat = new HashMap<String, String>();
         HashMap vapaaehtoisetKentat = new HashMap<String, String>();
 

@@ -7,7 +7,7 @@ package ohtu.viitteidenHallinta;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ViiteSailo {
+public class ViiteSailo implements ViiteSailoInterface{
     private ArrayList<ViiteInterface> viitteet;
     
     public ViiteSailo() {

@@ -5,7 +5,7 @@ description 'Käyttäjä saa järjestelmään lisäämistään viitteistä Bibte
 
 scenario "käyttäjä voi tulostaa viitten bibtexinä", {
     given 'Viite on olemassa ja annettu Bibtex luokalle', {
-
+        
     }
 
     when 'kutsutaan printAsBibtex', {

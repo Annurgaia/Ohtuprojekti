@@ -4,7 +4,6 @@
  */
 package ohtu.viitteidenHallinta;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
