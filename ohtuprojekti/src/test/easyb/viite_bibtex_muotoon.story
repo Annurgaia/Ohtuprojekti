@@ -1,4 +1,4 @@
-import tarvittavat paketit
+import ohtu.*
 
 description 'Käyttäjä saa järjestelmään lisäämistään viitteistä Bibtex-muotoisen tiedoston'
 
