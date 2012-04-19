@@ -5,7 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class ViiteSailo implements ViiteSailoInterface{
     private ArrayList<ViiteInterface> viitteet;
@@ -18,8 +18,8 @@ public class ViiteSailo implements ViiteSailoInterface{
         viitteet.add(viite);
     }
     
-    public boolean muokkaaViitetta(String id, HashMap <String, String> pakollisetKentat,
-            HashMap <String, String> vapaaehtoisetKentat) {
+    public boolean muokkaaViitetta(String id, LinkedHashMap <String, String> pakollisetKentat,
+            LinkedHashMap <String, String> vapaaehtoisetKentat) {
         int indeksi = etsiViite(id);
         if (indeksi == -1)
             return false;

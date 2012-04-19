@@ -7,6 +7,7 @@ package ohtu.viitteidenHallinta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
@@ -35,8 +36,8 @@ public class ViiteHallinta {
                             continue;
                         }
                         String nimi = info.getViiteTyypit().get(temp - 1);
-                        HashMap <String, String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
-                        HashMap <String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
+                        LinkedHashMap<String, String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
+                        LinkedHashMap<String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
                         if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
                             continue;
                         }
@@ -54,8 +55,8 @@ public class ViiteHallinta {
                             System.out.println("Viitettä ei löydy");
                             continue;
                         }
-                        HashMap <String, String> pakolliset = test.kysyPakollisetKentat(viite.getPakollisetKentat());
-                        HashMap <String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoisetKentat());
+                        LinkedHashMap<String, String> pakolliset = test.kysyPakollisetKentat(viite.getPakollisetKentat());
+                        LinkedHashMap<String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoisetKentat());
                         if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
                             continue;
                         }

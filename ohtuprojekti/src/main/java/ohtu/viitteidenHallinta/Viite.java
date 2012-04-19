@@ -5,6 +5,7 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -13,15 +14,15 @@ import java.util.HashMap;
 public class Viite implements ViiteInterface {
     private String type;
     private String id;
-    private HashMap<String, String> pakollisetKentat;
-    private HashMap<String, String> vapaaehtoisetKentat;
+    private LinkedHashMap<String, String> pakollisetKentat;
+    private LinkedHashMap<String, String> vapaaehtoisetKentat;
     
 //    private ArrayList<String> pakollisetKentat;
 //    private ArrayList<String> vapaaehtoisetKentat;
 //    private ArrayList<String> pakollistenKenttienNimet;
 //    private ArrayList<String> vapaaehtoistenKenttienNimet;    
     
-    public Viite(String type, String id, HashMap <String, String> pakollisetKentat, HashMap<String, String> vapaaehtoisetKentat) {
+    public Viite(String type, String id, LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
         this.type = type;
         this.id = id;
         this.pakollisetKentat = pakollisetKentat;
@@ -34,7 +35,7 @@ public class Viite implements ViiteInterface {
         return id;
     }
 
-    public HashMap <String, String> getPakollisetKentat() {
+    public LinkedHashMap <String, String> getPakollisetKentat() {
         return pakollisetKentat;
     }
 
@@ -42,17 +43,17 @@ public class Viite implements ViiteInterface {
         return type;
     }
 
-    public HashMap <String, String> getVapaaehtoisetKentat() {
+    public LinkedHashMap <String, String> getVapaaehtoisetKentat() {
         return vapaaehtoisetKentat;
     }
   
     // setterit
 
-    public void setPakollisetKentat(HashMap <String, String> pakollisetKentat) {
+    public void setPakollisetKentat(LinkedHashMap <String, String> pakollisetKentat) {
         this.pakollisetKentat = pakollisetKentat;
     }
 
-    public void setVapaaehtoisetKentat(HashMap <String, String> vapaaehtoisetKentat) {
+    public void setVapaaehtoisetKentat(LinkedHashMap <String, String> vapaaehtoisetKentat) {
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
     

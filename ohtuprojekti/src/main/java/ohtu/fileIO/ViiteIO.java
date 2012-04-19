@@ -2,7 +2,7 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailo;
@@ -59,8 +59,8 @@ public class ViiteIO{
     
     public static void main(String[] args) throws IOException {
         ViiteIO vio = new ViiteIO("testi");
-        HashMap pakollisetKentat = new HashMap<String, String>();
-        HashMap vapaaehtoisetKentat = new HashMap<String, String>();
+        LinkedHashMap pakollisetKentat = new LinkedHashMap<String, String>();
+        LinkedHashMap vapaaehtoisetKentat = new LinkedHashMap<String, String>();
         pakollisetKentat.put("author", "nimiö");
         pakollisetKentat.put("title", "TestiTitleå");
         pakollisetKentat.put("journal", "TestJournalä");
