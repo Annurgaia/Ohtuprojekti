@@ -1,3 +1,38 @@
+package ohtu.viitteidenHallinta;
+
+import ohtu.bibtex.Bibtex;
+import ohtu.fileIO.ViiteIO;
+
+public class ViiteHallinta {
+    private ViiteSailo sailo;
+    private ViitetyyppienKenttainformaatio info;
+    private Bibtex bibtex;
+    
+    public ViiteHallinta() {
+        sailo = new ViiteSailo();
+        bibtex = new Bibtex();
+        info = new ViitetyyppienKenttainformaatio();
+    }
+    
+    public void lisaaViite() {
+        
+    }
+    
+    public void muokkaaViitetta() {
+        
+    }
+    
+    public void getViiteLista() {
+        
+    }
+    
+    public void getViitteetBibtexina() {
+        
+    }
+    
+}
+
+
 ///*
 // * To change this template, choose Tools | Templates
 // * and open the template in the editor.
