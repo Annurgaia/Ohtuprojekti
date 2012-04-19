@@ -42,43 +42,43 @@ public class BibtexTest{
     
     @Test
     public void testGetAsBibtexId(){
-        String id = "@article{W06,\n";
+        String id = "@article{W06,\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(id), true);
     }
     
     @Test
     public void testGetAsBibtexAuthor(){
-        String author = "\tauthor = \"nimi\\\"{o}\",\n";
+        String author = "\tauthor = \"nimi\\\"{o}\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(author), true);
     }
     
     @Test
     public void testGetAsBibtexTitle(){
-        String title = "\ttitle = \"TestiTitle\\aa\",\n";
+        String title = "\ttitle = \"TestiTitle\\aa\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(title), true);
     }
     
     @Test
     public void testGetAsBibtexJournal(){
-        String journal = "\tjournal = \"TestJournal\\\"{a}\",\n";
+        String journal = "\tjournal = \"TestJournal\\\"{a}\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(journal), true);
     }
     
     @Test
     public void testGetAsBibtexYear(){
-        String year = "\tyear = \"1994\",\n";
+        String year = "\tyear = \"1994\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(year), true);
     }
     
     @Test
     public void testGetAsBibtexNumber(){
-        String number = "\tnumber = \"5\",\n";
+        String number = "\tnumber = \"5\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(number), true);
     }
     
     @Test
     public void testGetAsBibtexPages(){
-        String pages = "\tpages = \"18\",\n";
+        String pages = "\tpages = \"18\",\r\n";
         assertEquals(bt.getAsBibtex(viites).contains(pages), true);
     }
     

@@ -21,7 +21,6 @@ public class ViiteHallinta {
     private static ViitetyyppienKenttainformaatio info = new ViitetyyppienKenttainformaatio();
     private static ViiteTarkistin tarkkailija = new ViiteTarkistin();
     private static ViiteSailoInterface sailo = new ViiteSailo();
-    private static ViiteIO vio;
     private static Bibtex bt;
     private static String id = "1";
 

@@ -17,25 +17,25 @@ public class Bibtex{
         for (ViiteInterface viite : sailo.getViitteet()) {
             String asBibTex = getAsBibtex(viite);
             out.write(asBibTex);
-            out.write("\n");
+            out.write("\r\n");
         }
         out.close();
     }
     public void printAsBibtex(ViiteInterface viite){
         Set<Entry<String, String>> pakolliset = viite.getPakollisetKentat().entrySet();
         Set<Entry<String, String>> vapaaehtoiset = viite.getVapaaehtoisetKentat().entrySet();
-        System.out.print("@"+viite.getType()+"{"+viite.getId()+",\n");
+        System.out.print("@"+viite.getType()+"{"+viite.getId()+",\r\n");
         for(Map.Entry<String, String> entry : pakolliset){
             String key = entry.getKey();
             String value = entry.getValue();
             System.out.print("\t"+key+" = "+"\""+skanditBibtexiin(value)+
-                    "\",\n");
+                    "\",\r\n");
         }
         for(Map.Entry<String, String> entry : vapaaehtoiset){
             String key = entry.getKey();
             String value = entry.getValue();
             System.out.print("\t"+key+" = "+"\""+skanditBibtexiin(value)+
-                    "\",\n");
+                    "\",\r\n");
         }
         System.out.print("}");
     }
@@ -55,18 +55,18 @@ public class Bibtex{
         Set<Entry<String, String>> pakolliset = viite.getPakollisetKentat().entrySet();
         Set<Entry<String, String>> vapaaehtoiset = viite.getVapaaehtoisetKentat().entrySet();
         String bibtex;
-        bibtex = "@"+viite.getType()+"{"+viite.getId()+",\n";
+        bibtex = "@"+viite.getType()+"{"+viite.getId()+",\r\n";
         
         for(Map.Entry<String, String> entry : pakolliset){
             String key = entry.getKey();
             String value = entry.getValue();
-            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\n";
+            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\r\n";
         }
         
         for(Map.Entry<String, String> entry : vapaaehtoiset){
             String key = entry.getKey();
             String value = entry.getValue();
-            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\n";
+            bibtex += "\t"+key+" = "+"\""+skanditBibtexiin(value)+"\",\r\n";
         }
         bibtex += "}";
         return bibtex;
