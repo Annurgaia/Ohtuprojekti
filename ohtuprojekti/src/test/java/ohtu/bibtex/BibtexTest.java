@@ -3,6 +3,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteSailo;
 import static org.junit.Assert.assertEquals;
@@ -17,8 +18,8 @@ public class BibtexTest{
     
     @Before
     public void setUp(){
-        HashMap pakollisetKentat = new HashMap<String, String>();
-        HashMap vapaaehtoisetKentat = new HashMap<String, String>();
+        LinkedHashMap pakollisetKentat = new LinkedHashMap<String, String>();
+        LinkedHashMap vapaaehtoisetKentat = new LinkedHashMap<String, String>();
 
         pakollisetKentat.put("author", "nimiö");
         pakollisetKentat.put("title", "TestiTitleå");

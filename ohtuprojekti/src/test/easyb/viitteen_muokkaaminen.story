@@ -19,7 +19,7 @@ scenario "Käyttäjä voi muokata olemassa olevaa viitettä", {
     }
 
     then 'viitteen tiedot päivittyvät', {
-       sailo.getViitteet().get(0).getPakollisetKentat().get(0).shouldBe "kakkiainen"
+       sailo.getViitteet().get(0).getPakollisetKentat().containsValue("kakkiainen").shouldBe true
     }
 }
 scenario "Käyttäjä ei voi muokata viitettä, jota ei ole olemassa", {

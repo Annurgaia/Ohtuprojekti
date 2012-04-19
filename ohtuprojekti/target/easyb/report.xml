@@ -1,0 +1,80 @@
+<easyb time='Fri Apr 20 01:11:03 EEST 2012' totalbehaviors='5' totalfailedbehaviors='2' totalpendingbehaviors='0' executionTime='5360'>
+  <stories scenarios='5' failedscenarios='2' pendingscenarios='0' executionTime='5360'>
+    <story name='viitteen_lisaaminen' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='4210'>
+      <description name='Käyttäjä voi lisätä viitteen järjestelmään' />
+      <scenario name='käyttäjän voi onnistuneesti lisätä viiteen järjestlmään' result='success' executionTime='446'>
+        <given name='valitaan viitteen lisääminen' result='success' />
+        <when name='Oikeat tiedot syötetään järjestelmään' result='success' />
+        <then name='viite on lisätty järjestelmään' result='success' />
+      </scenario>
+    </story>
+    <story name='viitteen_muokkaaminen' scenarios='2' failedscenarios='1' pendingscenarios='0' executionTime='583'>
+      <description name='Käyttäjä voi muokata haluamaansa viitettä' />
+      <scenario name='Käyttäjä voi muokata olemassa olevaa viitettä' result='failure' executionTime='127'>
+        <given name='valittaessa viitteen muokkaus' result='success' />
+        <when name='haetaan olemassa olevaa viitettä ja päivitetään sen tietoja' result='success' />
+        <then name='viitteen tiedot päivittyvät' result='failure'>
+          <failure message='expected kakkiainen but target object is null' />
+        </then>
+      </scenario>
+      <scenario name='Käyttäjä ei voi muokata viitettä, jota ei ole olemassa' result='success' executionTime='20'>
+        <given name='valittaessa viitteen muokkaus' result='success' />
+        <when name='haetaan viitettä, jota ei ole olemassa' result='success' />
+        <then name='tietoja ei voida päivittää' result='success' />
+      </scenario>
+    </story>
+    <story name='viite_bibtex_muotoon' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='251'>
+      <description name='Käyttäjä saa järjestelmään lisäämistään viitteistä Bibtex-muotoisen tiedoston' />
+      <scenario name='käyttäjä voi tulostaa viitten bibtexinä' result='success' executionTime='34'>
+        <given name='Viite on olemassa ja annettu Bibtex luokalle' result='success' />
+        <when name='kutsutaan printAsBibtex' result='success' />
+        <then name='Bibtex tulostetaan system.outtiin' result='success' />
+      </scenario>
+    </story>
+    <story name='viitteiden_listaaminen' scenarios='1' failedscenarios='1' pendingscenarios='0' executionTime='316'>
+      <description name='Käyttäjä saa halutessaan listauksen järjestelmään lisätyistä viitteistä' />
+      <scenario name='Käyttäjä saa listauksen järjestelmän viitteistä' result='failure' executionTime='45'>
+        <given name='valitessa viitteiden listaus' result='failure'>
+          <failure message='No signature of method: java.util.HashMap.add() is applicable for argument types: (java.lang.String) values: [koira]
+Possible solutions: any(), any(groovy.lang.Closure), any(groovy.lang.Closure), wait(), wait(long), get(java.lang.Object)'>
+            <stacktrace>org.codehaus.groovy.runtime.callsite.PojoMetaClassSite.call(PojoMetaClassSite.java:46)
+org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:124)
+viitteiden_listaaminen$_run_closure1_closure2.doCall(viitteiden_listaaminen.story:11)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:616)
+org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+...
+</stacktrace>
+          </failure>
+        </given>
+        <when name='pyydetään listausta viitteistä' result='failure'>
+          <failure message='No such property: viite for class: viitteiden_listaaminen'>
+            <stacktrace>org.codehaus.groovy.runtime.callsite.PogoGetPropertySite.getProperty(PogoGetPropertySite.java:49)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGroovyObjectGetProperty(AbstractCallSite.java:239)
+viitteiden_listaaminen$_run_closure1_closure3.doCall(viitteiden_listaaminen.story:18)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:616)
+org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:273)
+...
+</stacktrace>
+          </failure>
+        </when>
+        <then name='saadaan listamuotoinen selkeä esitys viitteistä' result='failure'>
+          <failure message='expected Tyyppi: tyyppi
+Id: id
+
+ but was ' />
+        </then>
+      </scenario>
+    </story>
+  </stories>
+  <specifications specifications='0' failedspecifications='0' pendingspecifications='0' executionTime='0' />
+</easyb>
