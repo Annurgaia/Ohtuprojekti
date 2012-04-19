@@ -1,4 +1,4 @@
-ohtuprojekti/target/classes/*.class
+ohtuprojekti/target/classes/*
 ohtuprojekti/target/test-classes/*.class
 ohtuprojekti/target/test-classes/ohtu/*
 ohtuprojekti/target/test-classes/.netbeans_automatic_build
