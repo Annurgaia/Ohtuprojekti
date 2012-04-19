@@ -70,7 +70,11 @@ public class MainMenu implements ActionListener {
         test.put("4", "2");
         test.put("5", "1");
         test.put("6", "2");
-        new AddMenu(test, test);
+        AddMenu tester = new AddMenu(test, test);
+        test = tester.getPakolliset();
+        for (String string : test.keySet()) {
+            System.out.println(tester.getPakolliset().get(string));
+        }
     }
     
     public void actionPerformed(ActionEvent e) {
