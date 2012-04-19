@@ -8,10 +8,10 @@ scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
     given 'valitessa viitteiden listaus', {
        sailo = new ViiteSailo()
        list1 = new HashMap<String, String>()
-       list1.add("koira")
+       list1.put("eläin", "koira")
        list2 = new HashMap<String, String>()
-       list2.add("kissa")
-       viite = new Viite("tyyppi", "id", new HashMap<String, String>() , new HashMap<String, String>())
+       list2.put("eläin", "kissa")
+       viite = new Viite("tyyppi", "id", list1 , list2)
     }
 
     when 'pyydetään listausta viitteistä', {
