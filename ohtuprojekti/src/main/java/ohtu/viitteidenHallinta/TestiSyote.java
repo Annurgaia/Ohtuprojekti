@@ -6,6 +6,7 @@ package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 /**
@@ -46,18 +47,18 @@ public class TestiSyote {
         System.out.println("Anna ID:");
         return lukija.nextLine();
     }
-    public HashMap <String, String> kysyPakollisetKentat(HashMap <String, String> nimet) {
+    public LinkedHashMap<String, String> kysyPakollisetKentat(LinkedHashMap<String, String> nimet) {
         System.out.println("Syötä pakolliset kentät:");
-        HashMap <String, String> palautus = new HashMap <String, String>();
+        LinkedHashMap<String, String> palautus = new LinkedHashMap<String, String>();
         for (String s : nimet.keySet()) {
             System.out.print(s + ": ");
             palautus.put(s, lukija.nextLine());
         }
         return palautus;
     }
-    public HashMap <String, String> kysyVapaaehtoisetKentat(HashMap <String, String> nimet) {
+    public LinkedHashMap<String, String> kysyVapaaehtoisetKentat(LinkedHashMap<String, String> nimet) {
         System.out.println("Syötä vapaaehtoiset kentät:");
-        HashMap <String, String> palautus = new HashMap <String, String>();
+        LinkedHashMap<String, String> palautus = new LinkedHashMap<String, String>();
         for (String s : nimet.keySet()) {
             System.out.print(s + ": ");
             palautus.put(s, lukija.nextLine());
