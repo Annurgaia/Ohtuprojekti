@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
-import ohtu.viitteidenHallinta.ViiteSailo;
 import ohtu.viitteidenHallinta.ViiteSailoInterface;
 
 
 public class ViiteIO{
     
-    private BufferedWriter out;
-    private BufferedReader in;
+    private static BufferedWriter out;
+    private static BufferedReader in;
     private Gson gson = new Gson();
     
     public ViiteIO(String file) throws IOException{
@@ -24,7 +23,6 @@ public class ViiteIO{
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
         String jsonData = gson.toJson(viite);
         out.write(jsonData+"\r\n");
-        out.close();
     }
     
     public ArrayList<Viite> lueViitteetTiedostosta(String file) throws IOException{
@@ -70,6 +68,8 @@ public class ViiteIO{
                 
         Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
         vio.tallennaViiteTiedostoon(viites);
+        vio.tallennaViiteTiedostoon(viites);
+        out.close();
         
         ArrayList<Viite> list = vio.lueViitteetTiedostosta("testi");
         System.out.println(list.get(0).getId());
