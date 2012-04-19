@@ -24,7 +24,7 @@ public class AddMenu implements ActionListener {
     
     public AddMenu (LinkedHashMap<String, String> pakolliset, LinkedHashMap<String, String> vapaaehtoiset) {
         pak.setLayout(new GridLayout(pakolliset.size(), 1));
-        vap.setLayout(new GridLayout(vapaaehtoiset.size(), 1));
+        vap.setLayout(new GridLayout(vapaaehtoiset.size()+1, 1));
         for (String s : pakolliset.keySet()) {
             JLabel temp = new JLabel(s);
             JTextField temp2 = new JTextField();
@@ -40,8 +40,10 @@ public class AddMenu implements ActionListener {
             vap.add(temp);
             vap.add(temp2);
         }
+        JButton sub = new JButton("Lisää");
         ikkuna.setLayout(new GridLayout(2,0));
-        ikkuna.setSize(100, 300);
+        vap.add(sub);
+        ikkuna.setSize(200, 300);
         ikkuna.add(pak);
         ikkuna.add(vap);
         ikkuna.setVisible(true);

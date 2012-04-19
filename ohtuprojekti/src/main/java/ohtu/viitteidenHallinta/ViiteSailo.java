@@ -14,6 +14,10 @@ public class ViiteSailo implements ViiteSailoInterface{
         this.viitteet = new ArrayList<ViiteInterface>();
     }
     
+    public ViiteSailo(ArrayList<ViiteInterface> viitteet) {
+        this.viitteet = viitteet;
+    }
+    
     public void addViite(ViiteInterface viite) {
         viitteet.add(viite);
     }

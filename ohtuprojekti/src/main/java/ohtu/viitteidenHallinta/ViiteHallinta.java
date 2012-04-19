@@ -1,5 +1,8 @@
 package ohtu.viitteidenHallinta;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
 
@@ -7,11 +10,14 @@ public class ViiteHallinta {
     private ViiteSailo sailo;
     private ViitetyyppienKenttainformaatio info;
     private Bibtex bibtex;
+    private ViiteIO viiteIO;
     
-    public ViiteHallinta() {
-        sailo = new ViiteSailo();
+    public ViiteHallinta() throws IOException {
         bibtex = new Bibtex();
         info = new ViitetyyppienKenttainformaatio();
+        viiteIO = new ViiteIO("viitteet");
+        ArrayList<ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
+        sailo = new ViiteSailo(tallennetutViitteet);
     }
     
     public void lisaaViite() {
@@ -30,6 +36,21 @@ public class ViiteHallinta {
         
     }
     
+    public void tallennaViitteet() throws IOException {
+        viiteIO.tallennaViitteetTiedostoon(sailo);
+    }
+    
+    public ArrayList<String> getTyypit() {
+        return info.getViiteTyypit();
+    }
+    
+    public LinkedHashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {
+        return info.getTyypinPakollisetKentat(tyyppi);
+    }
+    
+    public LinkedHashMap<String, String> getTyypinVapaaehtoisetKentat(String tyyppi) {
+        return info.getTyypinVapaaehtoisetKentat(tyyppi);
+    }
 }
 
 
