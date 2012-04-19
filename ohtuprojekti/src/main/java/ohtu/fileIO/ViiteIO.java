@@ -1,6 +1,7 @@
 package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
@@ -13,37 +14,53 @@ public class ViiteIO{
     private BufferedWriter out;
     private BufferedReader in;
     private Gson gson = new Gson();
-    private ViiteSailoInterface sailo;
     
-    public ViiteIO(String str, ViiteSailoInterface sailo) throws IOException{
-        out = new BufferedWriter(new FileWriter(str, true));
-        in = new BufferedReader(new FileReader(str));
-        this.sailo = sailo;
+    public ViiteIO(String file) throws IOException{
+        String f = appendFileType(file, ".json");
+        out = new BufferedWriter(new FileWriter(f, true));
+        //in = new BufferedReader(new FileReader(f));
     }
     
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
         String jsonData = gson.toJson(viite);
-        out.write(jsonData+"\n");
+        out.write(jsonData+"\r\n");
         out.close();
     }
     
-    public void lueViiteTiedostosta() throws IOException{
+    public ArrayList<Viite> lueViitteetTiedostosta(String file) throws IOException{
+        file = appendFileType(file, ".json");
+        in = new BufferedReader(new FileReader(file));
         String rivi;
         Viite viite;
+        ArrayList<Viite> viitteet = new ArrayList<Viite>();
         while((rivi = in.readLine()) != null){
-            viite = gson.fromJson(rivi, Viite.class);
-            sailo.addViite(viite);
-            //System.out.println(viite.getId());
+            if(!rivi.equals("")){
+                viite = gson.fromJson(rivi, Viite.class);
+                viitteet.add(viite);
+            }
         }
+        return viitteet;
     }
     
-    //Testausta
+    public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
+        for(ViiteInterface viite : sailo.getViitteet()){
+            tallennaViiteTiedostoon(viite);
+        }
+        out.close();
+    }
+
+    private String appendFileType(String str, String toConcat) {
+        if(!str.contains("."))
+            return str.concat(toConcat);
+        if(str.endsWith(toConcat))
+            return str;
+        return str;
+    }
+    
     public static void main(String[] args) throws IOException {
-        ViiteSailo vs = new ViiteSailo();
-        ViiteIO vio = new ViiteIO("testi.json", vs);
+        ViiteIO vio = new ViiteIO("testi");
         HashMap pakollisetKentat = new HashMap<String, String>();
         HashMap vapaaehtoisetKentat = new HashMap<String, String>();
-
         pakollisetKentat.put("author", "nimiö");
         pakollisetKentat.put("title", "TestiTitleå");
         pakollisetKentat.put("journal", "TestJournalä");
@@ -51,9 +68,11 @@ public class ViiteIO{
         vapaaehtoisetKentat.put("number", "5");
         vapaaehtoisetKentat.put("pages", "18");
                 
-        Viite viite = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        vio.tallennaViiteTiedostoon(viites);
         
-        //vio.tallennaViiteTiedostoon(viite);
-        vio.lueViiteTiedostosta();
+        ArrayList<Viite> list = vio.lueViitteetTiedostosta("testi");
+        System.out.println(list.get(0).getId());
     }
+    
 }

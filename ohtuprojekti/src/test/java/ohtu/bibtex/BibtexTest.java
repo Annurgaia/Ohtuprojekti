@@ -1,8 +1,10 @@
 package ohtu.bibtex;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
 import ohtu.viitteidenHallinta.Viite;
+import ohtu.viitteidenHallinta.ViiteSailo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +13,7 @@ public class BibtexTest{
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     Bibtex bt;
     Viite viites;
+    ViiteSailo sailo;
     
     @Before
     public void setUp(){
@@ -25,6 +28,8 @@ public class BibtexTest{
         vapaaehtoisetKentat.put("pages", "18");
                 
         viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        sailo = new ViiteSailo();
+        sailo.addViite(viites);
         bt = new Bibtex();
         System.setOut(new PrintStream(outContent));
     }
@@ -80,5 +85,10 @@ public class BibtexTest{
     @Test
     public void testGetAsBibtexClosingBracket(){
         assertEquals(bt.getAsBibtex(viites).contains("}"), true);
+    }
+    
+    @Test
+    public void bibTexienTallennus() throws IOException{
+        bt.tallennaBibtexitTiedostoon(sailo, "testi.bibtex");
     }
 }

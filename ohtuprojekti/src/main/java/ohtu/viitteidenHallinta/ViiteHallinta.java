@@ -4,8 +4,12 @@
  */
 package ohtu.viitteidenHallinta;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
+import ohtu.bibtex.Bibtex;
+import ohtu.fileIO.ViiteIO;
 
 /**
  *
@@ -16,10 +20,13 @@ public class ViiteHallinta {
     private static TestiSyote test = new TestiSyote();
     private static ViitetyyppienKenttainformaatio info = new ViitetyyppienKenttainformaatio();
     private static ViiteTarkistin tarkkailija = new ViiteTarkistin();
-    private static ViiteSailo sailo = new ViiteSailo();
+    private static ViiteSailoInterface sailo = new ViiteSailo();
+    private static ViiteIO vio;
+    private static Bibtex bt;
     private static String id = "1";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
         while (true) {
             switch (test.alkumenu()) {
                 case 1:
@@ -60,6 +67,7 @@ public class ViiteHallinta {
                 case 3:
                     System.out.println(sailo.listaaViitteet());
                     continue;
+
                 case 4:
                     break;
                 default:
