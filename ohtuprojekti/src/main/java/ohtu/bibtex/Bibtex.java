@@ -2,6 +2,7 @@ package ohtu.bibtex;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -42,6 +43,8 @@ public class Bibtex{
     
     private String skanditBibtexiin(String str){
         String korjattu;
+        HashMap<String, String> erikoismerkit = new HashMap<String, String>();
+        erikoismerkit.put("ä", "\\\\\"{a}");
         korjattu = str.replaceAll("ä", "\\\\\"{a}");
         korjattu = korjattu.replaceAll("ö", "\\\\\"{o}");
         korjattu = korjattu.replaceAll("å", "\\\\aa");
