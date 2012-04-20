@@ -22,20 +22,26 @@ public class ViiteHallinta {
         viitelaskuri = 0;
     }
     
-    public void lisaaViite(LinkedHashMap<String, String> pakolliset) {
-        
+    public void lisaaViite(String tyyppi, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
+        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
+        sailo.addViite(uusiViite);
+        viitelaskuri++;
     }
     
-    public void muokkaaViitetta() {
-        
+    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+        return sailo.muokkaaViitetta(id, pKentat, vKentat);
     }
     
-    public void getViiteLista() {
-        
+    public String getViitteetTekstina() {
+        return sailo.listaaViitteet();
     }
     
-    public void getViitteetBibtexina() {
-        
+    public ArrayList<ViiteInterface> getViiteLista() {
+        return sailo.getViitteet();
+    }
+    
+    public void teeViitteistaBibtex(String filename) throws IOException {
+        bibtex.tallennaBibtexitTiedostoon(sailo, filename);
     }
     
     public void tallennaViitteet() throws IOException {
