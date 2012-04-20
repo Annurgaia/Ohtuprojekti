@@ -22,6 +22,15 @@ public class ViiteHallinta {
         viitelaskuri = 0;
     }
     
+    public ViiteHallinta(Bibtex bibtex, ViitetyyppienKenttainformaatio info, 
+            ViiteIO vio, ViiteSailo sailo) {
+        this.bibtex = bibtex;
+        this.info = info;
+        this.viiteIO = vio;
+        this.sailo = sailo;
+        viitelaskuri = 0;
+    }
+    
     public void lisaaViite(String tyyppi, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
         Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
         sailo.addViite(uusiViite);
