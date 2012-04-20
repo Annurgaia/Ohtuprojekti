@@ -103,5 +103,13 @@ public class ViiteSailoTest {
         assertEquals(true, sailo.listaaViitteet().length() > 0);
     }
     
+   @Test
+   public void toinenKonstruktori() {
+       ArrayList<ViiteInterface> uusi = new ArrayList<ViiteInterface>();
+       uusi.add(viite);
+       ViiteSailo uusiSailo = new ViiteSailo(uusi);
+       assertEquals(true, uusiSailo.getViitteet().size() == 1);
+   }
+    
     
 }
