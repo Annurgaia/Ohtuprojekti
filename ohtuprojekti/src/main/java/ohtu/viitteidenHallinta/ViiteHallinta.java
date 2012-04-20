@@ -11,6 +11,7 @@ public class ViiteHallinta {
     private ViitetyyppienKenttainformaatio info;
     private Bibtex bibtex;
     private ViiteIO viiteIO;
+    private int viitelaskuri;
     
     public ViiteHallinta() throws IOException {
         bibtex = new Bibtex();
@@ -18,9 +19,10 @@ public class ViiteHallinta {
         viiteIO = new ViiteIO("viitteet");
         ArrayList<ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
+        viitelaskuri = 0;
     }
     
-    public void lisaaViite() {
+    public void lisaaViite(LinkedHashMap<String, String> pakolliset) {
         
     }
     

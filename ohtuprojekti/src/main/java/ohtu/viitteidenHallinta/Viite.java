@@ -57,6 +57,25 @@ public class Viite implements ViiteInterface {
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
     
-
+    private String pakollisetToString() {
+        String pakolliset = "";
+        for (String s : pakollisetKentat.keySet()) {
+                pakolliset += s + ": " + pakollisetKentat.get(s) + "\n";
+            }
+        return pakolliset;
+    }
+    
+    private String vapaaehtoisetToString() {
+        String vapaaehtoiset = "";
+        for (String s : vapaaehtoisetKentat.keySet()) {
+            vapaaehtoiset += s + ": " + vapaaehtoisetKentat.get(s) + "\n";
+        }
+        return vapaaehtoiset;
+    }
+    
+    public String toString() {
+        return "Tyyppi: " + type + "\n" + "Id: " + id + "\n" +
+                pakollisetToString() + vapaaehtoisetToString();
+    }
     
 }
