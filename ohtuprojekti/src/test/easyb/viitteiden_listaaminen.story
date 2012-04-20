@@ -7,11 +7,7 @@ description 'Käyttäjä saa halutessaan listauksen järjestelmään lisätyist�
 scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
     given 'valitessa viitteiden listaus', {
        sailo = new ViiteSailo()
-       list1 = new HashMap<String, String>()
-       list1.add("koira")
-       list2 = new HashMap<String, String>()
-       list2.add("kissa")
-       viite = new Viite("tyyppi", "id", new HashMap<String, String>() , new HashMap<String, String>())
+       viite = new Viite("tyyppi", "id", new LinkedHashMap<String, String>() , new LinkedHashMap<String, String>())
     }
 
     when 'pyydetään listausta viitteistä', {

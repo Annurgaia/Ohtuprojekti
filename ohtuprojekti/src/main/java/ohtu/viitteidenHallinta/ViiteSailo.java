@@ -14,6 +14,10 @@ public class ViiteSailo implements ViiteSailoInterface{
         this.viitteet = new ArrayList<ViiteInterface>();
     }
     
+    public ViiteSailo(ArrayList<ViiteInterface> viitteet) {
+        this.viitteet = viitteet;
+    }
+    
     public void addViite(ViiteInterface viite) {
         viitteet.add(viite);
     }
@@ -51,15 +55,7 @@ public class ViiteSailo implements ViiteSailoInterface{
     public String listaaViitteet() {
         String viitelista = "";
         for (int i = 0; i< viitteet.size(); i++) {
-            ViiteInterface kasiteltava = viitteet.get(i);
-            viitelista += "Tyyppi: " + kasiteltava.getType() + "\n";
-            viitelista += "Id: " + kasiteltava.getId() + "\n";
-            for (String s : kasiteltava.getPakollisetKentat().keySet()) {
-                viitelista += s + ": " + kasiteltava.getPakollisetKentat().get(s) + "\n";
-            }
-            for (String s : kasiteltava.getVapaaehtoisetKentat().keySet()) {
-                viitelista += s + ": " + kasiteltava.getVapaaehtoisetKentat().get(s) + "\n";
-            }
+            viitelista += viitteet.get(i).toString();
             viitelista += "\n";
         }
         return viitelista;

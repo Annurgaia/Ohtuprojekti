@@ -7,10 +7,6 @@ package ohtu.viitteidenHallinta;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-/**
- *
- * @author iimakis
- */
 public class ViitetyyppienKenttainformaatio {
 
     private ArrayList<String> tyypit;

@@ -27,12 +27,12 @@ public class ViiteIO{
         out.close();
     }
     
-    public ArrayList<Viite> lueViitteetTiedostosta(String file) throws IOException{
+    public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file) throws IOException{
         file = appendFileType(file, ".json");
         in = new BufferedReader(new FileReader(file));
         String rivi;
         Viite viite;
-        ArrayList<Viite> viitteet = new ArrayList<Viite>();
+        ArrayList<ViiteInterface> viitteet = new ArrayList<ViiteInterface>();
         while((rivi = in.readLine()) != null){
             if(!rivi.equals("")){
                 viite = gson.fromJson(rivi, Viite.class);
@@ -71,7 +71,7 @@ public class ViiteIO{
         Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
         vio.tallennaViiteTiedostoon(viites);
         
-        ArrayList<Viite> list = vio.lueViitteetTiedostosta("testi");
+        ArrayList<ViiteInterface> list = vio.lueViitteetTiedostosta("testi");
         System.out.println(list.get(0).getId());
     }
     

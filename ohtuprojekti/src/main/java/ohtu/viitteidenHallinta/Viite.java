@@ -7,20 +7,11 @@ package ohtu.viitteidenHallinta;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-/**
- *
- * @author iimakis
- */
 public class Viite implements ViiteInterface {
     private String type;
     private String id;
     private LinkedHashMap<String, String> pakollisetKentat;
     private LinkedHashMap<String, String> vapaaehtoisetKentat;
-    
-//    private ArrayList<String> pakollisetKentat;
-//    private ArrayList<String> vapaaehtoisetKentat;
-//    private ArrayList<String> pakollistenKenttienNimet;
-//    private ArrayList<String> vapaaehtoistenKenttienNimet;    
     
     public Viite(String type, String id, LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
         this.type = type;
@@ -57,6 +48,25 @@ public class Viite implements ViiteInterface {
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
     }
     
-
+    private String pakollisetToString() {
+        String pakolliset = "";
+        for (String s : pakollisetKentat.keySet()) {
+                pakolliset += s + ": " + pakollisetKentat.get(s) + "\n";
+            }
+        return pakolliset;
+    }
+    
+    private String vapaaehtoisetToString() {
+        String vapaaehtoiset = "";
+        for (String s : vapaaehtoisetKentat.keySet()) {
+            vapaaehtoiset += s + ": " + vapaaehtoisetKentat.get(s) + "\n";
+        }
+        return vapaaehtoiset;
+    }
+    
+    public String toString() {
+        return "Tyyppi: " + type + "\n" + "Id: " + id + "\n" +
+                pakollisetToString() + vapaaehtoisetToString();
+    }
     
 }
