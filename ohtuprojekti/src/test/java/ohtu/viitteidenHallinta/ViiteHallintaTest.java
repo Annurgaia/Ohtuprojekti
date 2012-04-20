@@ -44,7 +44,7 @@ public class ViiteHallintaTest {
     @Test
     public void testLisaaViite() throws IOException {
         ViiteHallinta hal = new ViiteHallinta();
-        String tyyppi = "Article";
+        String tyyppi = "article";
         LinkedHashMap<String, String> pKentat = null;
         LinkedHashMap<String, String> vKentat = null;
         hal.lisaaViite(tyyppi, pKentat, vKentat);
