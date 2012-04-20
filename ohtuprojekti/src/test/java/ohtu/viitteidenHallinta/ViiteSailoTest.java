@@ -6,6 +6,7 @@ package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,10 +36,10 @@ public class ViiteSailoTest {
     public void setUp() {
         String nimi = "testiviite";
         String id = "1";
-        HashMap<String, String> pn = new HashMap<String, String>();
+        LinkedHashMap<String, String> pn = new LinkedHashMap<String, String>();
         pn.put("Nimi", "Pekka");
         pn.put("Titteli", "Tutkimus olusenjuonnista");
-        HashMap<String, String> v = new HashMap<String, String>();
+        LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "1245");
         
         viite = new Viite(nimi, id, pn, v);
@@ -73,15 +74,15 @@ public class ViiteSailoTest {
     @Test
     public void testMuokkaaMuokkaa() {
         sailo.addViite(viite);
-        HashMap<String, String> p = new HashMap<String, String>();
+        LinkedHashMap<String, String> p = new LinkedHashMap<String, String>();
         p.put("Nimi", "Mikko");
         p.put("Titteli", "Tutkimus olusenjuonnista");
-        HashMap<String, String> v = new HashMap<String, String>();
+        LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "");
         sailo.muokkaaViitetta("1", p, v);
-        HashMap<String, String> viite = sailo.haeViite("1").getPakollisetKentat();
-        assertEquals(true, viite.containsValue("Mikko")
-                && viite.containsValue("Tutkimus olusenjuonnista"));
+        LinkedHashMap<String, String> viitej = sailo.haeViite("1").getPakollisetKentat();
+        assertEquals(true, viitej.containsValue("Mikko")
+                && viitej.containsValue("Tutkimus olusenjuonnista"));
     }
     @Test
     public void testHaePalauttaNullJosVääräID() {
@@ -101,6 +102,14 @@ public class ViiteSailoTest {
         sailo.addViite(viite);
         assertEquals(true, sailo.listaaViitteet().length() > 0);
     }
+    
+   @Test
+   public void toinenKonstruktori() {
+       ArrayList<ViiteInterface> uusi = new ArrayList<ViiteInterface>();
+       uusi.add(viite);
+       ViiteSailo uusiSailo = new ViiteSailo(uusi);
+       assertEquals(true, uusiSailo.getViitteet().size() == 1);
+   }
     
     
 }

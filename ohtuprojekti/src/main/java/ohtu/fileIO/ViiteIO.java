@@ -2,7 +2,7 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailoInterface;
@@ -25,12 +25,12 @@ public class ViiteIO{
         out.write(jsonData+"\r\n");
     }
     
-    public ArrayList<Viite> lueViitteetTiedostosta(String file) throws IOException{
+    public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file) throws IOException{
         file = appendFileType(file, ".json");
         in = new BufferedReader(new FileReader(file));
         String rivi;
         Viite viite;
-        ArrayList<Viite> viitteet = new ArrayList<Viite>();
+        ArrayList<ViiteInterface> viitteet = new ArrayList<ViiteInterface>();
         while((rivi = in.readLine()) != null){
             if(!rivi.equals("")){
                 viite = gson.fromJson(rivi, Viite.class);
@@ -57,8 +57,8 @@ public class ViiteIO{
     
     public static void main(String[] args) throws IOException {
         ViiteIO vio = new ViiteIO("testi");
-        HashMap pakollisetKentat = new HashMap<String, String>();
-        HashMap vapaaehtoisetKentat = new HashMap<String, String>();
+        LinkedHashMap pakollisetKentat = new LinkedHashMap<String, String>();
+        LinkedHashMap vapaaehtoisetKentat = new LinkedHashMap<String, String>();
         pakollisetKentat.put("author", "nimiö");
         pakollisetKentat.put("title", "TestiTitleå");
         pakollisetKentat.put("journal", "TestJournalä");
@@ -71,7 +71,7 @@ public class ViiteIO{
         vio.tallennaViiteTiedostoon(viites);
         out.close();
         
-        ArrayList<Viite> list = vio.lueViitteetTiedostosta("testi");
+        ArrayList<ViiteInterface> list = vio.lueViitteetTiedostosta("testi");
         System.out.println(list.get(0).getId());
     }
     
