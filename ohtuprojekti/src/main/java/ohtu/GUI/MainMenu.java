@@ -7,13 +7,20 @@ package ohtu.GUI;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import ohtu.viitteidenHallinta.*;
+
 /**
  *
  * @author Wampie
  */
 public class MainMenu implements ActionListener {
+
+    static ViiteHallinta hallinta;
     JFrame mainframe;
     JPanel mainpanel;
     JButton addButton;
@@ -22,14 +29,13 @@ public class MainMenu implements ActionListener {
     JButton bibtextButton;
     JButton saveButton;
     JButton endButton;
-    
-    
-    public MainMenu() {
+
+    public MainMenu() throws IOException {
         mainframe = new JFrame();
         mainframe.setSize(400, 400);
         mainframe.setResizable(false);
         mainpanel = new JPanel();
-        mainpanel.setLayout(new GridLayout(3,3));
+        mainpanel.setLayout(new GridLayout(3, 3));
         addButton = new JButton("Lisää viite");
         addButton.addActionListener(this);
         addButton.setActionCommand("1");
@@ -54,40 +60,49 @@ public class MainMenu implements ActionListener {
         endButton.addActionListener(this);
         endButton.setActionCommand("6");
         mainpanel.add(endButton);
-        
+
         mainframe.add(mainpanel);
         mainframe.setVisible(true);
-        
-        
+
+        mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        hallinta = new ViiteHallinta();
+
+        modifyButton.setEnabled(false);
+        listButton.setEnabled(false);
+
     }
-    
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
+
         new MainMenu();
-        LinkedHashMap<String, String> test = new LinkedHashMap<String, String>();
-        test.put("1", "1");
-        test.put("2", "2");
-        test.put("3", "1");
-        test.put("4", "2");
-        test.put("5", "1");
-        test.put("6", "2");
-        AddMenu tester = new AddMenu(test, test);
-        test = tester.getPakolliset();
-        for (String string : test.keySet()) {
-            System.out.println(tester.getPakolliset().get(string));
-        }
     }
-    
+
     public void actionPerformed(ActionEvent e) {
         int komento = Integer.parseInt(e.getActionCommand());
-        
+
         switch (komento) {
             case 1:
+                new AddMenu(hallinta);
+                break;
             case 2:
+                break;
             case 3:
+                break;
             case 4:
+                try {
+                    hallinta.teeViitteistaBibtex("references");
+                } catch (IOException ex) {
+                    System.out.println("VIRHE");
+                }
+                break;
             case 5:
+                try {
+                    hallinta.tallennaViitteet();
+                } catch (IOException ex) {
+                    System.out.println("VIRHE");
+                }
             case 6:
+                System.exit(1);
         }
     }
-    
 }
