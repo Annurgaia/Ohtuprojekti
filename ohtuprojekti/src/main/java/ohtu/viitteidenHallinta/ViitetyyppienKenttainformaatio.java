@@ -5,12 +5,8 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-/**
- *
- * @author iimakis
- */
 public class ViitetyyppienKenttainformaatio {
 
     private ArrayList<String> tyypit;
@@ -27,8 +23,8 @@ public class ViitetyyppienKenttainformaatio {
         return tyypit;
     }
 
-    public HashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {
-        HashMap<String, String> palautus = new HashMap<String, String>();
+    public LinkedHashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {
+        LinkedHashMap<String, String> palautus = new LinkedHashMap<String, String>();
         for (int i = 0; i < tyypit.size(); i++) {
             if (tyyppi.toLowerCase().equals(tyypit.get(i))) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
             {
@@ -41,8 +37,8 @@ public class ViitetyyppienKenttainformaatio {
         return null;
     }
 
-    public HashMap<String, String> getTyypinVapaaehtoisetKentat(String tyyppi) {
-        HashMap<String, String> palautus = new HashMap<String, String>();
+    public LinkedHashMap<String, String> getTyypinVapaaehtoisetKentat(String tyyppi) {
+        LinkedHashMap<String, String> palautus = new LinkedHashMap<String, String>();
         for (int i = 0; i < tyypit.size(); i++) {
             if (tyyppi.toLowerCase().equals(tyypit.get(i))) // jos tyyppienPakollisetKentat.size() < i, niin jotain on vikana alustustiedoissa!
             {
