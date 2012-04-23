@@ -7,7 +7,14 @@ description 'Käyttäjä saa halutessaan listauksen järjestelmään lisätyist�
 scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
     given 'valitessa viitteiden listaus', {
        sailo = new ViiteSailo()
+<<<<<<< HEAD
        viite = new Viite("tyyppi", "id", new LinkedHashMap<String, String>() , new LinkedHashMap<String, String>())
+=======
+
+
+       viite = new Viite("tyyppi", "id", new LinkedHashMap<String, String>() , new LinkedHashMap<String, String>())
+
+>>>>>>> 4bd598180ddf6c89487e3ec71aadda68c6c6e7a0
     }
 
     when 'pyydetään listausta viitteistä', {
