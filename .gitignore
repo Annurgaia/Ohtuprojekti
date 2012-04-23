@@ -13,3 +13,6 @@ ohtuprojekti/surefire-reports/
 ohtuprojekti/nbactions.xml
 *.bib
 *.json
+ohtuprojekti/target/easyb/
+ohtuprojekti/target/test-classes/
+ohtuprojekti/*.jar
