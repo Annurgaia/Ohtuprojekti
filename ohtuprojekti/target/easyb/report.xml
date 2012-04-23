@@ -1,0 +1,42 @@
+<easyb time='Mon Apr 23 19:11:02 EEST 2012' totalbehaviors='5' totalfailedbehaviors='0' totalpendingbehaviors='1' executionTime='916'>
+  <stories scenarios='5' failedscenarios='0' pendingscenarios='1' executionTime='916'>
+    <story name='viite_bibtex_muotoon' scenarios='1' failedscenarios='0' pendingscenarios='1' executionTime='617'>
+      <description name='Käyttäjä saa järjestelmään lisäämistään viitteistä Bibtex-muotoisen tiedoston' />
+      <scenario name='käyttäjä voi tulostaa viitten bibtexinä' result='pending' executionTime='29'>
+        <given name='Viite on olemassa ja annettu Bibtex luokalle' result='success' />
+        <when name='kutsutaan printAsBibtex' result='success' />
+        <then name='Bibtex tulostetaan system.outtiin' result='pending' />
+      </scenario>
+    </story>
+    <story name='viitteen_lisaaminen' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='89'>
+      <description name='Käyttäjä voi lisätä viitteen järjestelmään' />
+      <scenario name='käyttäjän voi onnistuneesti lisätä viiteen järjestlmään' result='success' executionTime='29'>
+        <given name='valitaan viitteen lisääminen' result='success' />
+        <when name='Oikeat tiedot syötetään järjestelmään' result='success' />
+        <then name='viite on lisätty järjestelmään' result='success' />
+      </scenario>
+    </story>
+    <story name='viitteen_muokkaaminen' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='108'>
+      <description name='Käyttäjä voi muokata haluamaansa viitettä' />
+      <scenario name='Käyttäjä voi muokata olemassa olevaa viitettä' result='success' executionTime='5'>
+        <given name='valittaessa viitteen muokkaus' result='success' />
+        <when name='haetaan olemassa olevaa viitettä ja päivitetään sen tietoja' result='success' />
+        <then name='viitteen tiedot päivittyvät' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei voi muokata viitettä, jota ei ole olemassa' result='success' executionTime='3'>
+        <given name='valittaessa viitteen muokkaus' result='success' />
+        <when name='haetaan viitettä, jota ei ole olemassa' result='success' />
+        <then name='tietoja ei voida päivittää' result='success' />
+      </scenario>
+    </story>
+    <story name='viitteiden_listaaminen' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='102'>
+      <description name='Käyttäjä saa halutessaan listauksen järjestelmään lisätyistä viitteistä' />
+      <scenario name='Käyttäjä saa listauksen järjestelmän viitteistä' result='success' executionTime='3'>
+        <given name='valitessa viitteiden listaus' result='success' />
+        <when name='pyydetään listausta viitteistä' result='success' />
+        <then name='saadaan listamuotoinen selkeä esitys viitteistä' result='success' />
+      </scenario>
+    </story>
+  </stories>
+  <specifications specifications='0' failedspecifications='0' pendingspecifications='0' executionTime='0' />
+</easyb>

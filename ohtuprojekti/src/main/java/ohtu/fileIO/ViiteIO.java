@@ -2,7 +2,9 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailoInterface;
@@ -12,30 +14,40 @@ public class ViiteIO{
     
     private static BufferedWriter out;
     private static BufferedReader in;
+    private String filename;
     private Gson gson = new Gson();
     
     public ViiteIO(String file) throws IOException{
-        String f = appendFileType(file, ".json");
-        out = new BufferedWriter(new FileWriter(f, true));
-        //in = new BufferedReader(new FileReader(f));
+        this.filename = appendFileType(file, ".json");
     }
     
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
         String jsonData = gson.toJson(viite);
+        out = new BufferedWriter(new FileWriter(filename, true));
         out.write(jsonData+"\r\n");
+        out.close();
     }
     
-    public ArrayList<Viite> lueViitteetTiedostosta(String file) throws IOException{
+    public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file){
         file = appendFileType(file, ".json");
+        try{
         in = new BufferedReader(new FileReader(file));
+        }catch(IOException e){
+            System.out.println("Tiedostoa ei löydy!");
+        }
         String rivi;
         Viite viite;
-        ArrayList<Viite> viitteet = new ArrayList<Viite>();
-        while((rivi = in.readLine()) != null){
-            if(!rivi.equals("")){
-                viite = gson.fromJson(rivi, Viite.class);
-                viitteet.add(viite);
+        ArrayList<ViiteInterface> viitteet = new ArrayList<ViiteInterface>();
+        try {
+            while((rivi = in.readLine()) != null){
+                if(!rivi.equals("")){
+                    viite = gson.fromJson(rivi, Viite.class);
+                    viitteet.add(viite);
+                }
             }
+            in.close();
+        } catch (IOException ex) {
+            System.out.println("Tiedostoa ei löydy2!");
         }
         return viitteet;
     }
@@ -44,7 +56,6 @@ public class ViiteIO{
         for(ViiteInterface viite : sailo.getViitteet()){
             tallennaViiteTiedostoon(viite);
         }
-        out.close();
     }
 
     private String appendFileType(String str, String toConcat) {
@@ -57,8 +68,8 @@ public class ViiteIO{
     
     public static void main(String[] args) throws IOException {
         ViiteIO vio = new ViiteIO("testi");
-        HashMap pakollisetKentat = new HashMap<String, String>();
-        HashMap vapaaehtoisetKentat = new HashMap<String, String>();
+        LinkedHashMap pakollisetKentat = new LinkedHashMap<String, String>();
+        LinkedHashMap vapaaehtoisetKentat = new LinkedHashMap<String, String>();
         pakollisetKentat.put("author", "nimiö");
         pakollisetKentat.put("title", "TestiTitleå");
         pakollisetKentat.put("journal", "TestJournalä");
@@ -69,9 +80,8 @@ public class ViiteIO{
         Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
         vio.tallennaViiteTiedostoon(viites);
         vio.tallennaViiteTiedostoon(viites);
-        out.close();
         
-        ArrayList<Viite> list = vio.lueViitteetTiedostosta("testi");
+        ArrayList<ViiteInterface> list = vio.lueViitteetTiedostosta("testi");
         System.out.println(list.get(0).getId());
     }
     
