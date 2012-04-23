@@ -75,7 +75,7 @@ public class Bibtex{
         return bibtex;
     }
     
-        private String appendFileType(String str, String toConcat) {
+        protected String appendFileType(String str, String toConcat) {
         if(!str.contains("."))
             return str.concat(toConcat);
         if(str.endsWith(toConcat))

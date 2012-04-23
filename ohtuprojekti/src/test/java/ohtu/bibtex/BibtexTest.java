@@ -2,9 +2,9 @@ package ohtu.bibtex;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
+import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -90,6 +90,13 @@ public class BibtexTest{
     
     @Test
     public void bibTexienTallennus() throws IOException{
-        bt.tallennaBibtexitTiedostoon(sailo, "testi.bibtex");
+        bt.tallennaBibtexitTiedostoon(sailo, "testi.bib");
+    }
+    
+    @Test
+    public void testAppendFile(){
+        String result = bt.appendFileType("testi", ".json");
+        String expected = "testi.json";
+        assertEquals(true, result.equals(expected));
     }
 }

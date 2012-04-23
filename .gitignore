@@ -10,3 +10,7 @@ ohtuprojekti/target/maven-archiver/
 ohtuprojekti/target/site/
 ohtuprojekti/target/surefire
 ohtuprojekti/surefire-reports
+ohtuprojekti/nbactions.xml
+ohtuprojekti/target/surefire-reports/*
+.bib
+.json
