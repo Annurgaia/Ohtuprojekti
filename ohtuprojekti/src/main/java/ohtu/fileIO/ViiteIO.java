@@ -27,6 +27,9 @@ public class ViiteIO{
     
     public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file){
         file = appendFileType(file, ".json");
+        File f = new File(file);
+        if(!f.exists())
+            return null;
         try{
         in = new BufferedReader(new FileReader(file));
         }catch(IOException e){
@@ -50,6 +53,8 @@ public class ViiteIO{
     }
     
     public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
+        if(sailo.isEmpty())
+            return;
         for(ViiteInterface viite : sailo.getViitteet()){
             tallennaViiteTiedostoon(viite);
         }
