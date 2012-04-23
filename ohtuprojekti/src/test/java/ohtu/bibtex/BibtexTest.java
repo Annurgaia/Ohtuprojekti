@@ -96,22 +96,22 @@ public class BibtexTest{
     
     @Test
     public void testAppendFile(){
-        String result = bt.appendFileType("testi", ".json");
-        String expected = "testi.json";
+        String result = bt.appendFileType("testi", ".bib");
+        String expected = "testi.bib";
         assertEquals(expected, result);
     }
     
     @Test
     public void testAppendFileOutoNimi(){
-        String result = bt.appendFileType("testi...exe", ".json");
-        String expected = "testi...exe.json";
+        String result = bt.appendFileType("testi...exe", ".bib");
+        String expected = "testi...exe.bib";
         assertEquals(expected, result);
     }
     
     @Test
     public void testAppendFilePiste(){
-        String result = bt.appendFileType("tes.ti", ".json");
-        String expected = "tes.ti.json";
+        String result = bt.appendFileType("tes.ti", ".bib");
+        String expected = "tes.ti.bib";
         assertEquals(expected, result);
     }
     
