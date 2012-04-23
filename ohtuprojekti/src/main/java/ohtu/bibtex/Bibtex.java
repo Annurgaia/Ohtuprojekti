@@ -1,5 +1,6 @@
 package ohtu.bibtex;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -80,7 +81,21 @@ public class Bibtex{
             return str.concat(toConcat);
         if(str.endsWith(toConcat))
             return str;
-        return str;
+        return str.concat(toConcat);
     }
+        
+        public void poistaBibtexTiedosto(String tiedostonimi){
+            tiedostonimi = appendFileType(tiedostonimi, ".bib");
+            File f = new File(tiedostonimi);
+            if(!f.exists())
+                System.out.println("Tiedostoa ei ole olemassa"+tiedostonimi);
+            if(!f.canWrite())
+                throw new IllegalArgumentException("Kirjoitus suojattu: "+tiedostonimi);
+            boolean poistettu = f.delete();
+            
+            if(!poistettu)
+                throw new IllegalArgumentException("Poistaminen epäonnistui");
+            
+        }
 
 }

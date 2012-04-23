@@ -58,12 +58,25 @@ public class ViiteIO{
         }
     }
 
-    private String appendFileType(String str, String toConcat) {
+    protected static String appendFileType(String str, String toConcat) {
         if(!str.contains("."))
             return str.concat(toConcat);
         if(str.endsWith(toConcat))
             return str;
         return str;
+    }
+    
+    public void poistaViiteTiedosto(String tiedostonimi){
+            tiedostonimi = appendFileType(tiedostonimi, ".json");
+            File f = new File(tiedostonimi);
+            if(!f.exists())
+                System.out.println("Tiedostoa ei ole olemassa"+tiedostonimi);
+            if(!f.canWrite())
+                throw new IllegalArgumentException("Kirjoitus suojattu: "+tiedostonimi);
+            boolean poistettu = f.delete();
+            
+            if(!poistettu)
+                throw new IllegalArgumentException("Poistaminen epäonnistui");
     }
     
 }

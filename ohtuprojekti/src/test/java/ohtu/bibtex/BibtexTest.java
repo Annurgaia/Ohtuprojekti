@@ -1,5 +1,6 @@
 package ohtu.bibtex;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
@@ -97,6 +98,27 @@ public class BibtexTest{
     public void testAppendFile(){
         String result = bt.appendFileType("testi", ".json");
         String expected = "testi.json";
-        assertEquals(true, result.equals(expected));
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testAppendFileOutoNimi(){
+        String result = bt.appendFileType("testi...exe", ".json");
+        String expected = "testi...exe.json";
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testAppendFilePiste(){
+        String result = bt.appendFileType("tes.ti", ".json");
+        String expected = "tes.ti.json";
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testPoistaBibtexTiedosto(){
+        File f = new File("testi.bib");
+        bt.poistaBibtexTiedosto("testi.bib");
+        assertEquals(false, f.exists());
     }
 }

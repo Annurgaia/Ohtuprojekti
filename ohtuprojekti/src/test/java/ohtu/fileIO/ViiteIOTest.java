@@ -1,4 +1,5 @@
 package ohtu.fileIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -43,5 +44,12 @@ public class ViiteIOTest{
         ArrayList<ViiteInterface> testi;
         testi = vio.lueViitteetTiedostosta("testit");
         System.out.println(testi.get(0).getId());
+    }
+    
+    @Test
+    public void poistaTiedosto(){
+        File f = new File("testit.json");
+        vio.poistaViiteTiedosto("testit.json");
+        assertEquals(false, f.exists());
     }
 }
