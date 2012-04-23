@@ -66,23 +66,4 @@ public class ViiteIO{
         return str;
     }
     
-    public static void main(String[] args) throws IOException {
-        ViiteIO vio = new ViiteIO("testi");
-        LinkedHashMap pakollisetKentat = new LinkedHashMap<String, String>();
-        LinkedHashMap vapaaehtoisetKentat = new LinkedHashMap<String, String>();
-        pakollisetKentat.put("author", "nimiö");
-        pakollisetKentat.put("title", "TestiTitleå");
-        pakollisetKentat.put("journal", "TestJournalä");
-        pakollisetKentat.put("year", "1994");
-        vapaaehtoisetKentat.put("number", "5");
-        vapaaehtoisetKentat.put("pages", "18");
-                
-        Viite viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
-        vio.tallennaViiteTiedostoon(viites);
-        vio.tallennaViiteTiedostoon(viites);
-        
-        ArrayList<ViiteInterface> list = vio.lueViitteetTiedostosta("testi");
-        System.out.println(list.get(0).getId());
-    }
-    
 }
