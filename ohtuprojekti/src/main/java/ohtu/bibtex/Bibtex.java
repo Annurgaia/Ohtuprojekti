@@ -97,5 +97,6 @@ public class Bibtex{
                 throw new IllegalArgumentException("Poistaminen epäonnistui");
             
         }
+        
 
 }

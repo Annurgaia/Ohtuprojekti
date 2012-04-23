@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
-import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.fail;
 
 public class BibtexTest{
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -121,4 +121,16 @@ public class BibtexTest{
         bt.poistaBibtexTiedosto("testi.bib");
         assertEquals(false, f.exists());
     }
+    
+    @Test
+    public void yritaPoistaaOlematonTiedosto(){
+        try{
+            bt.poistaBibtexTiedosto("jgdjg.dfindf");
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        fail("IllegalArgumentException ei huomattu");
+    }
+
 }

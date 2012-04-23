@@ -2,9 +2,6 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailoInterface;
@@ -63,7 +60,7 @@ public class ViiteIO{
             return str.concat(toConcat);
         if(str.endsWith(toConcat))
             return str;
-        return str;
+        return str.concat(toConcat);
     }
     
     public void poistaViiteTiedosto(String tiedostonimi){
