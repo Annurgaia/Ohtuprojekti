@@ -1,3 +1,0 @@
-<testsuite tests='1' results='1' failures='0' disabled='0' errors='0' time='0.405' name='behavior.viite_bibtex_muotoon'>
-  <testcase classname='behavior.viite_bibtex_muotoon' name='käyttäjä voi tulostaa viitten bibtexinä' time='0.022' />
-</testsuite>

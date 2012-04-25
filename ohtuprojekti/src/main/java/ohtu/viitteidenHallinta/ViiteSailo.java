@@ -60,5 +60,9 @@ public class ViiteSailo implements ViiteSailoInterface{
         }
         return viitelista;
     }
+    
+    public boolean isEmpty(){
+        return viitteet.isEmpty();
+    }
 }
  

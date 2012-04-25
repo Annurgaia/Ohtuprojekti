@@ -11,4 +11,5 @@ public interface ViiteSailoInterface {
     public ViiteInterface haeViite(String id);
     public ArrayList<ViiteInterface> getViitteet();
     public String listaaViitteet();
+    public boolean isEmpty();
 }

@@ -1,14 +1,15 @@
 package ohtu.bibtex;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteSailo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.fail;
 
 public class BibtexTest{
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -90,6 +91,46 @@ public class BibtexTest{
     
     @Test
     public void bibTexienTallennus() throws IOException{
-        bt.tallennaBibtexitTiedostoon(sailo, "testi.bibtex");
+        bt.tallennaBibtexitTiedostoon(sailo, "testi.bib");
     }
+    
+    @Test
+    public void testAppendFile(){
+        String result = bt.appendFileType("testi", ".bib");
+        String expected = "testi.bib";
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testAppendFileOutoNimi(){
+        String result = bt.appendFileType("testi...exe", ".bib");
+        String expected = "testi...exe.bib";
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testAppendFilePiste(){
+        String result = bt.appendFileType("tes.ti", ".bib");
+        String expected = "tes.ti.bib";
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testPoistaBibtexTiedosto(){
+        File f = new File("testi.bib");
+        bt.poistaBibtexTiedosto("testi.bib");
+        assertEquals(false, f.exists());
+    }
+    
+    @Test
+    public void yritaPoistaaOlematonTiedosto(){
+        try{
+            bt.poistaBibtexTiedosto("jgdjg.dfindf");
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        fail("IllegalArgumentException ei huomattu");
+    }
+
 }

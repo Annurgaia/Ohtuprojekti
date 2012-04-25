@@ -3,6 +3,8 @@ package ohtu.viitteidenHallinta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
 
@@ -54,7 +56,11 @@ public class ViiteHallinta {
     }
     
     public void tallennaViitteet(){
-        viiteIO.tallennaViitteetTiedostoon(sailo);
+        try {
+            viiteIO.tallennaViitteetTiedostoon(sailo);
+        } catch (IOException ex) {
+            Logger.getLogger(ViiteHallinta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public ArrayList<String> getTyypit() {
