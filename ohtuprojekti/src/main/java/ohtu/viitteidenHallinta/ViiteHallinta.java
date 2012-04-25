@@ -53,12 +53,12 @@ public class ViiteHallinta {
         bibtex.tallennaBibtexitTiedostoon(sailo, filename);
     }
     
-    public void tallennaViitteet() throws IOException {
+    public void tallennaViitteet(){
         viiteIO.tallennaViitteetTiedostoon(sailo);
     }
     
     public ArrayList<String> getTyypit() {
-        return info.getViiteTyypit();
+       return info.getViiteTyypit();
     }
     
     public LinkedHashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {

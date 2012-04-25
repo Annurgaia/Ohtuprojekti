@@ -96,11 +96,7 @@ public class MainMenu implements ActionListener {
                 }
                 break;
             case 5:
-                try {
-                    hallinta.tallennaViitteet();
-                } catch (IOException ex) {
-                    System.out.println("VIRHE");
-                }
+                hallinta.tallennaViitteet();
             case 6:
                 System.exit(1);
         }

@@ -3,6 +3,8 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailo;
@@ -24,7 +26,6 @@ public class ViiteIO{
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
         String jsonData = gson.toJson(viite);
         out.write(jsonData+"\r\n");
-        out.close();
     }
     
     public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file) throws IOException{
@@ -42,11 +43,14 @@ public class ViiteIO{
         return viitteet;
     }
     
-    public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
+    public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo){
         for(ViiteInterface viite : sailo.getViitteet()){
-            tallennaViiteTiedostoon(viite);
+            try {
+                tallennaViiteTiedostoon(viite);
+            } catch (IOException ex) {
+                Logger.getLogger(ViiteIO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        out.close();
     }
 
     private String appendFileType(String str, String toConcat) {
