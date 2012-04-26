@@ -125,7 +125,7 @@ public class AddMenu implements ActionListener {
             
         }
         if (!valinta.equals("")) {
-            hallinta.lisaaViite(null, valinta, pakMap, vapMap);
+            hallinta.lisaaViite(valinta, pakMap, vapMap);
         }
 
     }
