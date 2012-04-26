@@ -49,6 +49,10 @@ public class ViiteHallinta {
     }
     
     public boolean poistaViite(String id) {
+        if (sailo.getViitteet().containsKey(id)) {
+            ViiteInterface poistettava = sailo.getViitteet().get(id);
+            tag.poistaTageistaViite(poistettava, (String[])poistettava.getTagit().toArray());
+        }
         return sailo.poistaViite(id);
     }
     
