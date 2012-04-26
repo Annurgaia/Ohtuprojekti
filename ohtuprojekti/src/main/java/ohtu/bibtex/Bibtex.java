@@ -15,7 +15,7 @@ public class Bibtex{
 
     public void tallennaBibtexitTiedostoon(ViiteSailoInterface sailo, String file) throws IOException{
         file = appendFileType(file, ".bib");
-        BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
         for (ViiteInterface viite : sailo.getViitteet()) {
             String asBibTex = getAsBibtex(viite);
             out.write(asBibTex);

@@ -20,7 +20,7 @@ public class ViiteIO{
     
     public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
         String jsonData = gson.toJson(viite);
-        out = new BufferedWriter(new FileWriter(filename, true));
+        out = new BufferedWriter(new FileWriter(filename));
         out.write(jsonData+"\r\n");
         out.close();
     }
