@@ -12,7 +12,7 @@ scenario "käyttäjän voi onnistuneesti poistaa viitteen järjestelmästä", {
      hallinta.poistaViite(viite)
     }
 
-    then 'viite on lisätty järjestelmään', {
+    then 'viite on poistettu järjestelmästä', {
        hallinta.getViitteet().get(id).getType().shouldBe true
 
     }
