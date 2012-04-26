@@ -11,11 +11,11 @@ scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
     }
 
     when 'pyydetään listausta viitteistä', {
-        hallinta.lisaaViite(viite)
+        hallinta.lisaaViite("asdf", "", new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>())
     }
 
     then 'saadaan listamuotoinen selkeä esitys viitteistä', {
-        hallinta.listaaViitteet().shouldBe "Tyyppi: tyyppi\nId: id\n\n"
+        hallinta.getViitteetTekstina().shouldBe "Tyyppi: tyyppi\nId: id\n\n"
     }
 }
 
