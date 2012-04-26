@@ -28,10 +28,11 @@ public class ViiteSailo implements ViiteSailoInterface {
         viitteet.put(viite.getId(), viite);
     }
 
-    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pakollisetKentat,
-            LinkedHashMap<String, String> vapaaehtoisetKentat) {
+    public boolean muokkaaViitetta(String id, ArrayList<String> tagit,
+            LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
         if (!viitteet.containsKey(id))
             return false;
+        viitteet.get(id).setTagit(tagit);
         viitteet.get(id).setPakollisetKentat(pakollisetKentat);
         viitteet.get(id).setVapaaehtoisetKentat(vapaaehtoisetKentat);
         return true;
@@ -61,4 +62,5 @@ public class ViiteSailo implements ViiteSailoInterface {
     public boolean isEmpty() {
         return viitteet.isEmpty();
     }
+    
 }

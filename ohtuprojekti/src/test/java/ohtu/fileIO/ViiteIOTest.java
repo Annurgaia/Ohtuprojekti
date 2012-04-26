@@ -38,7 +38,9 @@ public class ViiteIOTest{
     
     @Test
     public void tallenaTiedostoonTesti() throws IOException{
-        vio.tallennaViiteTiedostoon(viites);
+        ViiteSailo vs = new ViiteSailo();
+        vs.addViite(viites);
+        vio.tallennaViitteetTiedostoon(vs);
         LinkedHashMap<String, ViiteInterface> viite = vio.lueViitteetTiedostosta("testit");
         assertEquals(true, viite.containsKey(viites.getId()));
     }

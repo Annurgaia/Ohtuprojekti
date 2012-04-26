@@ -21,12 +21,6 @@ public class ViiteIO{
         this.filename = appendFileType(file, ".json");
     }
     
-    public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
-        String jsonData = gson.toJson(viite);
-        out = new BufferedWriter(new FileWriter(filename));
-        out.write(jsonData+"\r\n");
-        out.close();
-    }
     
     public LinkedHashMap<String, ViiteInterface> lueViitteetTiedostosta(String file){
         file = appendFileType(file, ".json");
@@ -59,9 +53,12 @@ public class ViiteIO{
     public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
         if(sailo.isEmpty())
             return;
+        out = new BufferedWriter(new FileWriter(filename));
         for(ViiteInterface viite : sailo.getViitteet().values()){
-                tallennaViiteTiedostoon(viite);
+                String jsonData = gson.toJson(viite);
+                out.write(jsonData+"\r\n");
         }
+        out.close();
     }
 
     protected static String appendFileType(String str, String toConcat) {

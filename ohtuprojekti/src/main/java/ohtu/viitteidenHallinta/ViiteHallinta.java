@@ -43,18 +43,29 @@ public class ViiteHallinta {
         ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
         Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, tagitArrayListina, pKentat, vKentat);
         if (!tagit.equals(""))
-            tag.lisaaTageihinViite(uusiViite, tagiTemp);
+            tag.lisaaTageihinViite(uusiViite, tagitArrayListina);
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
     
     public boolean poistaViite(String id) {
+        if (sailo.getViitteet().containsKey(id)) {
+            ViiteInterface poistettava = sailo.getViitteet().get(id);
+            tag.poistaTageistaViite(poistettava, poistettava.getTagit());
+        }
         return sailo.poistaViite(id);
     }
     
     public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
-        
-        return sailo.muokkaaViitetta(id, pKentat, vKentat);
+        if (sailo.getViitteet().containsKey(id)) {
+            String[] tagiTemp = tagit.split(",");
+            ArrayList<String> uudetTagit = new ArrayList<String>(Arrays.asList(tagiTemp));
+            ArrayList<String> vanhatTagit = sailo.getViitteet().get(id).getTagit();
+            tag.poistaTageistaViite(sailo.getViitteet().get(id), vanhatTagit);
+            tag.lisaaTageihinViite(sailo.getViitteet().get(id), vanhatTagit);
+            return sailo.muokkaaViitetta(id, uudetTagit, pKentat, vKentat);
+        }
+        return false;
     }
     
     public String getViitteetTekstina() {

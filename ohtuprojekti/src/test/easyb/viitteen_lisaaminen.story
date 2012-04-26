@@ -5,17 +5,17 @@ import java.util.*
 description 'Käyttäjä voi lisätä viitteen järjestelmään'
 
 
-scenario "käyttäjän voi onnistuneesti lisätä viiteen järjestlmään", {
+scenario "käyttäjän voi onnistuneesti lisätä viitteen järjestelmään", {
     given 'valitaan viitteen lisääminen', {
-       sailo = new ViiteSailo()
-       viite = new Viite("tyyppi", "id", new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>())
+       hallinta = new ViiteHallinta()
+       viite = new Viite("tyyppi", "id", new ArrayList<String> tagit, new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>())
     }
     when 'Oikeat tiedot syötetään järjestelmään', {
-       sailo.addViite(viite)
+     hallinta.lisaaViite(viite)
     }
 
     then 'viite on lisätty järjestelmään', {
-       sailo.getViitteet().get(0).getType().shouldBe "tyyppi"
+       hallinta.getViitteet().get(id).getType().shouldBe
     }
 }
 

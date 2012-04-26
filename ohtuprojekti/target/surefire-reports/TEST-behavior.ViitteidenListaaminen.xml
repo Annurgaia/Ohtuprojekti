@@ -1,0 +1,16 @@
+<testsuite tests='1' results='0' failures='1' disabled='0' errors='0' time='0.277' name='behavior.viitteiden_listaaminen'>
+  <testcase classname='behavior.viitteiden_listaaminen' name='Käyttäjä saa listauksen järjestelmän viitteistä' time='0.152'>
+    <failure message='Step "valitessa viitteiden listaus" -- Could not find matching constructor for: ohtu.viitteidenHallinta.Viite(java.lang.String, java.lang.String, java.util.LinkedHashMap, java.util.LinkedHashMap); Step "pyydetään listausta viitteistä" -- No such property: viite for class: viitteiden_listaaminen; Step "saadaan listamuotoinen selkeä esitys viitteistä" -- expected Tyyppi: tyyppi
+Id: id
+
+ but was '>Step "valitessa viitteiden listaus" -- Could not find matching constructor for: ohtu.viitteidenHallinta.Viite(java.lang.String, java.lang.String, java.util.LinkedHashMap, java.util.LinkedHashMap); Step "pyydetään listausta viitteistä" -- No such property: viite for class: viitteiden_listaaminen; Step "saadaan listamuotoinen selkeä esitys viitteistä" -- expected Tyyppi: tyyppi
+Id: id
+
+ but was 
+
+    scenario Käyttäjä saa listauksen järjestelmän viitteistä
+      given valitessa viitteiden listaus
+      when pyydetään listausta viitteistä
+      then saadaan listamuotoinen selkeä esitys viitteistä</failure>
+  </testcase>
+</testsuite>
