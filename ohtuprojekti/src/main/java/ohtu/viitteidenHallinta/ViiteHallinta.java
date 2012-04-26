@@ -57,9 +57,15 @@ public class ViiteHallinta {
     }
     
     public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
-        String[] tagiTemp = tagit.split(",");
-        ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
-        return sailo.muokkaaViitetta(id, tagitArrayListina, pKentat, vKentat);
+        if (sailo.getViitteet().containsKey(id)) {
+            String[] tagiTemp = tagit.split(",");
+            ArrayList<String> uudetTagit = new ArrayList<String>(Arrays.asList(tagiTemp));
+            ArrayList<String> vanhatTagit = sailo.getViitteet().get(id).getTagit();
+            tag.poistaTageistaViite(sailo.getViitteet().get(id), vanhatTagit);
+            tag.lisaaTageihinViite(sailo.getViitteet().get(id), vanhatTagit);
+            return sailo.muokkaaViitetta(id, uudetTagit, pKentat, vKentat);
+        }
+        return false;
     }
     
     public String getViitteetTekstina() {
