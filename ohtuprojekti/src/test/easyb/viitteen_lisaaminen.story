@@ -17,4 +17,3 @@ scenario "käyttäjän voi onnistuneesti lisätä viitteen järjestelmään", {
        hallinta.getViiteLista().values().size().shouldBe 1
     }
 }
-
