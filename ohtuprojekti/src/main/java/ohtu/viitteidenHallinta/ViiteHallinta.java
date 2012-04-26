@@ -19,7 +19,7 @@ public class ViiteHallinta {
         bibtex = new Bibtex();
         info = new ViitetyyppienKenttainformaatio();
         viiteIO = new ViiteIO("viitteet");
-        ArrayList<ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
+        LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
         viitelaskuri = 0;
     }
@@ -47,7 +47,7 @@ public class ViiteHallinta {
         return sailo.listaaViitteet();
     }
     
-    public ArrayList<ViiteInterface> getViiteLista() {
+    public LinkedHashMap<String, ViiteInterface> getViiteLista() {
         return sailo.getViitteet();
     }
     

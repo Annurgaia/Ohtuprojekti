@@ -1,0 +1,4 @@
+<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.314' name='behavior.viitteen_muokkaaminen'>
+  <testcase classname='behavior.viitteen_muokkaaminen' name='Käyttäjä voi muokata olemassa olevaa viitettä' time='0.023' />
+  <testcase classname='behavior.viitteen_muokkaaminen' name='Käyttäjä ei voi muokata viitettä, jota ei ole olemassa' time='0.012' />
+</testsuite>

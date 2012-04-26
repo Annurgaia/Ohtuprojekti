@@ -1,0 +1,3 @@
+<testsuite tests='1' results='1' failures='0' disabled='0' errors='0' time='2.51' name='behavior.viitteen_lisaaminen'>
+  <testcase classname='behavior.viitteen_lisaaminen' name='käyttäjän voi onnistuneesti lisätä viiteen järjestlmään' time='0.305' />
+</testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.005" errors="0" skipped="0" tests="2" name="ohtu.viitteidenHallinta.ViiteTarkistinTest">
+<testsuite failures="0" time="0.008" errors="0" skipped="0" tests="2" name="ohtu.viitteidenHallinta.ViiteTarkistinTest">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-openjdk/jre/lib/i386"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="/home/iimakis/koulu/ohtu/miniprojekti/sprintti2/Ohtuprojekti/ohtuprojekti"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-6-openjdk/jre/lib/endorsed"/>
     <property name="os.arch" value="i386"/>
-    <property name="surefire.real.class.path" value="/tmp/surefirebooter7113723404664930021.jar"/>
+    <property name="surefire.real.class.path" value="/tmp/surefirebooter4903838697680694350.jar"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
@@ -57,6 +57,6 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.002" classname="ohtu.viitteidenHallinta.ViiteTarkistinTest" name="testTarkistaPakollisetToimii"/>
+  <testcase time="0.003" classname="ohtu.viitteidenHallinta.ViiteTarkistinTest" name="testTarkistaPakollisetToimii"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTarkistinTest" name="testTarkistaPakollisetEIToimi"/>
 </testsuite>
