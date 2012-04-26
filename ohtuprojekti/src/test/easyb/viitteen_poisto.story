@@ -18,18 +18,3 @@ scenario "käyttäjän voi onnistuneesti poistaa viitteen järjestelmästä", {
     }
 }
 
-scenario "kayttaja ei voi poistaa viitetta jota ei ole", {
-    given 'komento "poista" valittu', {
-        mockTietokanta = mock(Viitehallinta.class) 
-        io = new StubIO("poista", "V2012", "lopeta")
-        vp = new Viitepalvelu(mockTietokanta, null, null)
-        ui = new TekstiUI(io, vp) 
-    }
-    when 'tietokannasta puuttuva tunniste syotetty', {
-        when(mockTietokanta.poistaViite(anyString())).thenReturn(false)
-        ui.run()
-    }
-    then 'viitetta ei poisteta tietokannasta', {
-        io.getPrintit().shouldHave("Poistoa ei tehty, tarkista tunniste.")
-    }
-}
