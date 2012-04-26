@@ -2,6 +2,7 @@ package ohtu.viitteidenHallinta;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,9 +39,11 @@ public class ViiteHallinta {
     }
     
     public void lisaaViite(String tyyppi, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
-        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
+        String[] tagiTemp = tagit.split(",");
+        ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
+        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, tagitArrayListina, pKentat, vKentat);
         if (!tagit.equals(""))
-            tag.lisaaTageihinViite(uusiViite, tagit.split(","));
+            tag.lisaaTageihinViite(uusiViite, tagiTemp);
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }

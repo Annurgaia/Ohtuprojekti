@@ -4,6 +4,7 @@
  */
 package ohtu.viitteidenHallinta;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -12,12 +13,15 @@ public class Viite implements ViiteInterface {
     private String id;
     private LinkedHashMap<String, String> pakollisetKentat;
     private LinkedHashMap<String, String> vapaaehtoisetKentat;
+    private ArrayList<String> tagit;
     
-    public Viite(String type, String id, LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
+    public Viite(String type, String id, ArrayList<String> tagit,
+            LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
         this.type = type;
         this.id = id;
         this.pakollisetKentat = pakollisetKentat;
         this.vapaaehtoisetKentat = vapaaehtoisetKentat;
+        this.tagit = tagit;
     }
    
     // getterit
@@ -33,12 +37,20 @@ public class Viite implements ViiteInterface {
     public String getType() {
         return type;
     }
+    
+    public ArrayList<String> getTagit() {
+        return this.tagit;
+    }
 
     public LinkedHashMap <String, String> getVapaaehtoisetKentat() {
         return vapaaehtoisetKentat;
     }
   
     // setterit
+    
+    public void setTagit(ArrayList<String> tagit) {
+        this.tagit = tagit;
+    }
 
     public void setPakollisetKentat(LinkedHashMap <String, String> pakollisetKentat) {
         this.pakollisetKentat = pakollisetKentat;
