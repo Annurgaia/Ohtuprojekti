@@ -74,6 +74,10 @@ public class ViiteHallinta {
         return false;
     }
     
+    public LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> getTagit() {
+        return tag.getTagit();
+    }
+    
     public String getViitteetTekstina() {
         return sailo.listaaViitteet();
     }
