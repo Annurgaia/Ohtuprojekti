@@ -194,4 +194,21 @@ public class ViiteHallintaTest {
         LinkedHashMap result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testPoistaViite() throws IOException {
+        ViiteHallinta hal = new ViiteHallinta();
+        String tyyppi = "article";
+        LinkedHashMap<String, String> pKentat = null;
+        LinkedHashMap<String, String> vKentat = null;
+        hal.lisaaViite(tyyppi, pKentat, vKentat);
+        Object[] duh = hal.getViiteLista().values().toArray();
+        Viite viite = (Viite)duh[duh.length - 1];
+        boolean result = hal.poistaViite(viite.getId());
+        boolean result2 = hal.poistaViite(viite.getId());
+        boolean expResult = true;
+        boolean expResult2 = false;
+        assertEquals(expResult, result);
+        assertEquals(expResult2, result2);
+    }
 }

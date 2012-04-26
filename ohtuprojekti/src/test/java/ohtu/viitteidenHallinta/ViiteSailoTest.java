@@ -109,5 +109,12 @@ public class ViiteSailoTest {
        assertEquals(true, uusiSailo.getViitteet().values().size() == 1);
    }
     
-    
+    @Test
+    public void testPoistaViite() {
+        sailo.addViite(viite);
+        boolean eka = sailo.poistaViite(viite.getId());
+        boolean toka = sailo.poistaViite(viite.getId());
+        assertEquals(true, eka);
+        assertEquals(false, toka);
+    }
 }
