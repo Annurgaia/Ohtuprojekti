@@ -52,7 +52,8 @@ public class ViiteHallinta {
         return sailo.poistaViite(id);
     }
     
-    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+    public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+        
         return sailo.muokkaaViitetta(id, pKentat, vKentat);
     }
     
