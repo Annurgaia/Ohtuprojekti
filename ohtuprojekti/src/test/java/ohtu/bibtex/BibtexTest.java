@@ -3,6 +3,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteSailo;
@@ -29,7 +30,7 @@ public class BibtexTest{
         vapaaehtoisetKentat.put("number", "5");
         vapaaehtoisetKentat.put("pages", "18");
                 
-        viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        viites = new Viite("article", "W06", new ArrayList<String>(), pakollisetKentat, vapaaehtoisetKentat);
         sailo = new ViiteSailo();
         sailo.addViite(viites);
         bt = new Bibtex();

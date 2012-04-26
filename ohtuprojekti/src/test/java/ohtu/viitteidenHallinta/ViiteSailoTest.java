@@ -4,6 +4,7 @@
  */
 package ohtu.viitteidenHallinta;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,7 +41,7 @@ public class ViiteSailoTest {
         LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "1245");
         
-        viite = new Viite(nimi, id, pn, v);
+        viite = new Viite(nimi, id, new ArrayList<String>(), pn, v);
         sailo = new ViiteSailo();
         
     }

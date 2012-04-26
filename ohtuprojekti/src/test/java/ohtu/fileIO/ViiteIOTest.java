@@ -33,7 +33,7 @@ public class ViiteIOTest{
         vapaaehtoisetKentat.put("number", "5");
         vapaaehtoisetKentat.put("pages", "18");
         vio = new ViiteIO("testit");
-        viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        viites = new Viite("article", "W06", new ArrayList<String>(),pakollisetKentat, vapaaehtoisetKentat);
     }
     
     @Test
