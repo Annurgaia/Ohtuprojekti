@@ -7,6 +7,8 @@ package ohtu.GUI;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
@@ -29,6 +31,51 @@ public class MainMenu implements ActionListener {
     JButton bibtextButton;
     JButton saveButton;
     JButton endButton;
+    Kuuntelija kuunt = new Kuuntelija();
+    
+    private class Kuuntelija implements WindowListener {
+
+        public void windowOpened(WindowEvent e) {
+        }
+
+        public void windowClosing(WindowEvent e) {
+            int n = JOptionPane.showOptionDialog(mainpanel, 
+                    "Tallentaanko tiedot?",
+                    "Tallennusvalikko", 
+                    JOptionPane.YES_NO_CANCEL_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE,
+                    null, 
+                    null,
+                    mainframe);
+            switch (n) {
+                case 0:
+                    hallinta.tallennaViitteet();
+                    System.exit(0);
+                    break;
+                case 1:
+                    System.exit(0);
+                    break;
+                case 2:
+                    return;
+            }
+        }
+
+        public void windowClosed(WindowEvent e) {
+        }
+
+        public void windowIconified(WindowEvent e) {
+        }
+
+        public void windowDeiconified(WindowEvent e) {
+        }
+
+        public void windowActivated(WindowEvent e) {
+        }
+
+        public void windowDeactivated(WindowEvent e) {
+        }
+        
+    }
 
     public MainMenu() throws IOException {
         mainframe = new JFrame();
@@ -64,8 +111,9 @@ public class MainMenu implements ActionListener {
         mainframe.add(mainpanel);
         mainframe.setVisible(true);
 
-        mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainframe.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         mainframe.setLocation(600, 200);
+        mainframe.addWindowListener(kuunt);
         hallinta = new ViiteHallinta();
 
         modifyButton.setEnabled(false);
