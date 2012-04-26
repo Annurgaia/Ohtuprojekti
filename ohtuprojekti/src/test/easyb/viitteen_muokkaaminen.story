@@ -7,19 +7,19 @@ description 'Käyttäjä voi muokata haluamaansa viitettä'
 
 scenario "Käyttäjä voi muokata olemassa olevaa viitettä", {
     given 'valittaessa viitteen muokkaus', {
-       sailo = new ViiteSailo()
-       viite = new Viite("tyyppi", "id", new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>())
+       hallinta = new ViiteHallinta()
+       viite = new Viite("tyyppi", "id", new ArrayList<String> tagit, new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>())
     }
 
     when 'haetaan olemassa olevaa viitettä ja päivitetään sen tietoja', {
-       sailo.addViite(viite)
+       hallinta.lisaaViite(viite)
        list = new LinkedHashMap<String, String>()
        list.put("kakkiainen", null)
-       sailo.muokkaaViitetta("id", list, null)
+       hallinta.muokkaaViitetta("id", list, null)
     }
 
     then 'viitteen tiedot päivittyvät', {
-       sailo.getViitteet().get(0).getPakollisetKentat().containsKey("kakkiainen").shouldBe true
+     hallinta.getViitteet().get(0).getPakollisetKentat().containsKey("kakkiainen").shouldBe true
     }
 }
 scenario "Käyttäjä ei voi muokata viitettä, jota ei ole olemassa", {

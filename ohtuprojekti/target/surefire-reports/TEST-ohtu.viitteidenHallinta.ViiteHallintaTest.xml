@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.265" errors="0" skipped="0" tests="10" name="ohtu.viitteidenHallinta.ViiteHallintaTest">
+<testsuite failures="0" time="0.266" errors="0" skipped="0" tests="10" name="ohtu.viitteidenHallinta.ViiteHallintaTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="h:\Program Files\Java\jdk1.7.0\jre\bin"/>
@@ -62,14 +62,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetTyypinPakollisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testLisaaViite"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testMuokkaaViite"/>
-  <testcase time="0.25" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetViiteLista"/>
+  <testcase time="0.25" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetViitteetTekstina"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetTyypinVapaaehtoisetKentat"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetViiteLista"/>
+  <testcase time="0.016" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testTeeViitteistaBibtex"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testTallennaViitteet"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetTyypit"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetTyypinVapaaehtoisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testPoistaViite"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetViitteetTekstina"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testTeeViitteistaBibtex"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteHallintaTest" name="testGetTyypinPakollisetKentat"/>
 </testsuite>

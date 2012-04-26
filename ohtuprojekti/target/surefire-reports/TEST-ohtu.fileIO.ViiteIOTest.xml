@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.125" errors="1" skipped="0" tests="5" name="ohtu.fileIO.ViiteIOTest">
+<testsuite failures="0" time="0.094" errors="1" skipped="0" tests="5" name="ohtu.fileIO.ViiteIOTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="h:\Program Files\Java\jdk1.7.0\jre\bin"/>
@@ -62,9 +62,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.093" classname="ohtu.fileIO.ViiteIOTest" name="tallenaTiedostoonTesti"/>
+  <testcase time="0.078" classname="ohtu.fileIO.ViiteIOTest" name="tallenaTiedostoonTesti"/>
   <testcase time="0.016" classname="ohtu.fileIO.ViiteIOTest" name="tallenna100TiedostoonTesti"/>
-  <testcase time="0.016" classname="ohtu.fileIO.ViiteIOTest" name="tallenaViitteetTiedostoonTesti"/>
   <testcase time="0" classname="ohtu.fileIO.ViiteIOTest" name="poistaTiedostoTesti"/>
   <testcase time="0" classname="ohtu.fileIO.ViiteIOTest" name="lueTiedostostaTesti">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
@@ -101,4 +100,5 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
+  <testcase time="0" classname="ohtu.fileIO.ViiteIOTest" name="tallenaViitteetTiedostoonTesti"/>
 </testsuite>

@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: ohtu.fileIO.ViiteIOTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.125 sec <<< FAILURE!
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.109 sec <<< FAILURE!
 lueTiedostostaTesti(ohtu.fileIO.ViiteIOTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at ohtu.fileIO.ViiteIOTest.lueTiedostostaTesti(ViiteIOTest.java:71)
