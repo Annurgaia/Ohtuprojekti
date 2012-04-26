@@ -7,7 +7,7 @@ description 'Käyttäjä saa halutessaan listauksen järjestelmään lisätyist�
 scenario "Käyttäjä saa listauksen järjestelmän viitteistä", {
     given 'valitessa viitteiden listaus', {
         hallinta = new ViiteHallinta()
-       viite = new Viite("tyyppi", "id", new ArrayList<String> tagit, new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>()))
+       viite = new Viite("tyyppi", "id", new ArrayList<String>, new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>()))
     }
 
     when 'pyydetään listausta viitteistä', {
