@@ -49,7 +49,7 @@ public class ViiteHallintaTest {
         LinkedHashMap<String, String> vKentat = null;
         hal.lisaaViite(tyyppi, pKentat, vKentat);
         String expresult = tyyppi;
-        String result = hal.getViiteLista().get(0).getType();
+        String result = hal.getViiteLista().get(hal.getViiteLista().size()-1).getType();
         assertEquals(expresult, result);
     }
 
