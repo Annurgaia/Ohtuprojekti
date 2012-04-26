@@ -65,6 +65,7 @@ public class MainMenu implements ActionListener {
         mainframe.setVisible(true);
 
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainframe.setLocation(600, 200);
         hallinta = new ViiteHallinta();
 
         modifyButton.setEnabled(false);
