@@ -24,14 +24,12 @@ public class ViiteHallinta {
         viiteIO = new ViiteIO("viitteet");
         LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
-        viitelaskuri = 0;
+        viitelaskuri = sailo.getViitteet().size();
         tag = new TaginHallinta();
-        if (tallennetutViitteet != null) {
-            for (String id : tallennetutViitteet.keySet()) {
+        for (String id : tallennetutViitteet.keySet()) {
                 if (tallennetutViitteet.get(id).getTagit() != null)
                     tag.lisaaTageihinViite(tallennetutViitteet.get(id), tallennetutViitteet.get(id).getTagit());
-            }
-       }
+        }
     }
     
     public ViiteHallinta(Bibtex bibtex, ViitetyyppienKenttainformaatio info, 

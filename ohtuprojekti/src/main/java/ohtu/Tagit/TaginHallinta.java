@@ -21,6 +21,8 @@ public class TaginHallinta {
     }
 
     public void lisaaTageihinViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
+        if (viiteTagit == null)
+            return;
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
@@ -35,6 +37,8 @@ public class TaginHallinta {
     }
     
     public void poistaTageistaViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
+        if (viiteTagit == null)
+            return;
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
