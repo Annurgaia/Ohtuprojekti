@@ -16,7 +16,7 @@ import ohtu.viitteidenHallinta.*;
  *
  * @author Wampie
  */
-public class ListMenu implements ActionListener{
+public class ListMenu implements ActionListener {
 
     ViiteHallinta hallinta;
     JFrame frame;
@@ -25,7 +25,7 @@ public class ListMenu implements ActionListener{
     JLabel idLabel;
     JLabel tagLabel;
     JPanel main;
-    
+
     public ListMenu(ViiteHallinta h) {
         hallinta = h;
         frame = new JFrame();
@@ -34,10 +34,13 @@ public class ListMenu implements ActionListener{
         tagLabel = new JLabel("Valitse tägien mukaan");
         id = new JComboBox();
         tags = new JComboBox();
-        
+
         for (String key : hallinta.getViiteLista().keySet()) {
             id.addItem(key);
         }
+
+        id.addActionListener(this);
+
         main.add(idLabel);
         main.add(id);
         main.add(tagLabel);
@@ -46,9 +49,10 @@ public class ListMenu implements ActionListener{
         frame.setBounds(1000, 200, 150, 150);
         frame.setVisible(true);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JComboBox valittu = (JComboBox) e.getSource();
+        String s = (String)valittu.getSelectedItem();
+        new ListWindow(hallinta.getViiteLista().get(s));
     }
-    
 }
