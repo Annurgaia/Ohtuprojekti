@@ -40,7 +40,7 @@ public class ViiteHallinta {
     public void lisaaViite(String tyyppi, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
         Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
         if (!tagit.equals(""))
-            tag.lisaaViitteeseenTagit(uusiViite, tagit.split(","));
+            tag.lisaaTageihinViite(uusiViite, tagit.split(","));
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
