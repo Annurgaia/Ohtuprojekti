@@ -50,6 +50,7 @@ public class AddMenu implements ActionListener {
 
         ikkuna.setVisible(true);
         ikkuna.setSize(200, 400);
+        ikkuna.setLocation(200, 200);
 
 
 
@@ -95,6 +96,7 @@ public class AddMenu implements ActionListener {
 //        ikkuna.add(pak);
 //        ikkuna.add(vap);
         ikkuna.setSize(400, 500);
+        
     }
 
     public void actionPerformed(ActionEvent e) {
