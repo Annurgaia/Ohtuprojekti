@@ -14,21 +14,22 @@ import ohtu.viitteidenHallinta.ViiteInterface;
  */
 public class TaginHallinta {
 
-    private LinkedHashMap<String, ArrayList<ViiteInterface>> tagit;
+    private LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> tagit;
 
     public TaginHallinta() {
+        tagit = new LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>>();
     }
 
     public void lisaaTageihinViite(ViiteInterface viite, String[] viiteTagit) {
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
-                if (tagit.get(viiteTagi).contains(viite)) {
+                if (tagit.get(viiteTagi).containsKey(viite.getId())) {
                     return;
                 }
-                tagit.get(viiteTagi).add(viite);
+                tagit.get(viiteTagi).put(viite.getId(), viite);
             } else {
-                tagit.put(viiteTagi, new ArrayList<ViiteInterface>());
-                tagit.get(viiteTagi).add(viite);
+                tagit.put(viiteTagi, new LinkedHashMap<String, ViiteInterface>());
+                tagit.get(viiteTagi).put(viite.getId(), viite);
             }
         }
     }
