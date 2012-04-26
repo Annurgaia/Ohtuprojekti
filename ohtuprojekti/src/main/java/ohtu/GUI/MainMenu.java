@@ -30,7 +30,7 @@ public class MainMenu implements ActionListener {
     JButton listButton;
     JButton bibtextButton;
     JButton saveButton;
-    JButton endButton;
+    JButton deleteButton;
     Kuuntelija kuunt = new Kuuntelija();
     
     private class Kuuntelija implements WindowListener {
@@ -95,6 +95,11 @@ public class MainMenu implements ActionListener {
         listButton.addActionListener(this);
         listButton.setActionCommand("3");
         mainpanel.add(listButton);
+        deleteButton = new JButton("Poista viite");
+        deleteButton.addActionListener(this);
+        deleteButton.setActionCommand("6");
+        mainpanel.add(deleteButton);
+
         bibtextButton = new JButton("Tallenna BiBtext");
         bibtextButton.addActionListener(this);
         bibtextButton.setActionCommand("4");
@@ -103,11 +108,8 @@ public class MainMenu implements ActionListener {
         saveButton.addActionListener(this);
         saveButton.setActionCommand("5");
         mainpanel.add(saveButton);
-        endButton = new JButton("Lopeta");
-        endButton.addActionListener(this);
-        endButton.setActionCommand("6");
-        mainpanel.add(endButton);
-
+        
+        
         mainframe.add(mainpanel);
         mainframe.setVisible(true);
 
@@ -117,7 +119,8 @@ public class MainMenu implements ActionListener {
         hallinta = new ViiteHallinta();
 
         modifyButton.setEnabled(false);
-        listButton.setEnabled(false);
+//        listButton.setEnabled(false);
+        deleteButton.setEnabled(false);
 
     }
 
@@ -136,6 +139,7 @@ public class MainMenu implements ActionListener {
             case 2:
                 break;
             case 3:
+                new ListMenu(hallinta);
                 break;
             case 4:
                 try {
