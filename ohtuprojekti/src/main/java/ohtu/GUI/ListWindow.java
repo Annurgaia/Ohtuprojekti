@@ -29,7 +29,6 @@ public class ListWindow {
         if (tavaraa) {
             mainframe.removeAll();
             scrollpanel.removeAll();
-            scrollpanel.revalidate();
         }
         String[] lista = viite.toString().split("\n");
         JPanel panel = new JPanel();
@@ -42,7 +41,6 @@ public class ListWindow {
         mainframe.add(scrollpanel);
 
         mainframe.repaint();
-        mainframe.revalidate();
         tavaraa = true;
     }
 
