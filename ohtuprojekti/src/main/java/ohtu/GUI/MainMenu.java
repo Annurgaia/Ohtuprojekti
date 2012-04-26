@@ -97,8 +97,10 @@ public class MainMenu implements ActionListener {
                 break;
             case 5:
                 hallinta.tallennaViitteet();
+                break;
             case 6:
                 System.exit(1);
+                break;
         }
     }
 }
