@@ -13,13 +13,36 @@ import ohtu.viitteidenHallinta.ViiteInterface;
  * @author iimakis
  */
 public class TaginHallinta {
-    private LinkedHashMap<String, ArrayList<ViiteInterface>> tagit;
-    
+
+    private LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> tagit;
+
     public TaginHallinta() {
+        tagit = new LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>>();
     }
 
-    public void lisaaViitteeseenTagit(ViiteInterface viite, String[] viiteTagit) {
-        
+    public void lisaaTageihinViite(ViiteInterface viite, String[] viiteTagit) {
+        for (String viiteTagi : viiteTagit) {
+            if (tagit.containsKey(viiteTagi)) {
+                if (tagit.get(viiteTagi).containsKey(viite.getId())) {
+                    return;
+                }
+                tagit.get(viiteTagi).put(viite.getId(), viite);
+            } else {
+                tagit.put(viiteTagi, new LinkedHashMap<String, ViiteInterface>());
+                tagit.get(viiteTagi).put(viite.getId(), viite);
+            }
+        }
     }
     
+    public void poistaTageistaViite(ViiteInterface viite, String[] viiteTagit) {
+        for (String viiteTagi : viiteTagit) {
+            if (tagit.containsKey(viiteTagi)) {
+                if (tagit.get(viiteTagi).containsKey(viite.getId())) {
+                    tagit.get(viiteTagi).remove(viite.getId());
+                    if (tagit.get(viiteTagi).isEmpty())
+                        tagit.remove(viiteTagi);
+                }
+            }
+        }
+    }
 }

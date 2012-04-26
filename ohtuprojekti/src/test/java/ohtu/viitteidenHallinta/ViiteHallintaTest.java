@@ -67,8 +67,8 @@ public class ViiteHallintaTest {
         hal.lisaaViite(tyyppi, "", pKentat, vKentat);
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         uusi.put("a", "b");
-        boolean onnistuiko = hal.muokkaaViitetta("0", uusi, vKentat);
-        boolean onnistuiko2 = hal.muokkaaViitetta("3", uusi, vKentat);
+        boolean onnistuiko = hal.muokkaaViitetta("0", "",uusi, vKentat);
+        boolean onnistuiko2 = hal.muokkaaViitetta("3", "",uusi, vKentat);
         boolean expresult = true;
         boolean result = hal.getViiteLista().get("0").getPakollisetKentat().containsKey("a");
         assertEquals(expresult, result);
@@ -86,7 +86,7 @@ public class ViiteHallintaTest {
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         when(mockViiteSailo.muokkaaViitetta("2", uusi, uusi)).thenReturn(true);
         boolean expResult = true;
-        boolean result = instance.muokkaaViitetta("2", uusi, uusi);
+        boolean result = instance.muokkaaViitetta("2", "",  uusi, uusi);
         assertEquals(expResult, result);
     }
 
@@ -100,7 +100,7 @@ public class ViiteHallintaTest {
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         when(mockViiteSailo.muokkaaViitetta("2", uusi, uusi)).thenReturn(false);
         boolean expResult = false;
-        boolean result = instance.muokkaaViitetta("2", uusi, uusi);
+        boolean result = instance.muokkaaViitetta("2", "", uusi, uusi);
         assertEquals(expResult, result);
     }
 
