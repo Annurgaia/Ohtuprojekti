@@ -40,6 +40,14 @@ public class ViiteSailo implements ViiteSailoInterface {
     public LinkedHashMap<String, ViiteInterface> getViitteet() {
         return viitteet;
     }
+    
+    public boolean poistaViite(String id) {
+        if (viitteet.containsKey(id)) {
+            viitteet.remove(id);
+            return true;
+        }
+        return false;
+    }
 
     public String listaaViitteet() {
         String viitelista = "";
