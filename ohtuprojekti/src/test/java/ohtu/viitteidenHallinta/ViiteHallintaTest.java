@@ -68,40 +68,12 @@ public class ViiteHallintaTest {
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         uusi.put("a", "b");
         boolean onnistuiko = hal.muokkaaViitetta("0", "",uusi, vKentat);
-        boolean onnistuiko2 = hal.muokkaaViitetta("3", "",uusi, vKentat);
+        boolean onnistuiko2 = hal.muokkaaViitetta("asd", "",uusi, vKentat);
         boolean expresult = true;
         boolean result = hal.getViiteLista().get("0").getPakollisetKentat().containsKey("a");
         assertEquals(expresult, result);
         assertTrue(onnistuiko);
         assertFalse(onnistuiko2);
-    }
-
-    @Test
-    public void testMuokkaaViitettaTrue() throws IOException {
-        ViiteSailo mockViiteSailo = mock(ViiteSailo.class);
-        ViitetyyppienKenttainformaatio mockInfo = mock(ViitetyyppienKenttainformaatio.class);
-        Bibtex mockBibtex = mock(Bibtex.class);
-        ViiteIO mockViiteIO = mock(ViiteIO.class);
-        ViiteHallinta instance = new ViiteHallinta(mockBibtex, mockInfo, mockViiteIO, mockViiteSailo);
-        LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
-        when(mockViiteSailo.muokkaaViitetta("2", any(ArrayList.class), uusi, uusi)).thenReturn(true);
-        boolean expResult = true;
-        boolean result = instance.muokkaaViitetta("2", "",  uusi, uusi);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testMuokkaaViitettaFalse() throws IOException {
-        ViiteSailo mockViiteSailo = mock(ViiteSailo.class);
-        ViitetyyppienKenttainformaatio mockInfo = mock(ViitetyyppienKenttainformaatio.class);
-        Bibtex mockBibtex = mock(Bibtex.class);
-        ViiteIO mockViiteIO = mock(ViiteIO.class);
-        ViiteHallinta instance = new ViiteHallinta(mockBibtex, mockInfo, mockViiteIO, mockViiteSailo);
-        LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
-        when(mockViiteSailo.muokkaaViitetta("2", any(ArrayList.class), uusi, uusi)).thenReturn(false);
-        boolean expResult = false;
-        boolean result = instance.muokkaaViitetta("2", "", uusi, uusi);
-        assertEquals(expResult, result);
     }
 
     /**
