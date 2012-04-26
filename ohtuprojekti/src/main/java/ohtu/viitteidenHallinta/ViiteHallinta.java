@@ -53,8 +53,9 @@ public class ViiteHallinta {
     }
     
     public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
-        
-        return sailo.muokkaaViitetta(id, pKentat, vKentat);
+        String[] tagiTemp = tagit.split(",");
+        ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
+        return sailo.muokkaaViitetta(id, tagitArrayListina, pKentat, vKentat);
     }
     
     public String getViitteetTekstina() {

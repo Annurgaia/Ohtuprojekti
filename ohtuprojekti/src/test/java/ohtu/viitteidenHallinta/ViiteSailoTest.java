@@ -18,8 +18,10 @@ import static org.junit.Assert.*;
  * @author Wampie
  */
 public class ViiteSailoTest {
-    Viite viite;
-    ViiteSailo sailo;
+    
+    private Viite viite;
+    private ViiteSailo sailo;
+    
     public ViiteSailoTest() {
     }
 
@@ -63,12 +65,12 @@ public class ViiteSailoTest {
     
     @Test
     public void testMuokkaaPalauttaaFalseJosVääräID() {
-        assertEquals(false, sailo.muokkaaViitetta("asdf", null, null));
+        assertEquals(false, sailo.muokkaaViitetta("asdf", new ArrayList<String>(), null, null));
     }
     @Test
     public void testMuokkaaPalauttaaTrueJosOikeaID() {
         sailo.addViite(viite);
-        assertEquals(true, sailo.muokkaaViitetta("1", null, null));
+        assertEquals(true, sailo.muokkaaViitetta("1", new ArrayList<String>(),null, null));
     }
     @Test
     public void testMuokkaaMuokkaa() {
@@ -78,7 +80,7 @@ public class ViiteSailoTest {
         p.put("Titteli", "Tutkimus olusenjuonnista");
         LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "");
-        sailo.muokkaaViitetta("1", p, v);
+        sailo.muokkaaViitetta("1", new ArrayList<String>(),p, v);
         LinkedHashMap<String, String> viitej = sailo.getViitteet().get("1").getPakollisetKentat();
         assertEquals(true, viitej.containsValue("Mikko")
                 && viitej.containsValue("Tutkimus olusenjuonnista"));

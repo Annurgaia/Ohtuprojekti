@@ -84,7 +84,7 @@ public class ViiteHallintaTest {
         ViiteIO mockViiteIO = mock(ViiteIO.class);
         ViiteHallinta instance = new ViiteHallinta(mockBibtex, mockInfo, mockViiteIO, mockViiteSailo);
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
-        when(mockViiteSailo.muokkaaViitetta("2", uusi, uusi)).thenReturn(true);
+        when(mockViiteSailo.muokkaaViitetta("2", any(ArrayList.class), uusi, uusi)).thenReturn(true);
         boolean expResult = true;
         boolean result = instance.muokkaaViitetta("2", "",  uusi, uusi);
         assertEquals(expResult, result);
@@ -98,7 +98,7 @@ public class ViiteHallintaTest {
         ViiteIO mockViiteIO = mock(ViiteIO.class);
         ViiteHallinta instance = new ViiteHallinta(mockBibtex, mockInfo, mockViiteIO, mockViiteSailo);
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
-        when(mockViiteSailo.muokkaaViitetta("2", uusi, uusi)).thenReturn(false);
+        when(mockViiteSailo.muokkaaViitetta("2", any(ArrayList.class), uusi, uusi)).thenReturn(false);
         boolean expResult = false;
         boolean result = instance.muokkaaViitetta("2", "", uusi, uusi);
         assertEquals(expResult, result);

@@ -1,5 +1,5 @@
-<testsuite tests='1' results='0' failures='0' disabled='1' errors='0' time='0.103' name='behavior.viite_bibtex_muotoon'>
-  <testcase classname='behavior.viite_bibtex_muotoon' name='käyttäjä voi tulostaa viitten bibtexinä' time='0.013'>
+<testsuite tests='1' results='0' failures='0' disabled='1' errors='0' time='0.144' name='behavior.viite_bibtex_muotoon'>
+  <testcase classname='behavior.viite_bibtex_muotoon' name='käyttäjä voi tulostaa viitten bibtexinä' time='0.043'>
     <skipped />
   </testcase>
 </testsuite>
