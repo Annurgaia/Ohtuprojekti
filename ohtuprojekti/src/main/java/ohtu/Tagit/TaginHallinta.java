@@ -33,4 +33,16 @@ public class TaginHallinta {
             }
         }
     }
+    
+    public void poistaTageistaViite(ViiteInterface viite, String[] viiteTagit) {
+        for (String viiteTagi : viiteTagit) {
+            if (tagit.containsKey(viiteTagi)) {
+                if (tagit.get(viiteTagi).containsKey(viite.getId())) {
+                    tagit.get(viiteTagi).remove(viite.getId());
+                    if (tagit.get(viiteTagi).isEmpty())
+                        tagit.remove(viiteTagi);
+                }
+            }
+        }
+    }
 }
