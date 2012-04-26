@@ -23,6 +23,7 @@ public class AddMenu implements ActionListener {
     JPanel vap = new JPanel();
     ArrayList<JTextField> pakText = new ArrayList<JTextField>();
     ArrayList<JTextField> vapText = new ArrayList<JTextField>();
+    JTextField tag;
     boolean submit = false;
     LinkedHashMap<String, String> vapMap = new LinkedHashMap<String, String>();
     LinkedHashMap<String, String> pakMap = new LinkedHashMap<String, String>();
@@ -88,7 +89,12 @@ public class AddMenu implements ActionListener {
             temp.revalidate();
             temp2.revalidate();
         }
-
+        JLabel temp = new JLabel("tägit");
+            JTextField temp2 = new JTextField();
+            temp2.addActionListener(this);
+            tag = temp2;
+            vap.add(temp);
+            vap.add(tag);
         JButton sub = new JButton("Lisää");
         sub.addActionListener(this);
         vap.add(sub);
@@ -125,7 +131,7 @@ public class AddMenu implements ActionListener {
             
         }
         if (!valinta.equals("")) {
-            hallinta.lisaaViite(valinta, pakMap, vapMap);
+            hallinta.lisaaViite(valinta, tag.getText(), pakMap, vapMap);
         }
 
     }
