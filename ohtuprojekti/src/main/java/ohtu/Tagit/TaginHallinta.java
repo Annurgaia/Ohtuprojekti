@@ -45,4 +45,8 @@ public class TaginHallinta {
             }
         }
     }
+    
+    public LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> getTagit() {
+        return tagit;
+    }
 }
