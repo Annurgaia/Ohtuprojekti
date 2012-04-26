@@ -2,6 +2,9 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ohtu.viitteidenHallinta.Viite;
 import ohtu.viitteidenHallinta.ViiteInterface;
 import ohtu.viitteidenHallinta.ViiteSailoInterface;
@@ -25,7 +28,7 @@ public class ViiteIO{
         out.close();
     }
     
-    public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file){
+    public LinkedHashMap<String, ViiteInterface> lueViitteetTiedostosta(String file){
         file = appendFileType(file, ".json");
         File f = new File(file);
         if(!f.exists())
@@ -37,12 +40,12 @@ public class ViiteIO{
         }
         String rivi;
         Viite viite;
-        ArrayList<ViiteInterface> viitteet = new ArrayList<ViiteInterface>();
+        LinkedHashMap<String, ViiteInterface> viitteet = new LinkedHashMap<String, ViiteInterface>();
         try {
             while((rivi = in.readLine()) != null){
                 if(!rivi.equals("")){
                     viite = gson.fromJson(rivi, Viite.class);
-                    viitteet.add(viite);
+                    viitteet.put(viite.getId(), viite);
                 }
             }
             in.close();
@@ -52,11 +55,12 @@ public class ViiteIO{
         return viitteet;
     }
     
+
     public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
         if(sailo.isEmpty())
             return;
-        for(ViiteInterface viite : sailo.getViitteet()){
-            tallennaViiteTiedostoon(viite);
+        for(ViiteInterface viite : sailo.getViitteet().values()){
+                tallennaViiteTiedostoon(viite);
         }
     }
 

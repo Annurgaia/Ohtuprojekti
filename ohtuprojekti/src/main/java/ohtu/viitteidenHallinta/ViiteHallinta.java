@@ -2,7 +2,11 @@ package ohtu.viitteidenHallinta;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import ohtu.Tagit.TaginHallinta;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
 
@@ -12,14 +16,16 @@ public class ViiteHallinta {
     private Bibtex bibtex;
     private ViiteIO viiteIO;
     private int viitelaskuri;
+    private TaginHallinta tag;
     
     public ViiteHallinta() throws IOException {
         bibtex = new Bibtex();
         info = new ViitetyyppienKenttainformaatio();
         viiteIO = new ViiteIO("viitteet");
-        ArrayList<ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
+        LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
         viitelaskuri = 0;
+        tag = new TaginHallinta();
     }
     
     public ViiteHallinta(Bibtex bibtex, ViitetyyppienKenttainformaatio info, 
@@ -29,15 +35,25 @@ public class ViiteHallinta {
         this.viiteIO = vio;
         this.sailo = sailo;
         viitelaskuri = 0;
+        tag = new TaginHallinta();
     }
     
-    public void lisaaViite(String tyyppi, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
-        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
+    public void lisaaViite(String tyyppi, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
+        String[] tagiTemp = tagit.split(",");
+        ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
+        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, tagitArrayListina, pKentat, vKentat);
+        if (!tagit.equals(""))
+            tag.lisaaTageihinViite(uusiViite, tagiTemp);
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
     
-    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+    public boolean poistaViite(String id) {
+        return sailo.poistaViite(id);
+    }
+    
+    public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+        
         return sailo.muokkaaViitetta(id, pKentat, vKentat);
     }
     
@@ -45,7 +61,7 @@ public class ViiteHallinta {
         return sailo.listaaViitteet();
     }
     
-    public ArrayList<ViiteInterface> getViiteLista() {
+    public LinkedHashMap<String, ViiteInterface> getViiteLista() {
         return sailo.getViitteet();
     }
     
@@ -53,12 +69,16 @@ public class ViiteHallinta {
         bibtex.tallennaBibtexitTiedostoon(sailo, filename);
     }
     
-    public void tallennaViitteet() throws IOException {
-        viiteIO.tallennaViitteetTiedostoon(sailo);
+    public void tallennaViitteet(){
+        try {
+            viiteIO.tallennaViitteetTiedostoon(sailo);
+        } catch (IOException ex) {
+            Logger.getLogger(ViiteHallinta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public ArrayList<String> getTyypit() {
-        return info.getViiteTyypit();
+       return info.getViiteTyypit();
     }
     
     public LinkedHashMap<String, String> getTyypinPakollisetKentat(String tyyppi) {
