@@ -62,10 +62,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetType"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetId"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetPakollisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetVapaaehtoisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testSetPakollisetKentat"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testSetVapaaehtoisetKentat"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetId"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetType"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteTest" name="testGetPakollisetKentat"/>
 </testsuite>
