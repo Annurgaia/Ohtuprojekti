@@ -39,8 +39,8 @@ public class ViiteIOTest{
     @Test
     public void tallenaTiedostoonTesti() throws IOException{
         vio.tallennaViiteTiedostoon(viites);
-        ArrayList<ViiteInterface> viite = vio.lueViitteetTiedostosta("testit");
-        assertEquals(true, viites.getId().equals(viite.get(0).getId()));
+        LinkedHashMap<String, ViiteInterface> viite = vio.lueViitteetTiedostosta("testit");
+        assertEquals(true, viite.containsKey(viites.getId()));
     }
     
     @Test
@@ -66,9 +66,9 @@ public class ViiteIOTest{
     
     @Test
     public void lueTiedostostaTesti() throws IOException{
-        ArrayList<ViiteInterface> testi;
+        LinkedHashMap<String, ViiteInterface> testi;
         testi = vio.lueViitteetTiedostosta("testit");
-        System.out.println(testi.get(0).getId());
+        assertEquals(true, testi.containsKey("W06"));
     }
     
     @Test

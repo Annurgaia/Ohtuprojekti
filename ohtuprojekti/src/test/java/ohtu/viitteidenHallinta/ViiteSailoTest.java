@@ -4,8 +4,6 @@
  */
 package ohtu.viitteidenHallinta;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -80,18 +78,18 @@ public class ViiteSailoTest {
         LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "");
         sailo.muokkaaViitetta("1", p, v);
-        LinkedHashMap<String, String> viitej = sailo.haeViite("1").getPakollisetKentat();
+        LinkedHashMap<String, String> viitej = sailo.getViitteet().get("1").getPakollisetKentat();
         assertEquals(true, viitej.containsValue("Mikko")
                 && viitej.containsValue("Tutkimus olusenjuonnista"));
     }
     @Test
     public void testHaePalauttaNullJosVääräID() {
-        assertEquals(null, sailo.haeViite("asdff"));
+        assertEquals(null, sailo.getViitteet().get("asdff"));
     }
     @Test
     public void testHaePalauttaViite() {
         sailo.addViite(viite);
-        assertEquals(viite, sailo.haeViite("1"));
+        assertEquals(viite, sailo.getViitteet().get("1"));
     }
     @Test
     public void printTyhjaLista() {
@@ -105,10 +103,10 @@ public class ViiteSailoTest {
     
    @Test
    public void toinenKonstruktori() {
-       ArrayList<ViiteInterface> uusi = new ArrayList<ViiteInterface>();
-       uusi.add(viite);
+       LinkedHashMap<String, ViiteInterface> uusi = new LinkedHashMap<String, ViiteInterface>();
+       uusi.put(viite.getId(), viite);
        ViiteSailo uusiSailo = new ViiteSailo(uusi);
-       assertEquals(true, uusiSailo.getViitteet().size() == 1);
+       assertEquals(true, uusiSailo.getViitteet().values().size() == 1);
    }
     
     

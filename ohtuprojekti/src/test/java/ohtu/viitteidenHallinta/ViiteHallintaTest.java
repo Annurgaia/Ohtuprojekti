@@ -49,7 +49,9 @@ public class ViiteHallintaTest {
         LinkedHashMap<String, String> vKentat = null;
         hal.lisaaViite(tyyppi, pKentat, vKentat);
         String expresult = tyyppi;
-        String result = hal.getViiteLista().get(hal.getViiteLista().size()-1).getType();
+        Object[] duh = hal.getViiteLista().values().toArray();
+        Viite viite = (Viite)duh[duh.length - 1];
+        String result = viite.getType();
         assertEquals(expresult, result);
     }
 
@@ -68,7 +70,7 @@ public class ViiteHallintaTest {
         boolean onnistuiko = hal.muokkaaViitetta("0", uusi, vKentat);
         boolean onnistuiko2 = hal.muokkaaViitetta("3", uusi, vKentat);
         boolean expresult = true;
-        boolean result = hal.getViiteLista().get(0).getPakollisetKentat().containsKey("a");
+        boolean result = hal.getViiteLista().get("0").getPakollisetKentat().containsKey("a");
         assertEquals(expresult, result);
         assertTrue(onnistuiko);
         assertFalse(onnistuiko2);
@@ -174,7 +176,6 @@ public class ViiteHallintaTest {
      */
     @Test
     public void testGetTyypinPakollisetKentat() throws IOException {
-        System.out.println("getTyypinPakollisetKentat");
         String tyyppi = "";
         ViiteHallinta instance = new ViiteHallinta();
         LinkedHashMap expResult = null;
@@ -187,7 +188,6 @@ public class ViiteHallintaTest {
      */
     @Test
     public void testGetTyypinVapaaehtoisetKentat() throws IOException {
-        System.out.println("getTyypinVapaaehtoisetKentat");
         String tyyppi = "";
         ViiteHallinta instance = new ViiteHallinta();
         LinkedHashMap expResult = null;
