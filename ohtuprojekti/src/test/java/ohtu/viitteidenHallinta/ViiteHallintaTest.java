@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
  * @author iimakis
  */
 public class ViiteHallintaTest {
-    
+
     public ViiteHallintaTest() {
     }
 
@@ -29,11 +29,11 @@ public class ViiteHallintaTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -47,10 +47,10 @@ public class ViiteHallintaTest {
         String tyyppi = "article";
         LinkedHashMap<String, String> pKentat = null;
         LinkedHashMap<String, String> vKentat = null;
-        hal.lisaaViite(tyyppi, pKentat, vKentat);
+        hal.lisaaViite(tyyppi, "", pKentat, vKentat);
         String expresult = tyyppi;
         Object[] duh = hal.getViiteLista().values().toArray();
-        Viite viite = (Viite)duh[duh.length - 1];
+        Viite viite = (Viite) duh[duh.length - 1];
         String result = viite.getType();
         assertEquals(expresult, result);
     }
@@ -58,13 +58,13 @@ public class ViiteHallintaTest {
     /**
      * Test of muokkaaViitetta method, of class ViiteHallinta.
      */
-        @Test
+    @Test
     public void testMuokkaaViite() throws IOException {
         ViiteHallinta hal = new ViiteHallinta();
         String tyyppi = "Article";
         LinkedHashMap<String, String> pKentat = new LinkedHashMap<String, String>();
         LinkedHashMap<String, String> vKentat = new LinkedHashMap<String, String>();
-        hal.lisaaViite(tyyppi, pKentat, vKentat);
+        hal.lisaaViite(tyyppi, "", pKentat, vKentat);
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         uusi.put("a", "b");
         boolean onnistuiko = hal.muokkaaViitetta("0", uusi, vKentat);
@@ -76,7 +76,6 @@ public class ViiteHallintaTest {
         assertFalse(onnistuiko2);
     }
 
-    
     @Test
     public void testMuokkaaViitettaTrue() throws IOException {
         ViiteSailo mockViiteSailo = mock(ViiteSailo.class);
@@ -90,7 +89,7 @@ public class ViiteHallintaTest {
         boolean result = instance.muokkaaViitetta("2", uusi, uusi);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testMuokkaaViitettaFalse() throws IOException {
         ViiteSailo mockViiteSailo = mock(ViiteSailo.class);
@@ -132,6 +131,7 @@ public class ViiteHallintaTest {
         instance.getViiteLista();
         verify(mockViiteSailo, times(1)).getViitteet();
     }
+
     /**
      * Test of teeViitteistaBibtex method, of class ViiteHallinta.
      */
@@ -194,16 +194,16 @@ public class ViiteHallintaTest {
         LinkedHashMap result = instance.getTyypinVapaaehtoisetKentat(tyyppi);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testPoistaViite() throws IOException {
         ViiteHallinta hal = new ViiteHallinta();
         String tyyppi = "article";
         LinkedHashMap<String, String> pKentat = null;
         LinkedHashMap<String, String> vKentat = null;
-        hal.lisaaViite(tyyppi, pKentat, vKentat);
+        hal.lisaaViite(tyyppi, "", pKentat, vKentat);
         Object[] duh = hal.getViiteLista().values().toArray();
-        Viite viite = (Viite)duh[duh.length - 1];
+        Viite viite = (Viite) duh[duh.length - 1];
         boolean result = hal.poistaViite(viite.getId());
         boolean result2 = hal.poistaViite(viite.getId());
         boolean expResult = true;

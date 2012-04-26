@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ohtu.Tagit.TaginHallinta;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
 
@@ -14,6 +15,7 @@ public class ViiteHallinta {
     private Bibtex bibtex;
     private ViiteIO viiteIO;
     private int viitelaskuri;
+    private TaginHallinta tag;
     
     public ViiteHallinta() throws IOException {
         bibtex = new Bibtex();
@@ -22,6 +24,7 @@ public class ViiteHallinta {
         LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
         viitelaskuri = 0;
+        tag = new TaginHallinta();
     }
     
     public ViiteHallinta(Bibtex bibtex, ViitetyyppienKenttainformaatio info, 
@@ -31,10 +34,13 @@ public class ViiteHallinta {
         this.viiteIO = vio;
         this.sailo = sailo;
         viitelaskuri = 0;
+        tag = new TaginHallinta();
     }
     
-    public void lisaaViite(String tyyppi, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
+    public void lisaaViite(String tyyppi, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
         Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
+        if (!tagit.equals(""))
+            tag.lisaaViitteeseenTagit(uusiViite, tagit.split(","));
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
