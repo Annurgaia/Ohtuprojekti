@@ -16,7 +16,6 @@ public interface ViiteInterface {
     String getType();
     LinkedHashMap <String, String> getPakollisetKentat();
     LinkedHashMap <String, String> getVapaaehtoisetKentat();;
-    boolean poistaViite(String id);
     void setPakollisetKentat(LinkedHashMap <String, String> pakollisetKentat);
     void setVapaaehtoisetKentat(LinkedHashMap <String, String> vapaaehtoisetKentat);
 }
