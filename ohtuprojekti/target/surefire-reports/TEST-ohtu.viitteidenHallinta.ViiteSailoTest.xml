@@ -62,15 +62,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testMuokkaaPalauttaaFalseJosV\u00E4\u00E4r\u00E4ID"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="printLista"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testHaePalauttaNullJosV\u00E4\u00E4r\u00E4ID"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="toinenKonstruktori"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="printTyhjaLista"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testMuokkaaPalauttaaTrueJosOikeaID"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testHaePalauttaViite"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testMuokkaaMuokkaa"/>
-  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testViiteListaOnTyhjaAlussa"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testHaePalauttaViite"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="printTyhjaLista"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testHaePalauttaNullJosV\u00E4\u00E4r\u00E4ID"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testMuokkaaPalauttaaTrueJosOikeaID"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testViiteAddToimii"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="printLista"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testViiteListaOnTyhjaAlussa"/>
   <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testPoistaViite"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="testMuokkaaPalauttaaFalseJosV\u00E4\u00E4r\u00E4ID"/>
+  <testcase time="0" classname="ohtu.viitteidenHallinta.ViiteSailoTest" name="toinenKonstruktori"/>
 </testsuite>
