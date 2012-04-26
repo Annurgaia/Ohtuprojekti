@@ -43,7 +43,7 @@ public class ViiteHallinta {
         ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
         Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, tagitArrayListina, pKentat, vKentat);
         if (!tagit.equals(""))
-            tag.lisaaTageihinViite(uusiViite, tagiTemp);
+            tag.lisaaTageihinViite(uusiViite, tagitArrayListina);
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
@@ -51,7 +51,7 @@ public class ViiteHallinta {
     public boolean poistaViite(String id) {
         if (sailo.getViitteet().containsKey(id)) {
             ViiteInterface poistettava = sailo.getViitteet().get(id);
-            tag.poistaTageistaViite(poistettava, (String[])poistettava.getTagit().toArray());
+            tag.poistaTageistaViite(poistettava, poistettava.getTagit());
         }
         return sailo.poistaViite(id);
     }

@@ -20,7 +20,7 @@ public class TaginHallinta {
         tagit = new LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>>();
     }
 
-    public void lisaaTageihinViite(ViiteInterface viite, String[] viiteTagit) {
+    public void lisaaTageihinViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
@@ -34,7 +34,7 @@ public class TaginHallinta {
         }
     }
     
-    public void poistaTageistaViite(ViiteInterface viite, String[] viiteTagit) {
+    public void poistaTageistaViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
