@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ohtu.viitteidenHallinta.ViiteHallintaTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.769 sec
+=======
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 sec
+>>>>>>> b3e4f66ba05a41b5d0f7802c2b2911baffbafb0b

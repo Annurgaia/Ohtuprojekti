@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ohtu.viitteidenHallinta.ViiteTarkistinTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+>>>>>>> b3e4f66ba05a41b5d0f7802c2b2911baffbafb0b
