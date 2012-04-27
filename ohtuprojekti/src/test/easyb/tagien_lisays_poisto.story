@@ -2,7 +2,7 @@ import ohtu.*
 import ohtu.viitteidenHallinta.*
 import java.util.*
 
-description 'Käyttäjä voi lisätä viitteen järjestelmään'
+description 'Käyttäjä voi lisätä tagin viitteeseen'
 
 
 scenario "käyttäjän voi onnistuneesti lisätä viitteisiin tageja järjestelmään", {
@@ -10,7 +10,7 @@ scenario "käyttäjän voi onnistuneesti lisätä viitteisiin tageja järjestelm
        taginhallinta = new TaginHallinta()
    }
     when 'Oikeat tiedot syötetään järjestelmään', {
-     taginhallinta.lisaaTageihinViite (ViiteInterface viite,"")
+     taginhallinta.lisaaTageihinViite ("asdf","")
     }
 
     then 'tagi on lisätty viitteeseen', {
@@ -19,3 +19,15 @@ scenario "käyttäjän voi onnistuneesti lisätä viitteisiin tageja järjestelm
 }
 
 
+scenario "käyttäjän voi onnistuneesti poistaa tagin viitteesta", {
+    given 'valitaan tagin poistaminen', {
+       taginhallinta = new TaginHallinta()
+   }
+    when 'Oikeat tiedot syötetään järjestelmään', {
+     poistaTageistaViite("asdf", "")
+    }
+
+    then 'viite on poistettu järjestelmästä', {
+       taginhallinta.getViiteLista()tagit.get(viiteTagi).containsKey(viite.getId().shouldBe false
+    }
+}
