@@ -118,7 +118,7 @@ public class MainMenu implements ActionListener {
         mainframe.addWindowListener(kuunt);
         hallinta = new ViiteHallinta();
 
-        modifyButton.setEnabled(false);
+//        modifyButton.setEnabled(false);
 //        listButton.setEnabled(false);
 //        deleteButton.setEnabled(false);
 
@@ -137,6 +137,7 @@ public class MainMenu implements ActionListener {
                 new AddMenu(hallinta);
                 break;
             case 2:
+                new ModifyMenu(hallinta);
                 break;
             case 3:
                 new ListMenu(hallinta);
