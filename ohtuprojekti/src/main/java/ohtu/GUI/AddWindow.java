@@ -79,7 +79,7 @@ public class AddWindow implements ActionListener {
             JLabel temp = new JLabel(s);
             JTextField temp2 = new JTextField();
             temp2.addActionListener(this);
-            pakText.add(temp2);
+            vakText.add(temp2);
             vapaaehtoiset.add(temp);
             vapaaehtoiset.add(temp2);
         }
