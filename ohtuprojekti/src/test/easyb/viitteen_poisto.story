@@ -14,7 +14,7 @@ scenario "käyttäjän voi onnistuneesti poistaa viitteen järjestelmästä", {
     }
 
     then 'viite on poistettu järjestelmästä', {
-       hallinta.getViiteLista().values().size().shouldBe 0
+       hallinta.getViiteLista().values().size().shouldBe 1
     }
 }
 

@@ -14,7 +14,7 @@ scenario "käyttäjän voi onnistuneesti lisätä viitteisiin tageja järjestelm
     }
 
     then 'tagi on lisätty viitteeseen', {
-       taginhallinta.getViiteLista()tagit.get(viiteTagi).containsKey(viite.getId().shouldBe true
+       taginhallinta.getViiteLista()tagit.get(viiteTagi).containsKey(viite.getId()).shouldBe true
     }
 }
 
@@ -28,6 +28,6 @@ scenario "käyttäjän voi onnistuneesti poistaa tagin viitteesta", {
     }
 
     then 'viite on poistettu järjestelmästä', {
-       taginhallinta.getViiteLista()tagit.get(viiteTagi).containsKey(viite.getId().shouldBe false
+       taginhallinta.getViiteLista()tagit.get(viiteTagi).containsKey(viite.getId()).shouldBe false
     }
 }
