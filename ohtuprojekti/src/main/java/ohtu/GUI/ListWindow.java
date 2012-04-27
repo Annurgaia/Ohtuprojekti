@@ -37,6 +37,9 @@ public class ListWindow {
             JLabel temp = new JLabel(string);
             panel.add(temp);
         }
+
+        JLabel temp = new JLabel("tagit: " + viite.getTagit().toString());
+        panel.add(temp);
         scrollpanel = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         mainframe.add(scrollpanel);
 
@@ -46,7 +49,7 @@ public class ListWindow {
 
     public void listWindowTag(LinkedHashMap<String, ViiteInterface> taglist) {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(14*taglist.size(), 0));
+        panel.setLayout(new GridLayout(14 * taglist.size(), 0));
 
         for (String s : taglist.keySet()) {
             Viite viite = (Viite) taglist.get(s);
@@ -55,7 +58,9 @@ public class ListWindow {
                 JLabel temp = new JLabel(string);
                 panel.add(temp);
             }
-            JLabel temp = new JLabel("-----");
+            JLabel temp = new JLabel("tagit: " + viite.getTagit().toString());
+            panel.add(temp);
+            temp = new JLabel("-----");
             panel.add(temp);
         }
         scrollpanel = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -71,7 +76,7 @@ public class ListWindow {
     public ListWindow() {
         mainframe = new JFrame();
         mainframe.setVisible(true);
-        mainframe.setBounds(1000, 350, 300, 300);
+        mainframe.setBounds(1000, 300, 200, 350);
         mainframe.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 }

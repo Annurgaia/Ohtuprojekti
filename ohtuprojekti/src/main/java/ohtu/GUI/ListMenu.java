@@ -53,7 +53,7 @@ public class ListMenu implements ActionListener {
         main.add(tagLabel);
         main.add(tags);
         frame.add(main);
-        frame.setBounds(1000, 200, 150, 150);
+        frame.setBounds(1000, 200, 200, 100);
         frame.setVisible(true);
     }
 

@@ -120,7 +120,7 @@ public class MainMenu implements ActionListener {
 
         modifyButton.setEnabled(false);
 //        listButton.setEnabled(false);
-        deleteButton.setEnabled(false);
+//        deleteButton.setEnabled(false);
 
     }
 
@@ -152,7 +152,7 @@ public class MainMenu implements ActionListener {
                 hallinta.tallennaViitteet();
                 break;
             case 6:
-                System.exit(0);
+                DeleteWindow win = new DeleteWindow(hallinta);
                 break;
         }
     }
