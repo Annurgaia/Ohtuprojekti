@@ -20,13 +20,13 @@ public class TaginHallinta {
         tagit = new LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>>();
     }
 
-    public void lisaaTageihinViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
-        if (viiteTagit == null)
-            return;
+    public boolean lisaaTageihinViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
+        if (viiteTagit == null || viite == null)
+            return false;
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
-                    return;
+                    return false;
                 }
                 tagit.get(viiteTagi).put(viite.getId(), viite);
             } else {
@@ -34,11 +34,12 @@ public class TaginHallinta {
                 tagit.get(viiteTagi).put(viite.getId(), viite);
             }
         }
+        return true;
     }
     
-    public void poistaTageistaViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
-        if (viiteTagit == null)
-            return;
+    public boolean poistaTageistaViite(ViiteInterface viite, ArrayList<String> viiteTagit) {
+        if (viiteTagit == null || viite == null)
+            return false;
         for (String viiteTagi : viiteTagit) {
             if (tagit.containsKey(viiteTagi)) {
                 if (tagit.get(viiteTagi).containsKey(viite.getId())) {
@@ -48,6 +49,7 @@ public class TaginHallinta {
                 }
             }
         }
+        return true;
     }
     
     public LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> getTagit() {
