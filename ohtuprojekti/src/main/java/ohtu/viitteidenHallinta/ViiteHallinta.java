@@ -24,7 +24,13 @@ public class ViiteHallinta {
         viiteIO = new ViiteIO("viitteet");
         LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
-        viitelaskuri = sailo.getViitteet().size();
+        if (sailo.getViitteet().size() > 0) {
+            Object[] keys = sailo.getViitteet().keySet().toArray();
+            String lastKey = (String)keys[keys.length-1];
+            viitelaskuri = Integer.parseInt(lastKey);
+        }
+        else
+            viitelaskuri = 0;
         tag = new TaginHallinta();
         for (String id : tallennetutViitteet.keySet()) {
                 if (tallennetutViitteet.get(id).getTagit() != null)

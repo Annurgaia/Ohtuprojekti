@@ -13,10 +13,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Wampie
- */
 public class ViiteSailoTest {
     
     private Viite viite;
@@ -119,5 +115,11 @@ public class ViiteSailoTest {
         boolean toka = sailo.poistaViite(viite.getId());
         assertEquals(true, eka);
         assertEquals(false, toka);
+    }
+    
+    @Test
+    public void testKonstruktoriParametrinaNull() {
+        ViiteSailo sailo2 = new ViiteSailo(null);
+        assertNotNull(sailo2.getViitteet());
     }
 }
