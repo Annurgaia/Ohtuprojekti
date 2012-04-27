@@ -13,3 +13,4 @@ ohtuprojekti/nbactions.xml
 ohtuprojekti/target/easyb/
 ohtuprojekti/target/test-classes/
 ohtuprojekti/*.jar
+/ohtuprojekti/target/

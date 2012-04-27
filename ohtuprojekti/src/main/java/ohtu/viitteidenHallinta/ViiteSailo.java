@@ -9,61 +9,51 @@ import java.util.LinkedHashMap;
 
 public class ViiteSailo implements ViiteSailoInterface {
 
-    private ArrayList<ViiteInterface> viitteet;
+    private LinkedHashMap<String, ViiteInterface> viitteet;
+    
 
     public ViiteSailo() {
-        this.viitteet = new ArrayList<ViiteInterface>();
+        this.viitteet = new LinkedHashMap<String, ViiteInterface>();
     }
 
-    public ViiteSailo(ArrayList<ViiteInterface> viitteet) {
+    public ViiteSailo(LinkedHashMap<String, ViiteInterface> viitteet) {
         if (viitteet == null) {
-            this.viitteet = new ArrayList<ViiteInterface>();
+            this.viitteet = new LinkedHashMap<String, ViiteInterface>();
         } else {
             this.viitteet = viitteet;
         }
     }
 
     public void addViite(ViiteInterface viite) {
-        viitteet.add(viite);
+        viitteet.put(viite.getId(), viite);
     }
 
-    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pakollisetKentat,
-            LinkedHashMap<String, String> vapaaehtoisetKentat) {
-        int indeksi = etsiViite(id);
-        if (indeksi == -1) {
+    public boolean muokkaaViitetta(String id, ArrayList<String> tagit,
+            LinkedHashMap<String, String> pakollisetKentat, LinkedHashMap<String, String> vapaaehtoisetKentat) {
+        if (!viitteet.containsKey(id))
             return false;
-        }
-        viitteet.get(indeksi).setPakollisetKentat(pakollisetKentat);
-        viitteet.get(indeksi).setVapaaehtoisetKentat(vapaaehtoisetKentat);
+        viitteet.get(id).setTagit(tagit);
+        viitteet.get(id).setPakollisetKentat(pakollisetKentat);
+        viitteet.get(id).setVapaaehtoisetKentat(vapaaehtoisetKentat);
         return true;
     }
 
-    private int etsiViite(String id) {
-        for (int i = 0; i < viitteet.size(); i++) {
-            if (viitteet.get(i).getId().equals(id)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public ViiteInterface haeViite(String id) {
-        for (int i = 0; i < viitteet.size(); i++) {
-            if (viitteet.get(i).getId().equals(id)) {
-                return viitteet.get(i);
-            }
-        }
-        return null;
-    }
-
-    public ArrayList<ViiteInterface> getViitteet() {
+    public LinkedHashMap<String, ViiteInterface> getViitteet() {
         return viitteet;
+    }
+    
+    public boolean poistaViite(String id) {
+        if (viitteet.containsKey(id)) {
+            viitteet.remove(id);
+            return true;
+        }
+        return false;
     }
 
     public String listaaViitteet() {
         String viitelista = "";
-        for (int i = 0; i < viitteet.size(); i++) {
-            viitelista += viitteet.get(i).toString();
+        for (String ids : viitteet.keySet()) {
+            viitelista += viitteet.get(ids).toString();
             viitelista += "\n";
         }
         return viitelista;
@@ -72,4 +62,5 @@ public class ViiteSailo implements ViiteSailoInterface {
     public boolean isEmpty() {
         return viitteet.isEmpty();
     }
+    
 }

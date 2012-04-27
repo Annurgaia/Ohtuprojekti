@@ -5,7 +5,6 @@
 package ohtu.viitteidenHallinta;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,13 +13,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Wampie
- */
 public class ViiteSailoTest {
-    Viite viite;
-    ViiteSailo sailo;
+    
+    private Viite viite;
+    private ViiteSailo sailo;
+    
     public ViiteSailoTest() {
     }
 
@@ -42,7 +39,7 @@ public class ViiteSailoTest {
         LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "1245");
         
-        viite = new Viite(nimi, id, pn, v);
+        viite = new Viite(nimi, id, new ArrayList<String>(), pn, v);
         sailo = new ViiteSailo();
         
     }
@@ -64,12 +61,12 @@ public class ViiteSailoTest {
     
     @Test
     public void testMuokkaaPalauttaaFalseJosVääräID() {
-        assertEquals(false, sailo.muokkaaViitetta("asdf", null, null));
+        assertEquals(false, sailo.muokkaaViitetta("asdf", new ArrayList<String>(), null, null));
     }
     @Test
     public void testMuokkaaPalauttaaTrueJosOikeaID() {
         sailo.addViite(viite);
-        assertEquals(true, sailo.muokkaaViitetta("1", null, null));
+        assertEquals(true, sailo.muokkaaViitetta("1", new ArrayList<String>(),null, null));
     }
     @Test
     public void testMuokkaaMuokkaa() {
@@ -79,19 +76,19 @@ public class ViiteSailoTest {
         p.put("Titteli", "Tutkimus olusenjuonnista");
         LinkedHashMap<String, String> v = new LinkedHashMap<String, String>();
         v.put("Vuosi", "");
-        sailo.muokkaaViitetta("1", p, v);
-        LinkedHashMap<String, String> viitej = sailo.haeViite("1").getPakollisetKentat();
+        sailo.muokkaaViitetta("1", new ArrayList<String>(),p, v);
+        LinkedHashMap<String, String> viitej = sailo.getViitteet().get("1").getPakollisetKentat();
         assertEquals(true, viitej.containsValue("Mikko")
                 && viitej.containsValue("Tutkimus olusenjuonnista"));
     }
     @Test
     public void testHaePalauttaNullJosVääräID() {
-        assertEquals(null, sailo.haeViite("asdff"));
+        assertEquals(null, sailo.getViitteet().get("asdff"));
     }
     @Test
     public void testHaePalauttaViite() {
         sailo.addViite(viite);
-        assertEquals(viite, sailo.haeViite("1"));
+        assertEquals(viite, sailo.getViitteet().get("1"));
     }
     @Test
     public void printTyhjaLista() {
@@ -105,11 +102,24 @@ public class ViiteSailoTest {
     
    @Test
    public void toinenKonstruktori() {
-       ArrayList<ViiteInterface> uusi = new ArrayList<ViiteInterface>();
-       uusi.add(viite);
+       LinkedHashMap<String, ViiteInterface> uusi = new LinkedHashMap<String, ViiteInterface>();
+       uusi.put(viite.getId(), viite);
        ViiteSailo uusiSailo = new ViiteSailo(uusi);
-       assertEquals(true, uusiSailo.getViitteet().size() == 1);
+       assertEquals(true, uusiSailo.getViitteet().values().size() == 1);
    }
     
+    @Test
+    public void testPoistaViite() {
+        sailo.addViite(viite);
+        boolean eka = sailo.poistaViite(viite.getId());
+        boolean toka = sailo.poistaViite(viite.getId());
+        assertEquals(true, eka);
+        assertEquals(false, toka);
+    }
     
+    @Test
+    public void testKonstruktoriParametrinaNull() {
+        ViiteSailo sailo2 = new ViiteSailo(null);
+        assertNotNull(sailo2.getViitteet());
+    }
 }

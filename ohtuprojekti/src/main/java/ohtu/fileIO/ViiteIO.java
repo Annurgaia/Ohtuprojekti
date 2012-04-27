@@ -2,6 +2,7 @@ package ohtu.fileIO;
 import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ohtu.viitteidenHallinta.Viite;
@@ -20,14 +21,8 @@ public class ViiteIO{
         this.filename = appendFileType(file, ".json");
     }
     
-    public void tallennaViiteTiedostoon(ViiteInterface viite) throws IOException{
-        String jsonData = gson.toJson(viite);
-        out = new BufferedWriter(new FileWriter(filename, true));
-        out.write(jsonData+"\r\n");
-        out.close();
-    }
     
-    public ArrayList<ViiteInterface> lueViitteetTiedostosta(String file){
+    public LinkedHashMap<String, ViiteInterface> lueViitteetTiedostosta(String file){
         file = appendFileType(file, ".json");
         File f = new File(file);
         if(!f.exists())
@@ -39,12 +34,12 @@ public class ViiteIO{
         }
         String rivi;
         Viite viite;
-        ArrayList<ViiteInterface> viitteet = new ArrayList<ViiteInterface>();
+        LinkedHashMap<String, ViiteInterface> viitteet = new LinkedHashMap<String, ViiteInterface>();
         try {
             while((rivi = in.readLine()) != null){
                 if(!rivi.equals("")){
                     viite = gson.fromJson(rivi, Viite.class);
-                    viitteet.add(viite);
+                    viitteet.put(viite.getId(), viite);
                 }
             }
             in.close();
@@ -58,9 +53,12 @@ public class ViiteIO{
     public void tallennaViitteetTiedostoon(ViiteSailoInterface sailo) throws IOException{
         if(sailo.isEmpty())
             return;
-        for(ViiteInterface viite : sailo.getViitteet()){
-                tallennaViiteTiedostoon(viite);
+        out = new BufferedWriter(new FileWriter(filename));
+        for(ViiteInterface viite : sailo.getViitteet().values()){
+                String jsonData = gson.toJson(viite);
+                out.write(jsonData+"\r\n");
         }
+        out.close();
     }
 
     protected static String appendFileType(String str, String toConcat) {

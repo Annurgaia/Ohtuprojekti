@@ -33,14 +33,16 @@ public class ViiteIOTest{
         vapaaehtoisetKentat.put("number", "5");
         vapaaehtoisetKentat.put("pages", "18");
         vio = new ViiteIO("testit");
-        viites = new Viite("article", "W06", pakollisetKentat, vapaaehtoisetKentat);
+        viites = new Viite("article", "W06", new ArrayList<String>(),pakollisetKentat, vapaaehtoisetKentat);
     }
     
     @Test
     public void tallenaTiedostoonTesti() throws IOException{
-        vio.tallennaViiteTiedostoon(viites);
-        ArrayList<ViiteInterface> viite = vio.lueViitteetTiedostosta("testit");
-        assertEquals(true, viites.getId().equals(viite.get(0).getId()));
+        ViiteSailo vs = new ViiteSailo();
+        vs.addViite(viites);
+        vio.tallennaViitteetTiedostoon(vs);
+        LinkedHashMap<String, ViiteInterface> viite = vio.lueViitteetTiedostosta("testit");
+        assertEquals(true, viite.containsKey(viites.getId()));
     }
     
     @Test
@@ -66,9 +68,9 @@ public class ViiteIOTest{
     
     @Test
     public void lueTiedostostaTesti() throws IOException{
-        ArrayList<ViiteInterface> testi;
+        LinkedHashMap<String, ViiteInterface> testi;
         testi = vio.lueViitteetTiedostosta("testit");
-        System.out.println(testi.get(0).getId());
+        assertEquals(true, testi.containsKey("W06"));
     }
     
     @Test

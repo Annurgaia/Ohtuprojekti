@@ -7,10 +7,6 @@ package ohtu.viitteidenHallinta;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- *
- * @author iimakis
- */
 public class KenttatiedonAlustaja {
 
    public static ArrayList<String> alustaTyypit() {

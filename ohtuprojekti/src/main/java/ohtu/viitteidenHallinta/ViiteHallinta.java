@@ -2,9 +2,11 @@ package ohtu.viitteidenHallinta;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ohtu.Tagit.TaginHallinta;
 import ohtu.bibtex.Bibtex;
 import ohtu.fileIO.ViiteIO;
 
@@ -14,14 +16,26 @@ public class ViiteHallinta {
     private Bibtex bibtex;
     private ViiteIO viiteIO;
     private int viitelaskuri;
+    private TaginHallinta tag;
     
     public ViiteHallinta() throws IOException {
         bibtex = new Bibtex();
         info = new ViitetyyppienKenttainformaatio();
         viiteIO = new ViiteIO("viitteet");
-        ArrayList<ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
+        LinkedHashMap<String, ViiteInterface> tallennetutViitteet = viiteIO.lueViitteetTiedostosta("viitteet");
         sailo = new ViiteSailo(tallennetutViitteet);
-        viitelaskuri = 0;
+        if (sailo.getViitteet().size() > 0) {
+            Object[] keys = sailo.getViitteet().keySet().toArray();
+            String lastKey = (String)keys[keys.length-1];
+            viitelaskuri = Integer.parseInt(lastKey);
+        }
+        else
+            viitelaskuri = 0;
+        tag = new TaginHallinta();
+        for (String id : tallennetutViitteet.keySet()) {
+                if (tallennetutViitteet.get(id).getTagit() != null)
+                    tag.lisaaTageihinViite(tallennetutViitteet.get(id), tallennetutViitteet.get(id).getTagit());
+        }
     }
     
     public ViiteHallinta(Bibtex bibtex, ViitetyyppienKenttainformaatio info, 
@@ -31,23 +45,48 @@ public class ViiteHallinta {
         this.viiteIO = vio;
         this.sailo = sailo;
         viitelaskuri = 0;
+        tag = new TaginHallinta();
     }
     
-    public void lisaaViite(String tyyppi, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
-        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, pKentat, vKentat);
+    public void lisaaViite(String tyyppi, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat) {
+        String[] tagiTemp = tagit.split(",");
+        ArrayList<String> tagitArrayListina = new ArrayList<String>(Arrays.asList(tagiTemp));
+        Viite uusiViite = new Viite(tyyppi, ""+viitelaskuri, tagitArrayListina, pKentat, vKentat);
+        if (!tagit.equals(""))
+            tag.lisaaTageihinViite(uusiViite, tagitArrayListina);
         sailo.addViite(uusiViite);
         viitelaskuri++;
     }
     
-    public boolean muokkaaViitetta(String id, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
-        return sailo.muokkaaViitetta(id, pKentat, vKentat);
+    public boolean poistaViite(String id) {
+        if (sailo.getViitteet().containsKey(id)) {
+            ViiteInterface poistettava = sailo.getViitteet().get(id);
+            tag.poistaTageistaViite(poistettava, poistettava.getTagit());
+        }
+        return sailo.poistaViite(id);
+    }
+    
+    public boolean muokkaaViitetta(String id, String tagit, LinkedHashMap<String, String> pKentat, LinkedHashMap<String, String> vKentat)  {
+        if (sailo.getViitteet().containsKey(id)) {
+            String[] tagiTemp = tagit.split(",");
+            ArrayList<String> uudetTagit = new ArrayList<String>(Arrays.asList(tagiTemp));
+            ArrayList<String> vanhatTagit = sailo.getViitteet().get(id).getTagit();
+            tag.poistaTageistaViite(sailo.getViitteet().get(id), vanhatTagit);
+            tag.lisaaTageihinViite(sailo.getViitteet().get(id), vanhatTagit);
+            return sailo.muokkaaViitetta(id, uudetTagit, pKentat, vKentat);
+        }
+        return false;
+    }
+    
+    public LinkedHashMap<String, LinkedHashMap<String, ViiteInterface>> getTagit() {
+        return tag.getTagit();
     }
     
     public String getViitteetTekstina() {
         return sailo.listaaViitteet();
     }
     
-    public ArrayList<ViiteInterface> getViiteLista() {
+    public LinkedHashMap<String, ViiteInterface> getViiteLista() {
         return sailo.getViitteet();
     }
     
@@ -76,84 +115,3 @@ public class ViiteHallinta {
     }
 }
 
-
-///*
-// * To change this template, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//package ohtu.viitteidenHallinta;
-//
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.LinkedHashMap;
-//import java.util.Scanner;
-//import ohtu.bibtex.Bibtex;
-//import ohtu.fileIO.ViiteIO;
-//
-///**
-// *
-// * @author Wampie
-// */
-//public class ViiteHallinta {
-//
-//    private static TestiSyote test = new TestiSyote();
-//    private static ViitetyyppienKenttainformaatio info = new ViitetyyppienKenttainformaatio();
-//    private static ViiteTarkistin tarkkailija = new ViiteTarkistin();
-//    private static ViiteSailoInterface sailo = new ViiteSailo();
-//    private static Bibtex bt;
-//    private static String id = "1";
-//
-//    public static void main(String[] args) throws IOException {
-//        Scanner sc = new Scanner(System.in);
-//        while (true) {
-//            switch (test.alkumenu()) {
-//                case 1:
-//                    int temp;
-//                    while (true) {
-//                        while ((temp = test.kysyViitetyyppi(info.getViiteTyypit())) == -1) {
-//                            continue;
-//                        }
-//                        String nimi = info.getViiteTyypit().get(temp - 1);
-//                        LinkedHashMap<String, String> pakolliset = test.kysyPakollisetKentat(info.getTyypinPakollisetKentat(nimi));
-//                        LinkedHashMap<String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(info.getTyypinVapaaehtoisetKentat(nimi));
-//                        if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
-//                            continue;
-//                        }
-//                        Viite viite = new Viite(nimi, id, pakolliset, vapaaehtoiset);
-//                        sailo.addViite(viite);
-//                        id = "" + Integer.parseInt(id) + 1;
-//                        break;
-//                    }
-//                    continue;
-//                case 2:
-//                    while (true) {
-//                        String id = test.kysyId();
-//                        ViiteInterface viite;
-//                        if ((viite = sailo.haeViite(id)) == null) {
-//                            System.out.println("Viitettä ei löydy");
-//                            continue;
-//                        }
-//                        LinkedHashMap<String, String> pakolliset = test.kysyPakollisetKentat(viite.getPakollisetKentat());
-//                        LinkedHashMap<String, String> vapaaehtoiset = test.kysyVapaaehtoisetKentat(viite.getVapaaehtoisetKentat());
-//                        if (!tarkkailija.tarkistaPakolliset(pakolliset)) {
-//                            continue;
-//                        }
-//                        sailo.muokkaaViitetta(id, pakolliset, vapaaehtoiset);
-//                        break;
-//                    }
-//                    continue;
-//                case 3:
-//                    System.out.println(sailo.listaaViitteet());
-//                    continue;
-//
-//                case 4:
-//                    break;
-//                default:
-//                    continue;
-//            }
-//            break;
-//
-//        }
-//    }
-//}

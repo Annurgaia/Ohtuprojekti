@@ -40,7 +40,7 @@ public class ViiteTest {
      */
     @Test
     public void testGetId() {
-        Viite instance = new Viite("article", "W06", new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>());
         String expResult = "W06";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -53,7 +53,7 @@ public class ViiteTest {
     public void testGetPakollisetKentat() {
         LinkedHashMap<String, String> pakollisetKentat = new LinkedHashMap<String, String>();
         pakollisetKentat.put("nimi", null);
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new LinkedHashMap<String, String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), pakollisetKentat, new LinkedHashMap<String, String>());
         String expResult = "nimi";
         Boolean result = instance.getPakollisetKentat().containsKey(expResult);
         assertEquals(true, result);
@@ -64,7 +64,7 @@ public class ViiteTest {
      */
     @Test
     public void testGetType() {
-        Viite instance = new Viite("article", "W06", new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new LinkedHashMap<String, String>(), new LinkedHashMap<String, String>());
         String expResult = "article";
         String result = instance.getType();
         assertEquals(expResult, result);
@@ -77,7 +77,7 @@ public class ViiteTest {
     public void testGetVapaaehtoisetKentat() {
         LinkedHashMap<String, String> vapaaehtoisetKentat = new LinkedHashMap<String, String>();
         vapaaehtoisetKentat.put("nimi", null);
-        Viite instance = new Viite("article", "W06", new LinkedHashMap<String, String>(), vapaaehtoisetKentat);
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new LinkedHashMap<String, String>(), vapaaehtoisetKentat);
         String expResult = "nimi";
         Boolean result = instance.getVapaaehtoisetKentat().containsKey(expResult);
         assertEquals(true, result);
@@ -90,7 +90,7 @@ public class ViiteTest {
     public void testSetPakollisetKentat() {
         LinkedHashMap<String, String> pakollisetKentat = new LinkedHashMap<String, String>();
         pakollisetKentat.put("nimi", null);
-        Viite instance = new Viite("article", "W06", pakollisetKentat, new LinkedHashMap<String, String>());
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), pakollisetKentat, new LinkedHashMap<String, String>());
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         uusi.put("nimuh", null);
         instance.setPakollisetKentat(uusi);
@@ -106,7 +106,7 @@ public class ViiteTest {
     public void testSetVapaaehtoisetKentat() {
         LinkedHashMap<String, String> vapaaehtoisetKentat = new LinkedHashMap<String, String>();
         vapaaehtoisetKentat.put("nimi", null);
-        Viite instance = new Viite("article", "W06", new LinkedHashMap<String, String>(), vapaaehtoisetKentat);
+        Viite instance = new Viite("article", "W06", new ArrayList<String>(), new LinkedHashMap<String, String>(), vapaaehtoisetKentat);
         LinkedHashMap<String, String> uusi = new LinkedHashMap<String, String>();
         uusi.put("nimuh", null);
         instance.setVapaaehtoisetKentat(uusi);
