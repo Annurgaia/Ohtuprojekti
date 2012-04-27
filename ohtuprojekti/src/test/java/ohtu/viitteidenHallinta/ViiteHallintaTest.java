@@ -13,10 +13,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-/**
- *
- * @author iimakis
- */
 public class ViiteHallintaTest {
 
     public ViiteHallintaTest() {
@@ -47,12 +43,16 @@ public class ViiteHallintaTest {
         String tyyppi = "article";
         LinkedHashMap<String, String> pKentat = null;
         LinkedHashMap<String, String> vKentat = null;
-        hal.lisaaViite(tyyppi, "", pKentat, vKentat);
+        hal.lisaaViite(tyyppi, "koira,kissa,kala", pKentat, vKentat);
         String expresult = tyyppi;
         Object[] duh = hal.getViiteLista().values().toArray();
         Viite viite = (Viite) duh[duh.length - 1];
         String result = viite.getType();
         assertEquals(expresult, result);
+        
+        assertTrue(hal.getTagit().containsKey("koira"));
+        assertTrue(hal.getTagit().containsKey("kissa"));
+        assertTrue(hal.getTagit().containsKey("kala"));
     }
 
     /**

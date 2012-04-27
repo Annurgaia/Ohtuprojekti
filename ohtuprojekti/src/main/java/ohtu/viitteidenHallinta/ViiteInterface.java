@@ -7,10 +7,6 @@ package ohtu.viitteidenHallinta;
 import java.util.ArrayList;
 import java.util.*;
 
-/**
- *
- * @author iimakis
- */
 public interface ViiteInterface {
     String getId();
     String getType();
